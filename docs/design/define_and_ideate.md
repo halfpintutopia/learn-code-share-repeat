@@ -5,11 +5,18 @@ with the knowledge-sharing and quality control elements of a specialised Q&A pla
 software development question (e.g. StackOverflow) to enhance learning and collaboration for coders?_
 
 <!-- TOC -->
-
-* [Problem Statement](#problem-statement)
-    * [The 5Ws:](#the-5ws)
-    * [The 5Cs:](#the-5cs)
-
+  * [Problem Statement](#problem-statement)
+  * [Observations and general assessments | Commonly recognised trends and characteristics](#observations-and-general-assessments--commonly-recognised-trends-and-characteristics)
+    * [Personal Understanding and Hypotheses](#personal-understanding-and-hypotheses)
+  * [The 5Ws:](#the-5ws)
+  * [The 5Cs:](#the-5cs)
+  * [HOW-NOW-WOW](#how-now-wow)
+    * [HOW (Minimum Features | What is needed to get started)](#how-minimum-features--what-is-needed-to-get-started)
+      * [Out of the box ideas](#out-of-the-box-ideas)
+    * [NOW (Features to prioritise | For the immediate launch):](#now-features-to-prioritise--for-the-immediate-launch)
+      * [Out of the box ideas](#out-of-the-box-ideas-1)
+    * [WOW (Future Enhancements | To make the platform stand out):](#wow-future-enhancements--to-make-the-platform-stand-out)
+      * [Out of the box ideas](#out-of-the-box-ideas-2)
 <!-- TOC -->
 
 ## Problem Statement
