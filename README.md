@@ -10,3 +10,26 @@ _The goal is to create an innovative web application that serves as a tool to en
 taking inspiration from the Richard Feynman technique, where the quality of content is paramount, and the community of
 learners and experts collaborates to enhance the learning experience._
 
+## References
+
+### Inspiration
+- [The Feynman Technique Can Help You Remember Everything You Read](https://learntrepreneurs.com/how-to-improve-the-way-you-learn/the-feynman-technique-can-help-you-remember-everything-you-read-2/)
+- [The Feynman Technique | YouTube](https://www.youtube.com/watch?v=tkm0TNFzIeg)
+- [Building in brighton covered in graffiti](https://www.alamy.com/stock-photo-building-in-brighton-covered-in-graffiti-23416737.html)
+
+### Design
+-[Adobe Color](https://color.adobe.com)
+
+### Django
+- [Django Authentication Tutorial | Auth0](https://auth0.com/blog/django-authentication/)
+- [Django | Auth0](https://auth0.com/docs/quickstart/webapp/django/01-login)
+- [Secure Your Django web apps with Auth0](https://www.linkedin.com/pulse/secure-your-django-web-apps-auth0-sanchit-khurana/)
+- [Tutorial | Django Girl](https://tutorial.djangogirls.org)
+
+### GraphQL
+- [GraphQL in Django Backend (Graphene) - React Tutorial 63](https://www.youtube.com/watch?v=zzUcL7sOQEM)
+- [Django + GraphQL + React —1. Integrate GraphQL into your Django project](https://zoejoyuliao.medium.com/django-graphql-react-1-integrate-graphql-into-your-django-project-ff51237bb5d9)
+- [Django + GraphQL + React —2. Integrate GraphQL into your Django project](https://zoejoyuliao.medium.com/django-graphql-react-2-integrate-graphql-into-your-react-project-71fa74f1cb00)
+
+### Progressive Web App (PWA)
+- [Make PWA of a Django Project](https://www.geeksforgeeks.org/make-pwa-of-a-django-project/)
