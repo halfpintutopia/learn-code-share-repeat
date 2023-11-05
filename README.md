@@ -10,6 +10,11 @@ _The goal is to create an innovative web application that serves as a tool to en
 taking inspiration from the Richard Feynman technique, where the quality of content is paramount, and the community of
 learners and experts collaborates to enhance the learning experience._
 
+## UX/UI
+
+* [Define and Ideate](docs/design/define_and_ideate.md)
+* [Five Planes of Design](docs/design/five-planes.md)
+
 ## References
 
 ### Inspiration
@@ -18,7 +23,7 @@ learners and experts collaborates to enhance the learning experience._
 - [Building in brighton covered in graffiti](https://www.alamy.com/stock-photo-building-in-brighton-covered-in-graffiti-23416737.html)
 
 ### Design
--[Adobe Color](https://color.adobe.com)
+- [Adobe Color](https://color.adobe.com)
 
 ### Django
 - [Django Authentication Tutorial | Auth0](https://auth0.com/blog/django-authentication/)
