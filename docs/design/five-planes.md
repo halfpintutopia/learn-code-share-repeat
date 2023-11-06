@@ -1,8 +1,8 @@
-<h1>Five PLanes of </h1>
+<h1>Five Planes of Design</h1>
 
-During the initial brainstorming phases, I used this part primarily to generate ideas and concepts. However, I refined
+_During the initial brainstorming phases, I used this part primarily to generate ideas and concepts. However, I refined
 and defined these ideas further using matrices. This iterative approach allowed me to develop more precise and
-well-structured solutions as I advanced through the design or problem-solving process.
+well-structured solutions as I advanced through the design or problem-solving process._
 
 <!-- TOC -->
 
@@ -141,7 +141,7 @@ foundation for the platform's success and growth.
 
 ## 2. Scope Plane
 
-| Text Color                                                                | Label                 |
+| Text Color Key                                                            | Label                 |
 |---------------------------------------------------------------------------|-----------------------|
 | <div style="background-color: #E19C00; width: 40px; height: 20px;"></div> | MVP                   |
 | <div style="background-color: #06768d; width: 40px; height: 20px;"></div> | Future Implementation |
@@ -299,7 +299,7 @@ _User Registration and Learning Path_
 
 ## 4. Skeleton Plane
 
-| Text Color                                                                | Label                 |
+| Text Color Key                                                            | Label                 |
 |---------------------------------------------------------------------------|-----------------------|
 | <div style="background-color: #E19C00; width: 40px; height: 20px;"></div> | MVP                   |
 | <div style="background-color: #06768d; width: 40px; height: 20px;"></div> | Future Implementation |

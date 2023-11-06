@@ -21,6 +21,9 @@ learners and experts collaborates to enhance the learning experience._
 - [The Feynman Technique Can Help You Remember Everything You Read](https://learntrepreneurs.com/how-to-improve-the-way-you-learn/the-feynman-technique-can-help-you-remember-everything-you-read-2/)
 - [The Feynman Technique | YouTube](https://www.youtube.com/watch?v=tkm0TNFzIeg)
 - [Building in brighton covered in graffiti](https://www.alamy.com/stock-photo-building-in-brighton-covered-in-graffiti-23416737.html)
+- [YouTube](https://www.youtube.com/)
+- [FrontendMasters](https://frontendmasters.com/)
+- [Vimeo](https://vimeo.com/)
 
 ### Design
 - [Adobe Color](https://color.adobe.com)
