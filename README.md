@@ -10,7 +10,20 @@ _The goal is to create an innovative web application that serves as a tool to en
 taking inspiration from the Richard Feynman technique, where the quality of content is paramount, and the community of
 learners and experts collaborates to enhance the learning experience._
 
+<!-- TOC -->
+  * [UX/UI](#uxui)
+  * [Schema](#schema)
+  * [References](#references)
+    * [Inspiration](#inspiration)
+    * [Design](#design)
+    * [Django](#django)
+    * [GraphQL](#graphql)
+    * [Progressive Web App (PWA)](#progressive-web-app-pwa)
+<!-- TOC -->
+
 ## UX/UI
+
+For further details see the following documentation:
 
 * [Define and Ideate](docs/design/define_and_ideate.md)
 * [Five Planes of Design](docs/design/five-planes.md)
@@ -22,7 +35,7 @@ learners and experts collaborates to enhance the learning experience._
 ## References
 
 ### Inspiration
-- [](https://todoist.com/inspiration/feynman-technique)
+- [How to Learn Anything with the Feynman Technique](https://todoist.com/inspiration/feynman-technique)
 - [The Feynman Technique Can Help You Remember Everything You Read](https://learntrepreneurs.com/how-to-improve-the-way-you-learn/the-feynman-technique-can-help-you-remember-everything-you-read-2/)
 - [The Feynman Technique | YouTube](https://www.youtube.com/watch?v=tkm0TNFzIeg)
 - [Building in brighton covered in graffiti](https://www.alamy.com/stock-photo-building-in-brighton-covered-in-graffiti-23416737.html)

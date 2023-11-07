@@ -4,6 +4,8 @@ _How can we create a web application that combines the video-sharing aspects of 
 with the knowledge-sharing and quality control elements of a specialised Q&A platform tailored to programming and
 software development question (e.g. StackOverflow) to enhance learning and collaboration for coders?_
 
+[Back to main README](../../README.md)
+
 <!-- TOC -->
 
 * [Problem Statement](#problem-statement)
