@@ -15,9 +15,14 @@ learners and experts collaborates to enhance the learning experience._
 * [Define and Ideate](docs/design/define_and_ideate.md)
 * [Five Planes of Design](docs/design/five-planes.md)
 
+## Schema
+
+![ERD for Learn Code Share Repeat](docs/media/images/lcsr_erd.png)
+
 ## References
 
 ### Inspiration
+- [](https://todoist.com/inspiration/feynman-technique)
 - [The Feynman Technique Can Help You Remember Everything You Read](https://learntrepreneurs.com/how-to-improve-the-way-you-learn/the-feynman-technique-can-help-you-remember-everything-you-read-2/)
 - [The Feynman Technique | YouTube](https://www.youtube.com/watch?v=tkm0TNFzIeg)
 - [Building in brighton covered in graffiti](https://www.alamy.com/stock-photo-building-in-brighton-covered-in-graffiti-23416737.html)
