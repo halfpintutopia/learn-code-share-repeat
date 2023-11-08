@@ -4,25 +4,28 @@ _During the initial brainstorming phases, I used this part primarily to generate
 and defined these ideas further using matrices. This iterative approach allowed me to develop more precise and
 well-structured solutions as I advanced through the design or problem-solving process._
 
-[Back to main README](../../README.md)
+[:arrow_right Back to main README](../../README.md)
 
 <!-- TOC -->
-
-* [1. Strategy Plane](#1-strategy-plane)
+  * [1. Strategy Plane](#1-strategy-plane)
     * [Target Audience](#target-audience)
     * [User and Client Needs](#user-and-client-needs)
     * [Opportunity Matrices](#opportunity-matrices)
-* [2. Scope Plane](#2-scope-plane)
+  * [2. Scope Plane](#2-scope-plane)
     * [Content and Functionality Requirements](#content-and-functionality-requirements)
-* [3. Structure Plane](#3-structure-plane)
-* [4. Skeleton Plane](#4-skeleton-plane)
+  * [3. Structure Plane](#3-structure-plane)
+  * [4. Skeleton Plane](#4-skeleton-plane)
     * [Navigation Map](#navigation-map)
     * [Wireframes / Prototypes (Draft)](#wireframes--prototypes-draft)
-* [References](#references)
+  * [5. Surface Plane](#5-surface-plane)
+    * [Imagery](#imagery-)
+    * [Colour Palette](#colour-palette)
+    * [Design System](#design-system)
+    * [Wireframes](#wireframes)
+  * [References](#references)
     * [Fonts](#fonts)
     * [Images](#images)
     * [Videos](#videos)
-
 <!-- TOC -->
 
 ## 1. Strategy Plane
@@ -387,7 +390,7 @@ Authentication and Security
 
 ### Wireframes / Prototypes (Draft)
 
-_These are specifically hand-drawn (sketchy) drafts of the wireframes._
+_These are specifically hand-drawn (sketchy) drafts of the wireframes. The [Vimeo](https://vimeo.com) website design greatly influenced my design._
 
 **Landing Page (mobile, desktop)**
 
@@ -404,6 +407,125 @@ _These are specifically hand-drawn (sketchy) drafts of the wireframes._
 **Video Upload (mobile, desktop)**
 
 ![Scan of hand-drawn sketch of video upload page](../media/images/video-upload.jpeg)
+
+<br>
+
+**Register / Login (mobile, desktop)**
+
+![Scan of hand-drawn sketch of register / login page](../media/images/register_login.jpeg)
+
+<br>
+
+**Account page | no content (mobile, desktop)**
+
+![Scan of hand-drawn sketch of empty account page](../media/images/account_no-content.jpeg)
+
+<br>
+
+**Account page | with content (mobile, desktop)**
+
+![Scan of hand-drawn sketch of account page](../media/images/account_with-content.jpeg)
+
+## 5. Surface Plane
+
+### Imagery 
+
+![Inspirational images for the colour palette](../media/images/wireframes/imagery.png)
+
+<details>
+ <summary>References and Credit</summary>
+
+**Images**
+
+* [A bird painted on the side of a building | Harry Shelton](https://unsplash.com/photos/a-bird-painted-on-the-side-of-a-building--b8tsUKJYw8)
+* [Paint spray art of woman on brown brick wall | Artturi Siivonen](https://unsplash.com/photos/paint-spray-art-of-woman-on-brown-brick-wall-TaUchpzrRDk)
+* [Blue and Multicolored Graffiti Wall | Char Beck](https://unsplash.com/photos/blue-and-multicolored-graffitti-wall-AY8Rh-K5b4g)
+* [A row of beach huts sitting on top of a sandy beach | Polly Alexandra](https://unsplash.com/photos/a-row-of-beach-huts-sitting-on-top-of-a-sandy-beach--NLAQo3i5PM)
+* [Two person sitting on hallway | Linda Xu](https://unsplash.com/photos/two-person-sitting-on-hallway-7pq_V5KGHCc)
+* [Woman in pink and white floral dress painting | Nick Fewings](https://unsplash.com/photos/woman-in-pink-and-white-floral-dress-painting-__Robd4qMhQ)
+* [Woman in blue and brown dress painting | Robert Gale](https://unsplash.com/photos/woman-in-blue-and-brown-dress-painting-72Nhq8rFC6M)
+* [Green and yellow wall graffiti | Nick Fewings](https://unsplash.com/photos/green-and-yellow-wall-graffiti-SNvJQkEzVBA)
+* [Woman in gray long sleeve shirt and blue skirt painting | Nick Fewings](https://unsplash.com/photos/woman-in-gray-long-sleeve-shirt-and-blue-skirt-painting-LCYvmC4LqgU)
+* [Gray paveway between brown brick walls | Marcus Loke](https://unsplash.com/photos/gray-paveway-between-brown-brick-walls-HXNwatPDGic)
+* [Photo of black door shutter filled with heart murals | John Tyson](https://unsplash.com/photos/photo-of-black-door-shutter-filled-with-heart-murals-v_BgAXQ2hjw)
+* [A door covered in graffiti and stickers | Paolo Nicolello](https://unsplash.com/photos/a-door-covered-in-graffiti-and-stickers-9CoL-pdhPWM)
+
+**References**
+
+* [Cool CSS Hamburger Menu Icons and Their Animations | Slider Revolution](https://www.sliderrevolution.com/resources/css-hamburger-menu/)
+
+</details>
+
+![Extract Theme from image of Brighton Graffiti](../media/images/wireframes/adobe-color.png)
+
+### Colour Palette
+
+![Colour palette using the Tailwind Plugin in Figma](../media/images/wireframes/colour-palette.png)
+
+### Design System
+
+### Wireframes
+
+**Landing Page (mobile, desktop)**
+
+![Figma created wireframe for the landing page](../media/images/wireframes/landing-page.png)
+
+<details>
+ <summary>References and Credit</summary>
+
+**Images**
+
+* [Laptop and mic on tripod in studio before recording vlog | George Milton](https://www.pexels.com/photo/laptop-and-mic-on-tripod-in-studio-before-recording-vlog-6953870/)
+* [Faceless lady with notebook and laptop on floor at home | Vlada Karpovich](https://www.pexels.com/photo/faceless-lady-with-notebook-and-laptop-on-floor-at-home-4050302/)
+
+</details>
+
+<br>
+
+**Video List (mobile, desktop)**
+
+![Figma created wireframe of video list page](../media/images/wireframes/video-list.png)
+
+<details>
+ <summary>References and Credit</summary>
+
+**Images**
+
+* [TypeScript logo on textured background | LogRocket](https://blog.logrocket.com/understanding-infer-typescript/)
+* [Black Screen With Code | Antonio Batinić](https://www.pexels.com/photo/black-screen-with-code-4164418/)
+* [Monitor Displaying Error Text | Pixabay](https://www.pexels.com/photo/blur-business-close-up-code-270557/)
+* [Close-up Photo of Codes | Markus Spiske](https://www.pexels.com/photo/close-up-photo-of-codes-1089440/)
+* [Computer Coding | Pixabay](https://www.pexels.com/photo/business-code-coding-computer-270632/)
+* [Man in Black Jacket | mohamed abdelghaffar](https://www.pexels.com/photo/man-in-black-jacket-771742/)
+* [Man Smiling Behind Wall | Pixabay](https://www.pexels.com/photo/man-smiling-behind-wall-220453/)
+* [Woman Wearing Black Spaghetti Strap Top | Pixabay](https://www.pexels.com/photo/woman-wearing-black-spaghetti-strap-top-415829/)
+* [Man In Grey Sweater Holding Yellow Sticky Note | hitesh choudhary](https://www.pexels.com/photo/man-in-grey-sweater-holding-yellow-sticky-note-879109/)
+* [Source Code | Pixabay](https://www.pexels.com/photo/application-blur-business-code-270408/)
+* [Gray Laptop Computer Showing Calculator Application With Codes | Eduardo Rosas](https://www.pexels.com/photo/gray-laptop-computer-showing-calculator-application-with-codes-907487/)
+* [Modern computer monitor with keyboard and mouse | Anete Lusina](https://www.pexels.com/photo/modern-computer-monitor-with-keyboard-and-mouse-4792728/)
+
+**References**
+
+* [Cool CSS Hamburger Menu Icons and Their Animations | Slider Revolution](https://www.sliderrevolution.com/resources/css-hamburger-menu/)
+
+</details>
+
+<br>
+
+**Video Upload & Edit (mobile, desktop)**
+
+![Figma created wireframe of video upload page](../media/images/wireframes/video-upload.png)
+
+<details>
+ <summary>References and Credit</summary>
+
+**Images**
+
+* [cloud icon upload | Adobe Stock](https://stock.adobe.com/ch_de/213313194)
+
+</details>
+
+![Figma created wireframe of video edit page](../media/images/wireframes/video-edit.png)
 
 <br>
 
