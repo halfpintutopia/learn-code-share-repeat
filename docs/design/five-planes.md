@@ -18,7 +18,7 @@ well-structured solutions as I advanced through the design or problem-solving pr
     * [Navigation Map](#navigation-map)
     * [Wireframes / Prototypes (Draft)](#wireframes--prototypes-draft)
   * [5. Surface Plane](#5-surface-plane)
-    * [Imagery](#imagery-)
+    * [Imagery](#imagery)
     * [Colour Palette](#colour-palette)
     * [Typography](#typography)
     * [Wireframes](#wireframes)
@@ -390,7 +390,8 @@ Authentication and Security
 
 ### Wireframes / Prototypes (Draft)
 
-_These are specifically hand-drawn (sketchy) drafts of the wireframes. The [Vimeo](https://vimeo.com) website design greatly influenced my design._
+_These are specifically hand-drawn (sketchy) drafts of the wireframes. The [Vimeo](https://vimeo.com) website design
+greatly influenced my design._
 
 **Landing Page (mobile, desktop)**
 
@@ -428,7 +429,7 @@ _These are specifically hand-drawn (sketchy) drafts of the wireframes. The [Vime
 
 ## 5. Surface Plane
 
-### Imagery 
+### Imagery
 
 ![Inspirational images for the colour palette](../media/images/wireframes/imagery.png)
 
@@ -460,11 +461,25 @@ _These are specifically hand-drawn (sketchy) drafts of the wireframes. The [Vime
 
 ### Colour Palette
 
+The resonance with the chosen image, reflecting student life and learning, adds a layer of authenticity and emotional
+connection to the colour theme. The colour scheme extracted from the image now takes on additional significance,
+mirroring the visual aesthetics of student life and the emotional and intellectual journey of learning. The vibrant
+green symbolises growth and enthusiasm, while the warm tones of orange and deep red represent the passion and excitement
+inherent in the educational process. The neutral grey serves as a canvas for the varied experiences of student life, and
+the subtle dark charcoal adds depth, perhaps reflecting the challenges and complexities of learning. By incorporating a
+colour scheme that personally resonates with the essence of student life, the platform becomes a relatable and authentic
+representation of the user's educational journey, fostering a deeper connection and engagement with the platform's
+content.
+
 ![Colour palette using the Tailwind Plugin in Figma](../media/images/wireframes/colour-palette.png)
 
 ### Typography
 
-The [Barlow | Jeremy Tribby](https://tribby.com/fonts/barlow/) variable font was a strategic and aesthetic decision. Barlow's clean lines and modern sans-serif style contribute to a sleek and contemporary visual identity, fostering an approachable and sophisticated user interface. Its versatility ensures legibility across various screen sizes, essential for a seamless user experience on the dynamic platform. Integrating the Barlow font communicates a sense of modernity and underscores a commitment to clarity and user-friendly design. 
+The [Barlow | Jeremy Tribby](https://tribby.com/fonts/barlow/) variable font was a strategic and aesthetic decision.
+Barlow's clean lines and modern sans-serif style contribute to a sleek and contemporary visual identity, fostering an
+approachable and sophisticated user interface. Its versatility ensures legibility across various screen sizes, essential
+for a seamless user experience on the dynamic platform. Integrating the Barlow font communicates a sense of modernity
+and underscores a commitment to clarity and user-friendly design.
 
 ![Barlow | Jeremy Tribby](../media/images/barlow.png)
 
