@@ -4,7 +4,7 @@ _During the initial brainstorming phases, I used this part primarily to generate
 and defined these ideas further using matrices. This iterative approach allowed me to develop more precise and
 well-structured solutions as I advanced through the design or problem-solving process._
 
-[:arrow_right Back to main README](../../README.md)
+[⇦ Back to main README](../../README.md)
 
 <!-- TOC -->
   * [1. Strategy Plane](#1-strategy-plane)
