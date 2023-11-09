@@ -20,7 +20,7 @@ well-structured solutions as I advanced through the design or problem-solving pr
   * [5. Surface Plane](#5-surface-plane)
     * [Imagery](#imagery-)
     * [Colour Palette](#colour-palette)
-    * [Design System](#design-system)
+    * [Typography](#typography)
     * [Wireframes](#wireframes)
   * [References](#references)
     * [Fonts](#fonts)
@@ -462,7 +462,13 @@ _These are specifically hand-drawn (sketchy) drafts of the wireframes. The [Vime
 
 ![Colour palette using the Tailwind Plugin in Figma](../media/images/wireframes/colour-palette.png)
 
-### Design System
+### Typography
+
+The [Barlow | Jeremy Tribby](https://tribby.com/fonts/barlow/) variable font was a strategic and aesthetic decision. Barlow's clean lines and modern sans-serif style contribute to a sleek and contemporary visual identity, fostering an approachable and sophisticated user interface. Its versatility ensures legibility across various screen sizes, essential for a seamless user experience on the dynamic platform. Integrating the Barlow font communicates a sense of modernity and underscores a commitment to clarity and user-friendly design. 
+
+![Barlow | Jeremy Tribby](../media/images/barlow.png)
+
+![Figma Text Styles from frames](../media/images/text-styles.png)
 
 ### Wireframes
 
@@ -503,6 +509,8 @@ _These are specifically hand-drawn (sketchy) drafts of the wireframes. The [Vime
 * [Source Code | Pixabay](https://www.pexels.com/photo/application-blur-business-code-270408/)
 * [Gray Laptop Computer Showing Calculator Application With Codes | Eduardo Rosas](https://www.pexels.com/photo/gray-laptop-computer-showing-calculator-application-with-codes-907487/)
 * [Modern computer monitor with keyboard and mouse | Anete Lusina](https://www.pexels.com/photo/modern-computer-monitor-with-keyboard-and-mouse-4792728/)
+* [Logo, icon "React Native"](https://stock.adobe.com/ch_de/239032675)
+* [Stylized 3D Javascript Icon Side View](https://stock.adobe.com/ch_de/515640231)
 
 **References**
 
@@ -516,34 +524,31 @@ _These are specifically hand-drawn (sketchy) drafts of the wireframes. The [Vime
 
 ![Figma created wireframe of video upload page](../media/images/wireframes/video-upload.png)
 
+---
+
+![Figma created wireframe of video edit page](../media/images/wireframes/video-edit.png)
+
 <details>
  <summary>References and Credit</summary>
 
 **Images**
 
 * [cloud icon upload | Adobe Stock](https://stock.adobe.com/ch_de/213313194)
+* [Data codes through eyeglasses | Kevin Ku](https://www.pexels.com/photo/data-codes-through-eyeglasses-577585/)
 
 </details>
-
-![Figma created wireframe of video edit page](../media/images/wireframes/video-edit.png)
 
 <br>
 
 **Register / Login (mobile, desktop)**
 
-![Scan of hand-drawn sketch of register / login page](../media/images/register_login.jpeg)
-
-<br>
-
-**Account page | no content (mobile, desktop)**
-
-![Scan of hand-drawn sketch of empty account page](../media/images/account_no-content.jpeg)
+![Figma created wireframe of register / login page](../media/images/wireframes/register_login.png)
 
 <br>
 
 **Account page | with content (mobile, desktop)**
 
-![Scan of hand-drawn sketch of account page](../media/images/account_with-content.jpeg)
+![Figma created wireframe of account page](../media/images/wireframes/account_with-content.png)
 
 ## References
 
