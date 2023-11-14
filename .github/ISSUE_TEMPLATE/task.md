@@ -7,8 +7,9 @@ assignees: ''
 
 ---
 
-Story:
+### Story: <user_story>
 
 --- 
 
 ### Description
+_(not mandatory)_
