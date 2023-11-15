@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import MethodAsPropsChild from "./MethodAsPropsChild";
 
 class MethodAsPropsParent extends Component {
 
@@ -24,11 +23,25 @@ class MethodAsPropsParent extends Component {
   render() {
     return (
       <div>
-        <MethodAsPropsChild
-          isLoggedIn={this.state.isLoggedIn}
-          // Pass the function down to the child
-          handleSignIn={this.handleSignIn}
-        />
+        {
+          this.state.isLoggedIn ? (
+            <div>
+              <p>Welcome to the site! Please complete the steps below:</p>
+              <ol>
+                <li>Confirm your email</li>
+                <li>Complete your profile</li>
+                <li>Subscribe to the newsletter</li>
+              </ol>
+              <button onClick={this.handleSignIn}>Sign out</button>
+            </div>
+          ) : (
+            <div>
+              <p>Please sign in</p>
+              {/*When the button is clicked it updates*/}
+              <button onClick={this.handleSignIn}>Sign in</button>
+            </div>
+          )
+        }
       </div>
     );
   }
