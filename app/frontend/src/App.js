@@ -2,7 +2,6 @@ import './App.css';
 import css from './App.module.css';
 import Sidebar from "./components/Sidebar";
 import NavBarSimple from "./components/NavBarSimple";
-import MethodAsPropsParent from "./components/MethodAsPropsParent";
 
 function App() {
 	return (
@@ -24,7 +23,6 @@ function App() {
 
 			<NavBarSimple />
 			<Sidebar />
-			<MethodAsPropsParent />
 
 		</div>
 	);
