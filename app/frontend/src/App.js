@@ -6,32 +6,31 @@ import RenderingList from "./components/RenderingList";
 import Content from "./components/Content";
 
 function App() {
-	return (
-		<div className={css.App}>
-			<header className="App-header">
+  return (
+    <div className={css.App}>
+      <header className="App-header">
 
-				{/*<img src={logo} className="App-logo" alt="logo"/>*/}
-				{/*<p>*/}
-				{/*	Edit <code>src/App.js</code> and save to reload.*/}
-				{/*</p>*/}
-				{/*<a*/}
-				{/*	className="App-link"*/}
-				{/*	href="https://reactjs.org"*/}
-				{/*	target="_blank"*/}
-				{/*	rel="noopener noreferrer"*/}
-				{/*>*/}
-				{/*</a>*/}
-			</header>
+        {/*<img src={logo} className="App-logo" alt="logo"/>*/}
+        {/*<p>*/}
+        {/*	Edit <code>src/App.js</code> and save to reload.*/}
+        {/*</p>*/}
+        {/*<a*/}
+        {/*	className="App-link"*/}
+        {/*	href="https://reactjs.org"*/}
+        {/*	target="_blank"*/}
+        {/*	rel="noopener noreferrer"*/}
+        {/*>*/}
+        {/*</a>*/}
+      </header>
 
-			<NavBarSimple />
-			<Sidebar />
+      <NavBarSimple/>
+      <Sidebar/>
+      <RenderingList/>
 
-			<RenderingList />
+      <Content/>
 
-			<Content />
-
-		</div>
-	);
+    </div>
+  );
 }
 
 export default App;
