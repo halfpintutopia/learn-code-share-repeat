@@ -1,8 +1,9 @@
 import React from 'react';
+import css from "./css/NavBarForm.module.css";
 
 function NavBarForm(props) {
   return (
-    <div>
+    <div className={css.NavBar}>
       {
         props.signIn ? (
           <form action="">
