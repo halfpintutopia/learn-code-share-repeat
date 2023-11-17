@@ -33,7 +33,6 @@ class Content extends Component {
     this.setState({
       posts: filteredPosts
     })
-    console.log(this.state.searchValue, this.state.posts)
   }
 
   componentDidMount() {
