@@ -2,7 +2,6 @@ import './App.css';
 import css from './App.module.css';
 import Sidebar from "./components/Sidebar";
 import NavBarSimple from "./components/NavBarSimple";
-import RenderingList from "./components/RenderingList";
 import Content from "./components/Content";
 
 function App() {
@@ -25,10 +24,8 @@ function App() {
 
       <NavBarSimple/>
       <Sidebar/>
-      <RenderingList/>
 
       <Content/>
-
     </div>
   );
 }
