@@ -1,77 +1,62 @@
-import React, {Component} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import PostItem from "./PostItem";
 
 import css from "./css/Content.module.css";
-import data from "../posts.json";
+import DATA from "../posts.json";
 import Loader from "./Loader";
 
-const {savedPosts} = data
+const {savedPosts} = DATA;
 
-class Content extends Component {
-  constructor(props) {
-    super(props);
+const Content = () => {
+  const [loaded, setLoaded] = useState(false);
+  const [posts, setPosts] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
-    this.state = {
-      isLoaded: false,
-      posts: [],
-      searchValue: ''
-    }
-  }
+  const handleChange = event => {
+    let filteredPosts;
 
-  handleChange = event => {
-    let filteredPosts
+    const {value} = event.target;
 
-    const {value} = event.target
+    setSearchValue(value);
 
-    this.setState({
-      searchValue: value
-    })
-
-    filteredPosts = this.state.posts.filter((post) => post.name.toLowerCase().includes(this.state.searchValue))
-
-    this.setState({
-      posts: filteredPosts
-    })
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        isLoaded: true,
-        posts: savedPosts
-      })
-    }, 1000)
-  }
-
-  render() {
-    return (
-      <div className={css.Content}>
-
-        <div className={css.TitleBar}>
-          <h1>My Photos</h1>
-          <form>
-            <label htmlFor="searchInput">Search:</label>
-            <input
-              id="searchInput"
-              type="search"
-              onChange={this.handleChange}
-              value={this.state.searchValue}
-            />
-            <h4>posts found: {this.state.posts.length}</h4>
-          </form>
-        </div>
-        <div className={css.SearchResults}>
-          {
-            this.state.isLoaded ?
-              (<PostItem posts={this.state.posts} />) : (<Loader />)
-          }
-
-        </div>
-        Thanks for another productive morning! Have a beautiful autumnal day!
-      </div>
+    filteredPosts = posts.filter(
+      (post) => post.name.toLowerCase().includes(value)
     );
-  }
-}
+
+    setPosts(filteredPosts);
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoaded(true);
+      setPosts(savedPosts);
+    }, 1000);
+  }, [loaded]);
+
+  return (
+    <div className={css.Content}>
+
+      <div className={css.TitleBar}>
+        <h1>My Photos</h1>
+        <form>
+          <label htmlFor="searchInput">Search:</label>
+          <input
+            id="searchInput"
+            type="search"
+            onChange={handleChange}
+            value={searchValue}
+          />
+          <h4>posts found: {posts.length}</h4>
+        </form>
+      </div>
+      <div className={css.SearchResults}>
+        {loaded ? (<PostItem posts={posts}/>) : (<Loader/>)}
+
+      </div>
+      Thanks for another productive morning! Have a beautiful autumnal day!
+    </div>
+  );
+};
 
 export default Content;

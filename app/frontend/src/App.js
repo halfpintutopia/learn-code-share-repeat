@@ -24,7 +24,6 @@ function App() {
 
       <NavBarSimple/>
       <Sidebar/>
-
       <Content/>
     </div>
   );
