@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 
 import PostItem from "./PostItem";
 
@@ -6,22 +6,22 @@ import css from "./css/Content.module.css";
 import DATA from "../posts.json";
 import Loader from "./Loader";
 
-const {savedPosts} = DATA;
+const { savedPosts } = DATA;
 
 const Content = () => {
   const [loaded, setLoaded] = useState(false);
   const [posts, setPosts] = useState([]);
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState("");
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     let filteredPosts;
 
-    const {value} = event.target;
+    const { value } = event.target;
 
     setSearchValue(value);
 
-    filteredPosts = posts.filter(
-      (post) => post.name.toLowerCase().includes(value)
+    filteredPosts = posts.filter((post) =>
+      post.name.toLowerCase().includes(value),
     );
 
     setPosts(filteredPosts);
@@ -36,7 +36,6 @@ const Content = () => {
 
   return (
     <div className={css.Content}>
-
       <div className={css.TitleBar}>
         <h1>My Photos</h1>
         <form>
@@ -51,10 +50,8 @@ const Content = () => {
         </form>
       </div>
       <div className={css.SearchResults}>
-        {loaded ? (<PostItem posts={posts}/>) : (<Loader/>)}
-
+        {loaded ? <PostItem posts={posts} /> : <Loader />}
       </div>
-      Thanks for another productive morning! Have a beautiful autumnal day!
     </div>
   );
 };
