@@ -1,12 +1,12 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { fetchPosts } from "./fetchPosts";
+import { fetchData } from "./fetchPosts";
 
 const PostList = () => {
   const usePosts = () =>
     useQuery({
       queryKey: ["posts"],
-      queryFn: fetchPosts,
+      queryFn: fetchData,
     });
 
   const { data, isLoading, isError, error, refetch } = usePosts();

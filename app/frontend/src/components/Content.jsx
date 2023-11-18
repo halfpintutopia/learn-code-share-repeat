@@ -3,15 +3,43 @@ import React, { useEffect, useState } from "react";
 import PostItem from "./PostItem";
 
 import css from "./css/Content.module.css";
-import DATA from "../posts.json";
 import Loader from "./Loader";
-
-const { savedPosts } = DATA;
+import { fetchData } from "./fetchPosts";
+import { useQuery } from "@tanstack/react-query";
+import API_KEY from "../../secret";
 
 const Content = () => {
-  const [loaded, setLoaded] = useState(false);
   const [posts, setPosts] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+
+  const URL = `https://pixabay.com/api/?key=${API_KEY}&q=${encodeURIComponent(
+    "red roses",
+  )}`;
+
+  const useImages = () =>
+    useQuery({
+      queryKey: ["images"],
+      queryFn: () => fetchData(URL),
+    });
+
+  const { data, isLoading, isError, error, refetch } = useImages();
+
+  useEffect(() => {
+    if (data) {
+      setPosts(data.hits);
+    }
+  }, [data]);
+
+  if (isLoading) return <Loader />;
+
+  if (isError)
+    return (
+      <div>
+        Error fetching images:{" "}
+        {error instanceof Error ? error.message : String(error)}
+        <button onClick={() => refetch()}>Retry</button>
+      </div>
+    );
 
   const handleChange = (event) => {
     let filteredPosts;
@@ -21,25 +49,18 @@ const Content = () => {
     setSearchValue(value);
 
     filteredPosts = posts.filter((post) =>
-      post.name.toLowerCase().includes(value),
+      post.tags.toLowerCase().includes(value),
     );
 
     setPosts(filteredPosts);
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoaded(true);
-      setPosts(savedPosts);
-    }, 1000);
-  }, [loaded]);
 
   return (
     <div className={css.Content}>
       <div className={css.TitleBar}>
         <h1>My Photos</h1>
         <form>
-          <label htmlFor="searchInput">Search:</label>
+          <label htmlFor="searchInput">Search by tag:</label>
           <input
             id="searchInput"
             type="search"
@@ -50,7 +71,7 @@ const Content = () => {
         </form>
       </div>
       <div className={css.SearchResults}>
-        {loaded ? <PostItem posts={posts} /> : <Loader />}
+        <PostItem images={posts} />
       </div>
     </div>
   );
