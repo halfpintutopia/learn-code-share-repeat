@@ -19,6 +19,8 @@ learners and experts collaborates to enhance the learning experience._
     * [Inspiration](#inspiration)
     * [Design](#design)
     * [Django](#django)
+    * [React](#react)
+      * [Packages](#packages)
     * [Docker](#docker)
     * [GraphQL](#graphql)
     * [Progressive Web App (PWA)](#progressive-web-app-pwa)
@@ -80,6 +82,14 @@ For further details see the following documentation:
 - [Secure Your Django web apps with Auth0](https://www.linkedin.com/pulse/secure-your-django-web-apps-auth0-sanchit-khurana/)
 - [Tutorial | Django Girl](https://tutorial.djangogirls.org)
 - [Adding Social Authentication to Django](https://testdriven.io/blog/django-social-auth/)
+
+### React
+
+#### Packages
+
+- [React Query - Tanstack Query v5](https://www.npmjs.com/package/@tanstack/react-query)
+- [Vite](https://vitejs.dev/)
+- [Prettier](https://prettier.io/)
 
 ### Docker
 
