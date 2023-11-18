@@ -5,7 +5,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import css from "./App.module.css";
 // import NavBarSimple from "./components/NavBarSimple";
 import Homepage from "./components/Homepage";
-import PostList from "./components/PostList";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,7 +23,6 @@ const App = () => {
           <header className="App-header">
             {/*<NavBarSimple />*/}
           </header>
-          <PostList />
           <Routes>
             {/*<Route path="/details/:id" element={<Details />} />*/}
             {/*<Route path="/" element={<SearchParams />} />*/}
