@@ -1,16 +1,25 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import fetchPosts from "./fetchPosts";
+import { fetchPosts } from "./fetchPosts";
 
 const PostList = () => {
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["posts"],
-    queryFn: fetchPosts,
-  });
+  const usePosts = () =>
+    useQuery({
+      queryKey: ["posts"],
+      queryFn: fetchPosts,
+    });
+
+  const { data, isLoading, isError, error, refetch } = usePosts();
 
   if (isLoading) return <div>Loading</div>;
 
-  if (isError) return <div>Error fetching posts</div>;
+  if (isError)
+    return (
+      <div>
+        Error fetching posts: {error instanceof Error ? error.message : String(error)}
+        <button onClick={() => refetch()}>Retry</button>
+      </div>
+    );
   return (
     <div>
       {data.map((post) => (
