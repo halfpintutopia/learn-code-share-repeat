@@ -15,3 +15,4 @@ venv
 .env.*
 .devcontainer
 staticfiles
+.vscode/
