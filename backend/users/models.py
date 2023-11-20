@@ -32,16 +32,31 @@ class Profile(models.Model):
         choices=Pronouns.choices,
         default="Please select"
     )
-    website = models.URLField(blank=True, null=True)
-    social = models.JSONField(blank=True, null=True)
+    personal_website = models.URLField(
+        verbose_name="personal_website",
+        blank=True,
+        null=True
+    )
+    social_links = models.JSONField(
+        verbose_name="social_links",
+        blank=True,
+        null=True
+    )
     image = models.ImageField(
+        verbose_name="profile_image",
         upload_to="profile_image",
         blank=True,
         null=True
     )
     background_image = models.ImageField(
+        verbose_name="profile_background_image",
         upload_to="profile_background_image",
         blank=True,
+        null=True
+    )
+    joined_date = models.DateTimeField(
+        verbose_name="joined_date",
+        auto_now_add=True,
         null=True
     )
 
