@@ -51,8 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'rest_framework',
-    'app.apps.users',
-    'app.apps.video_sharing',
+    'users',
+    'video_sharing',
 ]
 
 MIDDLEWARE = [
