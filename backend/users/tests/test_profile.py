@@ -3,7 +3,7 @@ import io
 import pytest
 from django.core.exceptions import ValidationError
 
-from app.apps.users.models import Profile
+from users.models import Profile
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.contrib.auth import get_user_model
 from PIL import Image
