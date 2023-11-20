@@ -11,19 +11,21 @@ taking inspiration from the Richard Feynman technique, where the quality of cont
 learners and experts collaborates to enhance the learning experience._
 
 <!-- TOC -->
-  * [UX/UI](#uxui)
-  * [Agile](#agile)
+
+* [UX/UI](#uxui)
+* [Agile](#agile)
     * [Future Implementations](#future-implementations)
-  * [Schema](#schema)
-  * [References](#references)
+* [Schema](#schema)
+* [References](#references)
     * [Inspiration](#inspiration)
     * [Design](#design)
     * [Django](#django)
     * [React](#react)
-      * [Packages](#packages)
+        * [Packages](#packages)
     * [Docker](#docker)
     * [GraphQL](#graphql)
     * [Progressive Web App (PWA)](#progressive-web-app-pwa)
+
 <!-- TOC -->
 
 ## UX/UI
@@ -39,25 +41,43 @@ For further details see the following documentation:
 
 ### Future Implementations
 
-* Search and Discover: Improve search and discovery functionalities, allowing users to find videos by title, tags, and content type.
+* Search and Discover: Improve search and discovery functionalities, allowing users to find videos by title, tags, and
+  content type.
 * Content Moderation: Strengthen content moderation to maintain a positive and safe user experience.
-* Open-Source Components: Explore integrating open-source components for video hosting, content management, and other system-level improvements to enhance efficiency and stability.
-* Generative AI: Introduce generative AI for advanced content recommendation, summarisation, and user engagement insights.
-* Micro-Learning Modules: Introduce micro-learning modules alongside video uploads, where users can engage with short, interactive coding challenges or quizzes related to the video content.
-* Interactive Coding Environment: Offer an in-browser coding environment that allows users to practice coding while watching tutorial videos.
-* Real-Time Coding Collaboration: Enable real-time coding collaboration between users, where they can work on coding projects together.
+* Open-Source Components: Explore integrating open-source components for video hosting, content management, and other
+  system-level improvements to enhance efficiency and stability.
+* Generative AI: Introduce generative AI for advanced content recommendation, summarisation, and user engagement
+  insights.
+* Micro-Learning Modules: Introduce micro-learning modules alongside video uploads, where users can engage with short,
+  interactive coding challenges or quizzes related to the video content.
+* Interactive Coding Environment: Offer an in-browser coding environment that allows users to practice coding while
+  watching tutorial videos.
+* Real-Time Coding Collaboration: Enable real-time coding collaboration between users, where they can work on coding
+  projects together.
 * AI-Driven Video Analytics: Implement AI-driven video analytics to track user interactions within videos.
-* Live Streaming Workshops: Introduce live streaming workshops and webinars where coding experts can provide real-time instruction.
-* Personalised Learning Paths: Develop an AI-based recommendation system that offers personalised learning paths for users.
-* Virtual Coding Mentor: Implement a virtual coding mentor powered by AI, which can provide personalised feedback and guidance based on a user’s coding activity and progress.
-* AI-Enhanced Collaboration: Use AI to enhance real-time coding collaboration. It can suggest solutions, identify errors, and provide real-time code analysis.
-* Gamification and Tournaments: Introduce gamification elements and coding tournaments where users can compete and earn badges or rewards for achieving coding milestones.
+* Live Streaming Workshops: Introduce live streaming workshops and webinars where coding experts can provide real-time
+  instruction.
+* Personalised Learning Paths: Develop an AI-based recommendation system that offers personalised learning paths for
+  users.
+* Virtual Coding Mentor: Implement a virtual coding mentor powered by AI, which can provide personalised feedback and
+  guidance based on a user’s coding activity and progress.
+* AI-Enhanced Collaboration: Use AI to enhance real-time coding collaboration. It can suggest solutions, identify
+  errors, and provide real-time code analysis.
+* Gamification and Tournaments: Introduce gamification elements and coding tournaments where users can compete and earn
+  badges or rewards for achieving coding milestones.
 * Multilingual Learning: Expand the platform to support multiple languages, making coding education accessible globally.
-* Blockchain-Based Credentials: Explore blockchain technology to issue verifiable certificates or credentials for completed courses and coding challenges.
+* Blockchain-Based Credentials: Explore blockchain technology to issue verifiable certificates or credentials for
+  completed courses and coding challenges.
 
 ## Schema
 
 ![ERD for Learn Code Share Repeat](docs/media/images/lcsr_erd.png)
+
+## API
+
+For further details see the following documentation:
+
+* [API Overview](docs/api/api.md)
 
 ## References
 
