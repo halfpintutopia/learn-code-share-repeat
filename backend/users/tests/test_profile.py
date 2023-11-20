@@ -1,30 +1,22 @@
 import io
 
 import pytest
-from django.core.exceptions import ValidationError
 
 from users.models import Profile
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.contrib.auth import get_user_model
 from PIL import Image
 
+User = get_user_model()
+
 
 @pytest.mark.django_db
-def test_create_profile():
+def test_profile_model(custom_user):
     """
     GIVEN a profile model
     WHEN creating a profile model
-    THEN the user should have successfully create a profile
+    THEN the user should have successfully created a profile
     """
-    User = get_user_model()
-    user = User.objects.create_user(
-        username="melissasmythe85",
-        first_name="Melissa",
-        last_name="Smythe",
-        email="testuser@testuser.com",
-        password="qwerTy123456!"
-    )
-
     image_file = io.BytesIO()
     image = Image.new("RGBA", size=(50, 50), color=(155, 0, 0))
     image.save(image_file, 'png')
@@ -43,7 +35,7 @@ def test_create_profile():
                                                    content_type='image/png')
 
     profile = Profile.objects.create(
-        user=user,
+        user=custom_user,
         location="Switzerland",
         pronoun="she/her",
         website="https://mywebsite.com",
@@ -54,10 +46,10 @@ def test_create_profile():
         background_image=uploaded_background_image
     )
 
-    assert profile.user == user
-    assert profile.user.first_name == "Melissa"
-    assert profile.user.last_name == "Smythe"
-    assert profile.user.email == "testuser@testuser.com"
+    assert profile.user == custom_user
+    assert profile.user.first_name == custom_user.first_name
+    assert profile.user.last_name == custom_user.last_name
+    assert profile.user.email == custom_user.email
     assert profile.location == "Switzerland"
     assert profile.pronoun == "she/her"
     assert profile.website == "https://mywebsite.com"
