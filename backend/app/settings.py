@@ -15,11 +15,8 @@ from dotenv import load_dotenv, find_dotenv
 
 import os
 
-# dotenv_path = "../.env.dev"
-
-load_dotenv(find_dotenv())
-
-# if os.path.exists(dotenv_path):
+if os.path.exists(find_dotenv()):
+    load_dotenv(find_dotenv())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
