@@ -1,3 +1,5 @@
+from random import random, randint
+
 import pytest
 from django.contrib.auth import get_user_model
 from faker import Faker
@@ -8,12 +10,12 @@ User = get_user_model()
 fake = Faker()
 
 
-@pytest.fixture
+@pytest.fixture(scope="function")
 def custom_user():
     """
     Fixture for creating a user object
     """
-    username = fake.username()
+    username = fake.first_name()
     email = fake.email()
     first_name = fake.first_name()
     last_name = fake.last_name()
@@ -22,7 +24,7 @@ def custom_user():
     return User.objects.create_user(
         username=username,
         email=email,
-        fisrt_name=first_name,
+        first_name=first_name,
         last_name=last_name,
         password=password
     )

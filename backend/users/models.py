@@ -19,7 +19,7 @@ class Profile(models.Model):
         NON_BINARY = "NON", _("xe/xem")
 
     user = models.OneToOneField(
-        verbose_name="User",
+        verbose_name="User Profile",
         to=settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="user_profile"
