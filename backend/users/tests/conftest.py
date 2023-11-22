@@ -1,8 +1,11 @@
-from random import random, randint
+import io
 
 import pytest
 from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import SimpleUploadedFile
 from faker import Faker
+
+from PIL import Image
 
 # from rest_framework.test import APIClient
 
@@ -28,3 +31,36 @@ def custom_user():
         last_name=last_name,
         password=password
     )
+
+
+@pytest.fixture(scope="function")
+def uploaded_image():
+    """
+    Fixture for creating an image file
+    """
+    image_file = io.BytesIO()
+    image = Image.new("RGBA", size=(50, 50), color=(155, 0, 0))
+    image.save(image_file, 'png')
+    image_file.name = 'test_image.png'
+    image_file.seek(0)
+
+    uploaded_image = SimpleUploadedFile(image_file.name, image_file.read(), content_type='image/png')
+
+    return uploaded_image
+
+
+@pytest.fixture(scope="function")
+def uploaded_background_image():
+    """
+    Fixture for creating a background image file
+    """
+    background_image_file = io.BytesIO()
+    background_image = Image.new("RGBA", size=(50, 50), color=(155, 0, 0))
+    background_image.save(background_image_file, 'png')
+    background_image_file.name = 'test_background_image.png'
+    background_image_file.seek(0)
+
+    uploaded_background_image = SimpleUploadedFile(background_image_file.name, background_image_file.read(),
+                                                   content_type='image/png')
+
+    return uploaded_background_image

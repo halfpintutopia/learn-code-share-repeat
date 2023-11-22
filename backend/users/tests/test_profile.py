@@ -11,29 +11,12 @@ User = get_user_model()
 
 
 @pytest.mark.django_db
-def test_profile_model(custom_user):
+def test_profile_model(custom_user, uploaded_image, uploaded_background_image):
     """
     GIVEN a profile model
     WHEN creating a profile model
     THEN the user should have successfully created a profile
     """
-    image_file = io.BytesIO()
-    image = Image.new("RGBA", size=(50, 50), color=(155, 0, 0))
-    image.save(image_file, 'png')
-    image_file.name = 'test_image.png'
-    image_file.seek(0)
-
-    uploaded_image = SimpleUploadedFile(image_file.name, image_file.read(), content_type='image/png')
-
-    background_image_file = io.BytesIO()
-    background_image = Image.new("RGBA", size=(50, 50), color=(155, 0, 0))
-    background_image.save(background_image_file, 'png')
-    background_image_file.name = 'test_background_image.png'
-    background_image_file.seek(0)
-
-    uploaded_background_image = SimpleUploadedFile(background_image_file.name, background_image_file.read(),
-                                                   content_type='image/png')
-
     profile = Profile.objects.get(user=custom_user)
 
     profile.location = "Switzerland"
@@ -44,6 +27,7 @@ def test_profile_model(custom_user):
     }
     profile.image = uploaded_image
     profile.background_image = uploaded_background_image
+    profile.save()
 
     assert profile.user == custom_user
     assert profile.user.first_name == custom_user.first_name
