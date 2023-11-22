@@ -8,6 +8,4 @@ class UsersConfig(AppConfig):
     name = 'users'
 
     def ready(self):
-        User = get_user_model()
-        from .signals import create_profile
-        post_save.connect(create_profile, sender=User)
+        import users.signals
