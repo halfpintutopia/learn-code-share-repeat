@@ -1,0 +1,22 @@
+.HeroHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(to top, hsl(0 0% 0% / 0.5) 50%, transparent 50%);
+    color: white;
+    margin-bottom: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    min-height: 100vh;
+}
+
+.HeroHome .video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+}

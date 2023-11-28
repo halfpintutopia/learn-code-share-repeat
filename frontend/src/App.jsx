@@ -1,10 +1,10 @@
 import React from "react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import { BrowserRouter, Routes} from "react-router-dom";
+import HeroHome from "./components/HeroHome";
 
-import css from "./App.module.css";
 // import NavBarSimple from "./components/NavBarSimple";
-import Homepage from "./components/Homepage";
+import Header from "./components/Header";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,16 +19,19 @@ const App = () => {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <div className={css.App}>
-          <header className="App-header">
-            {/*<NavBarSimple />*/}
-          </header>
-          <Routes>
-            {/*<Route path="/details/:id" element={<Details />} />*/}
-            {/*<Route path="/" element={<SearchParams />} />*/}
-            <Route path="/" element={<Homepage />} />
-          </Routes>
-        </div>
+        {/*<div className={css.App}>*/}
+        {/*  <header className="App-header">*/}
+        {/*    /!*<NavBarSimple/>*!/*/}
+        {/*    <Link to="/users">Register</Link>*/}
+        {/*  </header>*/}
+        <Header/>
+        <HeroHome/>
+        <Routes>
+          {/*<Route path="/details/:id" element={<Details />} />*/}
+          {/*<Route path="/" element={<SearchParams />} />*/}
+          {/*<Route path="/" element={<Homepage/>}/>*/}
+        </Routes>
+        {/*</div>*/}
       </QueryClientProvider>
     </BrowserRouter>
   );
