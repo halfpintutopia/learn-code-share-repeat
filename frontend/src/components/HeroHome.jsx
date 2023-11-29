@@ -1,14 +1,14 @@
 import React from 'react';
-import css from "./css/HeroHome.module.css";
+import css from "./css/HeroHome.module.scss";
 import HeaderImage from "../../public/media/videos/person_walking_on_laptop.webm";
 
 const HeroHome = () => {
   return (
-    <div className={css.HeroHome}>
-      <div>
-        <p>This is an overlay</p>
+    <div className={css.videoContainer}>
+      <div className={css.overlay}>
+        <h1 className={css.title}>Code with Clarity & Confidence</h1>
       </div>
-      <video className={css['video-bg']} autoPlay muted loop>
+      <video className={css.videoBg} autoPlay muted loop>
         <source src={HeaderImage} type="video/webm"/>
       </video>
 
