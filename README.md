@@ -11,21 +11,21 @@ taking inspiration from the Richard Feynman technique, where the quality of cont
 learners and experts collaborates to enhance the learning experience._
 
 <!-- TOC -->
-
-* [UX/UI](#uxui)
-* [Agile](#agile)
+  * [UX/UI](#uxui)
+  * [Agile](#agile)
     * [Future Implementations](#future-implementations)
-* [Schema](#schema)
-* [References](#references)
+  * [Schema](#schema)
+  * [API](#api)
+  * [References](#references)
     * [Inspiration](#inspiration)
     * [Design](#design)
     * [Django](#django)
     * [React](#react)
-        * [Packages](#packages)
+      * [Packages](#packages)
     * [Docker](#docker)
     * [GraphQL](#graphql)
     * [Progressive Web App (PWA)](#progressive-web-app-pwa)
-
+    * [Additional](#additional)
 <!-- TOC -->
 
 ## UX/UI
@@ -110,6 +110,8 @@ For further details see the following documentation:
 - [React Query - Tanstack Query v5](https://www.npmjs.com/package/@tanstack/react-query)
 - [Vite](https://vitejs.dev/)
 - [Prettier](https://prettier.io/)
+- [React | Adding a Sass Stylesheet](https://create-react-app.dev/docs/adding-a-sass-stylesheet/)
+- [Bootstrap RFS (Standalone)](https://github.com/twbs/rfs/tree/v9.0.3#installation)
 
 ### Docker
 
@@ -126,3 +128,9 @@ For further details see the following documentation:
 ### Progressive Web App (PWA)
 
 - [Make PWA of a Django Project](https://www.geeksforgeeks.org/make-pwa-of-a-django-project/)
+
+### Additional
+
+- [Cloud Covert | MP4 to WEBM Converter](https://cloudconvert.com/mp4-to-webm)
+- [Self-hosting fonts explained (including Google fonts) // @font-face tutorial](https://www.youtube.com/watch?v=zK-yy6C2Nck)
+    - GDR compliant
