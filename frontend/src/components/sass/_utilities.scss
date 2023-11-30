@@ -1,5 +1,5 @@
 @import "variables";
-@import "../../node_modules/rfs/scss";
+@import "../../../node_modules/rfs/scss";
 
 /* Containers */
 $container-padding: calc($standard-padding * 2);
@@ -94,11 +94,6 @@ $container-padding: calc($standard-padding * 2);
       }
     }
   }
-}
-
-@mixin full-bleed($color) {
-  box-shadow: 0 0 0 100vmax $color;
-  clip-path: inset(0 -100vmax);
 }
 
 /* Flex */

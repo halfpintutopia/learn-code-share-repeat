@@ -1,7 +1,9 @@
 @import "variables";
-@import "../../node_modules/rfs/scss";
-@import "./fonts";
-@import "./buttons";
+@import "../../../node_modules/rfs/scss";
+@import "fonts";
+@import "buttons";
+
+/* Global styles and resets */
 
 *,
 *::before,
@@ -15,7 +17,7 @@
   font: inherit;
 }
 
-* + *:not(:first-of-type) {
+* + *:not(:first-of-type):not(#root) {
   margin-top: 1em;
 }
 
