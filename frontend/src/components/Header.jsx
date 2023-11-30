@@ -1,58 +1,69 @@
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
-import React, {useEffect, useState, useRef} from 'react';
+
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faArrowRightLong} from '@fortawesome/free-solid-svg-icons';
+
 import logo from '../../public/media/images/logo-dark.svg';
+
+import RegisterFormModal from "./RegisterFormModal";
+
 import "./sass/app.scss";
 
 const Header = () => {
-  const [modal, setModal] = useState(false);
-  const modalRef = useRef();
-  const showHideModal = () => {
-    setModal(!modal);
+
+  const [isRegisterFormModalOpen, setRegisterFormModalOpen] = useState(false);
+  const [registerFormData, setRegisterFormData] = useState(null);
+
+  const handleOpenRegisterModal = () => {
+    setRegisterFormModalOpen(true);
   };
 
-  const handleClickOutside = (event) => {
-    if (event.target === modalRef.current) {
-      setModal(false);
-    }
+  const handleCloseRegisterModal = () => {
+    setRegisterFormModalOpen(false);
   };
 
-  useEffect(() => {
-    if (modal) {
-      modalRef.current.showModal();
-      document.body.addEventListener('mousedown', handleClickOutside);
-    } else {
-      modalRef.current.close();
-      document.body.removeEventListener('mousedown', handleClickOutside);
-    }
-    return () => {
-      document.body.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [modal]);
+  const handleFormSubmit = (data) => {
+    setRegisterFormData(data);
+    handleCloseRegisterModal();
+  };
 
   return (
     <header className="primary-header container" data-width="wide">
-      <div className="wrapper">
+      <section className="wrapper">
         <div className="primary-header__inner">
           <Link to="/">
             <span className="sr-only">Home</span>
             <img src={logo} alt="Logo for website"/>
           </Link>
           <nav>
-            <button onClick={showHideModal}>Open</button>
-          </nav>
+            <div>
+              <button
+                onClick={handleOpenRegisterModal}
+                className="green">
+                Start
+                <FontAwesomeIcon icon={faArrowRightLong}/>
+              </button>
+            </div>
 
-          <dialog ref={modalRef} className="nav-dialog">
-            <form method="dialog">
-              <label htmlFor="firstName">First Name</label>
-              <input id="firstName" name="firstName" type="text"/>
-              <button formMethod="dialog">cancel</button>
-              <button>Submit</button>
-            </form>
-            <div>This is not a dialog but a modal</div>
-            <button onClick={() => setModal(false)}>Close</button>
-          </dialog>
+            {
+              registerFormData && registerFormData.email && (
+                <div className="alert alert__success">
+                  <b>{registerFormData.email}</b> has successfully signed up.
+                </div>
+              )
+            }
+
+            <RegisterFormModal
+              isOpen={isRegisterFormModalOpen}
+              onSubmit={handleFormSubmit}
+              onClose={handleCloseRegisterModal}
+            />
+          </nav>
         </div>
-      </div>
+      </section>
+
+
     </header>
   );
 };
