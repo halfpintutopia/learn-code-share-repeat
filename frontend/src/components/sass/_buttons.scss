@@ -1,21 +1,26 @@
 @import '../../../node_modules/rfs/scss';
 @import "_variables.scss";
 
-button {
+button, .btn {
   border: none;
-  border-radius: 10px;
+
   box-shadow: $box-shadow-little;
   @include padding(0.75em);
   @include margin-top(0.8em);
   @include margin-bottom(0.8em);
 
+  font-family: $font-barlow;
+  @include font-size(1rem);
+  line-height: normal;
+  font-weight: 600;
+
 
   &.green {
     $margin-left: 2;
+    border-radius: 10px;
 
     color: $concrete-100;
     background-color: $apple-500;
-
 
     svg {
       @include margin-left(calc($margin-left * 1em));

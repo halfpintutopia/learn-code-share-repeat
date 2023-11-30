@@ -1,6 +1,8 @@
 import React, {useState, useEffect, useRef} from 'react';
+import {faClose} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
-const Modal = ({isOpen, hasCloseBtn, onClose, children}) => {
+const Modal = ({name, isOpen, hasCloseBtn, onClose, children}) => {
   const [isModalOpen, setModalOpen] = useState(isOpen);
   const modalRef = useRef();
 
@@ -34,10 +36,10 @@ const Modal = ({isOpen, hasCloseBtn, onClose, children}) => {
   };
 
   return (
-    <dialog ref={modalRef} onKeyDown={handleKeyDown} className="modal nav-dialog">
+    <dialog ref={modalRef} onKeyDown={handleKeyDown} className={`modal modal__${name}`}>
       {
         hasCloseBtn && (
-          <button className="modal__close-btn" onClick={handleCloseModal}>Close</button>
+          <button className="modal__close-btn" onClick={handleCloseModal}><FontAwesomeIcon icon={faClose}/></button>
         )
       }
       {children}

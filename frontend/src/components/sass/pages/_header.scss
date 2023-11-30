@@ -5,20 +5,6 @@
   &__inner {
     display: flex;
     justify-content: space-between;
-  }
-}
-
-.nav-dialog {
-  background: white;
-  border-radius: 0.25rem;
-  z-index: 100;
-  pointer-events: auto;
-
-  &::backdrop {
-    background: hsl(200 10% 50% / 0.5);
-  }
-
-  & > * {
-    pointer-events: auto
+    align-items: center;
   }
 }
