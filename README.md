@@ -134,3 +134,4 @@ For further details see the following documentation:
 - [Cloud Covert | MP4 to WEBM Converter](https://cloudconvert.com/mp4-to-webm)
 - [Self-hosting fonts explained (including Google fonts) // @font-face tutorial](https://www.youtube.com/watch?v=zK-yy6C2Nck)
     - GDR compliant
+- [How to Use Sass and Styled Components in a React JS Application | Tim Smith](https://www.iamtimsmith.com/blog/how-to-use-styles-in-a-react-js-application)
