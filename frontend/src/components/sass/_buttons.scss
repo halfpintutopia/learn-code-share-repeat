@@ -1,0 +1,31 @@
+@import '../../../node_modules/rfs/scss';
+@import "_variables.scss";
+
+button {
+  border: none;
+  border-radius: 10px;
+  box-shadow: $box-shadow-little;
+  @include padding(0.75em);
+  @include margin-top(0.8em);
+  @include margin-bottom(0.8em);
+
+
+  &.green {
+    $margin-left: 2;
+
+    color: $concrete-100;
+    background-color: $apple-500;
+
+
+    svg {
+      @include margin-left(calc($margin-left * 1em));
+      transition: all .4s ease-out;
+    }
+
+    &:hover {
+      svg {
+        transform: translateX(calc(($margin-left / 2) * -1em));
+      }
+    }
+  }
+}
