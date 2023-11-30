@@ -1,10 +1,8 @@
 import React from "react";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import { BrowserRouter, Routes} from "react-router-dom";
+import {BrowserRouter, Routes} from "react-router-dom";
+import "./components/sass/app.scss";
 import HeroHome from "./components/HeroHome";
-import "./App.module.scss";
-
-// import NavBarSimple from "./components/NavBarSimple";
 import Header from "./components/Header";
 
 const queryClient = new QueryClient({
