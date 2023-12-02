@@ -4,15 +4,17 @@ import './sass/app.scss';
 
 const HeroHome = () => {
   return (
-    <div className="video-container container" data-width="wide">
-      <div className="overlay">
-        <h1 className="title">Code with Clarity & Confidence</h1>
-      </div>
-      <video className="video-bg" autoPlay muted loop>
-        <source src={HeaderImage} type="video/webm"/>
-      </video>
+    <section data-space="narrow">
+      <div className="video-container container" data-width="wide">
+        <div className="overlay">
+          <h1 className="title">Code with Clarity & Confidence</h1>
+        </div>
+        <video className="video-bg" autoPlay muted loop>
+          <source src={HeaderImage} type="video/webm"/>
+        </video>
 
-    </div>
+      </div>
+    </section>
   );
 };
 

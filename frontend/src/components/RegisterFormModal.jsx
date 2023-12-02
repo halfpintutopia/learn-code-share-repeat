@@ -2,9 +2,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import Modal from "./Modal";
 
 const initialRegisterFormModalData = {
+  username: '',
   email: '',
-  firstName: '',
-  lastName: '',
   password: ''
 };
 const RegisterFormModal = ({onSubmit, isOpen, onClose}) => {
@@ -29,19 +28,55 @@ const RegisterFormModal = ({onSubmit, isOpen, onClose}) => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:8000/api/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formState)
+      });
+      if (!response.ok) {
+        console.log(response);
+        throw new Error('Network response was not OK');
+      }
+      console.log('response', response);
+
+    } catch (error) {
+      // TODO
+    }
+
+
     onSubmit(formState);
     setFormState(initialRegisterFormModalData);
   };
 
   return (
     <Modal
+      name="register"
       hasCloseBtn={true}
       isOpen={isOpen}
       onClose={onClose}
     >
+      <h1>Join the LCSR Community</h1>
+      <p>Have an account already? <b>Sign in</b></p>
       <form onSubmit={handleSubmit}>
+        <div className="form-row">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            ref={focusInputRef}
+            id="username"
+            name="username"
+            value={formState.username}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
         <div className="form-row">
           <label htmlFor="email">Email</label>
           <input
@@ -56,32 +91,19 @@ const RegisterFormModal = ({onSubmit, isOpen, onClose}) => {
         </div>
 
         <div className="form-row">
-          <label htmlFor="firstName">First Name</label>
+          <label htmlFor="password">Password</label>
           <input
-            type="text"
+            type="password"
             ref={focusInputRef}
-            id="firstName"
-            name="firstName"
-            value={formState.firstName}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
-
-        <div className="form-row">
-          <label htmlFor="lastName">Last Name</label>
-          <input
-            type="text"
-            ref={focusInputRef}
-            id="lastName"
-            name="lastName"
-            value={formState.lastName}
+            id="password"
+            name="password"
+            value={formState.password}
             onChange={handleInputChange}
             required
           />
         </div>
         <div className="form-row">
-          <button type="submit">Submit</button>
+          <button className="btn btn__register" type="submit">Get Started</button>
         </div>
       </form>
     </Modal>
