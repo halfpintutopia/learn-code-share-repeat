@@ -211,3 +211,14 @@ DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # AUTH_USER_MODEL = 'users.Profile'
+
+if not DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = "smtp.sendgrid.net"
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = "apikey"
+    EMAIL_HOST_PASSWORD = os.environ.get("SENDGRID_API")
+    DEFAULT_FROM_EMAIL = os.environ.get("SENDGRID_FROM_EMAIL")
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
