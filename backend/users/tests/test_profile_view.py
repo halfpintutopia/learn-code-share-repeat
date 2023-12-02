@@ -33,11 +33,11 @@ def test_create_user(client):
     res = client.post(url, user, content_type="application/json")
 
     assert res.status_code == status.HTTP_201_CREATED
-    # assert res.data["username"] == user["username"]
-    # assert res.data["first_name"] == user["first_name"]
-    # assert res.data["last_name"] == user["last_name"]
-    # assert res.data["email"] == user["email"]
-    #
-    # created_user = User.objects.get(username=user["username"])
-    # assert created_user.check_password(password)
-    # assert created_user.user_profile is not None
+    assert res.data["username"] == user["username"]
+    assert res.data["first_name"] == user["first_name"]
+    assert res.data["last_name"] == user["last_name"]
+    assert res.data["email"] == user["email"]
+
+    created_user = User.objects.get(username=user["username"])
+    assert created_user.check_password(password)
+    assert created_user.user_profile is not None
