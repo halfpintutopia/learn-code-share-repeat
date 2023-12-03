@@ -63,7 +63,7 @@ const RegisterLoginModal = () => {
       >
         <AccessibleTabs tabs={tabs}/>
         {/*<>*/}
-        {/*</>*/}l
+        {/*</>*/}
       </Modal>
     </>
   );

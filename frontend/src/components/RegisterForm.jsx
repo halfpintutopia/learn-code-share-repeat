@@ -13,9 +13,8 @@ const initialErrorState = {
 };
 
 const api = 'http://localhost:8000/api/users';
-const emailRegex = /\\S+@\\S+\\.\\S+/;
-const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{16,}$/;
-
+const emailRegex = /\S+@\S+\.\S+/;
+const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{16,}$/;
 
 const RegisterForm = () => {
   const focusInputRef = useRef(null);
@@ -34,6 +33,7 @@ const RegisterForm = () => {
     }
 
     if (!formState.email) {
+      console.log(formState.email, emailRegex.test(formState.email));
       formIsValid = false;
       newErrors.email = 'Email is required';
     } else if (!emailRegex.test(formState.email)) {
@@ -44,9 +44,14 @@ const RegisterForm = () => {
     if (!formState.password) {
       formIsValid = false;
       newErrors.password = 'Password is required';
-    } else if (!passwordRegex.test(formState.email)) {
-      formIsValid = false;
-      newErrors.password = "Email is not secure";
+    } else {
+      console.log('Password:', formState.password); // Log the password
+      const testResult = passwordRegex.test(formState.password);
+      console.log('Test Result:', testResult); // Log the test result
+      if (!testResult) {
+        formIsValid = false;
+        newErrors.password = "Password is not secure";
+      }
     }
 
     setErrors(newErrors);
@@ -75,9 +80,12 @@ const RegisterForm = () => {
         });
         if (!response.ok) {
           const errorData = await response.json();
-          setErrorMessage(errorData.detail);
+          console.log(errorData.username);
+          setErrorMessage(errorData.username);
         } else {
           setSuccessMessage('You have successfully created an account, please ');
+          setFormState(initialRegisterFormModalData);
+
         }
 
       } catch (error) {
@@ -86,16 +94,15 @@ const RegisterForm = () => {
       }
     }
 
-    setFormState(initialRegisterFormModalData);
   };
 
   return (
     <div>
       {
         successMessage ? (
-          <div>{successMessage}</div>
+          <span className="alert alert__success">{successMessage}</span>
         ) : errorMessage ? (
-          <div>{errorMessage}</div>
+          <span className="alert alert__error">{errorMessage}</span>
         ) : (
           <>
             <h1>Join the LCSR Community</h1>
@@ -103,7 +110,7 @@ const RegisterForm = () => {
             <form onSubmit={handleSubmit}>
               <div className="form-row">
                 <label htmlFor="username">Username</label>
-                {errors.username && <div>{errors.username}</div>}
+
                 <input
                   type="text"
                   ref={focusInputRef}
@@ -113,11 +120,13 @@ const RegisterForm = () => {
                   onChange={handleInputChange}
                   required
                 />
+                {errors.username && <small className="alert alert__error">{errors.username}</small>}
               </div>
 
-              {errors.email && <div>{errors.email}</div>}
+
               <div className="form-row">
                 <label htmlFor="email">Email</label>
+
                 <input
                   type="email"
                   ref={focusInputRef}
@@ -127,9 +136,10 @@ const RegisterForm = () => {
                   onChange={handleInputChange}
                   required
                 />
+                {errors.email && <small className="alert alert__error">{errors.email}</small>}
               </div>
 
-              {errors.password && <div>{errors.password}</div>}
+
               <div className="form-row">
                 <label htmlFor="password">
                   Password
@@ -140,6 +150,7 @@ const RegisterForm = () => {
                     <li><small>Must contain lower case letter</small></li>
                   </ul>
                 </label>
+
                 <input
                   type="password"
                   ref={focusInputRef}
@@ -149,6 +160,7 @@ const RegisterForm = () => {
                   onChange={handleInputChange}
                   required
                 />
+                {errors.password && <small className="alert alert__error">{errors.password}</small>}
               </div>
               <div className="form-row">
                 <button className="btn btn__register" type="submit">Get Started</button>
