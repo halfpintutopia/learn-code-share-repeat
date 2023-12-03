@@ -1,0 +1,25 @@
+@import "../variables";
+@import "../../../../node_modules/rfs/scss";
+
+
+
+/* extra styling to make the tabs look better that wasn't in the video */
+.tabs-container {
+  padding: 2.5rem;
+  border-radius: 0.5rem;
+  background: hsl(0 0% 50% / 0.1);
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1rem;
+  }
+
+  [aria-selected="true"] {
+    text-decoration-thickness: 0.25em;
+    text-underline-offset: 0.5em;
+    color: orangered;
+  }
+}

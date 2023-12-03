@@ -1,32 +1,25 @@
-import React, {useState, useEffect, useRef} from 'react';
-import {faClose} from "@fortawesome/free-solid-svg-icons";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import React, { useEffect, useRef } from 'react';
+import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Modal = ({name, isOpen, hasCloseBtn, onClose, children}) => {
-  const [isModalOpen, setModalOpen] = useState(isOpen);
+const Modal = ({ name, isOpen, hasCloseBtn, onClose, children }) => {
   const modalRef = useRef();
-
-  useEffect(() => {
-    setModalOpen(isOpen);
-  }, [isOpen]);
 
   useEffect(() => {
     const modalElement = modalRef.current;
     if (modalElement) {
-      if (isModalOpen) {
+      if (isOpen) {
         modalElement.showModal();
       } else {
         modalElement.close();
       }
     }
-    setModalOpen(isOpen);
-  }, [isModalOpen]);
+  }, [isOpen]);
 
   const handleCloseModal = () => {
     if (onClose) {
       onClose();
     }
-    setModalOpen(false);
   };
 
   const handleKeyDown = (event) => {

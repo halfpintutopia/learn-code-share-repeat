@@ -25,6 +25,7 @@ const App = () => {
         {/*  </header>*/}
         <Header/>
         <HeroHome/>
+
         <Routes>
           {/*<Route path="/details/:id" element={<Details />} />*/}
           {/*<Route path="/" element={<SearchParams />} />*/}

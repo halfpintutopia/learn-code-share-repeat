@@ -1,0 +1,14 @@
+@import "variables";
+@import "../../../node_modules/rfs/scss";
+
+small {
+  font-family: $font-barlow;
+  @include font-size(14px);
+  font-weight: 200;
+  line-height: normal;
+}
+
+a[aria-selected="false"] {
+  color:  inherit;
+  text-decoration: none;
+}

@@ -5,6 +5,7 @@
 @import '../../../node_modules/@fortawesome/fontawesome-free/scss/regular';
 
 @import "fonts";
+@import "typography";
 @import "variables";
 @import "elements";
 @import "utilities";
@@ -15,3 +16,4 @@
 
 @import "./components/hero-home";
 @import "./components/modal";
+@import "./components/accessible-tabs";

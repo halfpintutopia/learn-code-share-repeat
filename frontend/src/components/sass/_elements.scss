@@ -16,7 +16,7 @@
   font: inherit;
 }
 
-* + *:not(:first-of-type):not(#root) {
+* + *:not(:first-of-type):not(#root):not(ul>li) {
   margin-top: 1em;
 }
 
