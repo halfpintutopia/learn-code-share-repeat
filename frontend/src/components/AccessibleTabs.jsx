@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import queryString from 'query-string';
+import React from 'react';
+import {Routes, Route, Link } from 'react-router-dom';
 
 import "./sass/app.scss";
 
 const AccessibleTabs = ({ tabs = [] }) => {
-  const location = useLocation();
-  const {modal} = queryString.parse(location.search);
-  const [activeTab, setActiveTab] = useState(modal || tabs[0].id);
-  const handleTabClick = (tabId) => {
-    setActiveTab(tabId);
-  };
 
   return (
     <div className="tabs-container">
@@ -18,37 +11,32 @@ const AccessibleTabs = ({ tabs = [] }) => {
         {
           tabs.map(tab => (
             <li key={tab.id}>
-              <a
-                id={`tab-${tab.id}`}
-                href={`#tab-${tab.id}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleTabClick(tab.id);
-                }}
-                aria-selected={activeTab === tab.id}
+              <Link
+                to={`/${tab.id}`}
                 role="tab"
               >
                 {tab.title}
-              </a>
+              </Link>
             </li>
           ))
         }
       </ul>
 
-      <div className="tabs__panels flow">
+      <Routes>
         {
           tabs.map(tab => (
-            <div
+            <Route
               key={tab.id}
-              id={tab.id}
-              aria-labelledby={`tab-${tab.id}`}
-              hidden={activeTab !== tab.id}
-            >
-              {tab.content}
-            </div>
+              path={`/${tab.id}`}
+              element={
+                <div className="tabs__panels flow">
+                  {tab.content}
+                </div>
+              }
+            />
           ))
         }
-      </div>
+      </Routes>
     </div>
   );
 };

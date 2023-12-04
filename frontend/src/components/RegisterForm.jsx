@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { Link } from "react-router-dom";
 
 const initialRegisterFormModalData = {
   username: '',
@@ -33,7 +34,6 @@ const RegisterForm = () => {
     }
 
     if (!formState.email) {
-      console.log(formState.email, emailRegex.test(formState.email));
       formIsValid = false;
       newErrors.email = 'Email is required';
     } else if (!emailRegex.test(formState.email)) {
@@ -45,9 +45,7 @@ const RegisterForm = () => {
       formIsValid = false;
       newErrors.password = 'Password is required';
     } else {
-      console.log('Password:', formState.password); // Log the password
       const testResult = passwordRegex.test(formState.password);
-      console.log('Test Result:', testResult); // Log the test result
       if (!testResult) {
         formIsValid = false;
         newErrors.password = "Password is not secure";
@@ -80,7 +78,6 @@ const RegisterForm = () => {
         });
         if (!response.ok) {
           const errorData = await response.json();
-          console.log(errorData.username);
           setErrorMessage(errorData.username);
         } else {
           setSuccessMessage('You have successfully created an account, please ');
@@ -102,7 +99,14 @@ const RegisterForm = () => {
         successMessage ? (
           <span className="alert alert__success">{successMessage}</span>
         ) : errorMessage ? (
-          <span className="alert alert__error">{errorMessage}</span>
+          <span className="alert alert__error">{errorMessage} Please sign in
+            <Link
+              to={`/login`}
+              role="tab"
+            >
+            here.
+            </Link>
+          </span>
         ) : (
           <>
             <h1>Join the LCSR Community</h1>

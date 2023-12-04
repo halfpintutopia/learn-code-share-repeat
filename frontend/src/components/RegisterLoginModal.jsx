@@ -2,16 +2,16 @@ import Modal from "./Modal";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import AccessibleTabs from "./AccessibleTabs";
-import React, {useEffect, useRef, useState} from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faArrowRightLong} from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
 import queryString from 'query-string';
 
 
 const RegisterLoginModal = () => {
   const location = useLocation();
-  const {modal} = queryString.parse(location.search);
+  const { modal } = queryString.parse(location.search?.modal);
   const [isOpen, setIsOpen] = useState(!!modal);
   const focusInputRef = useRef(null);
 
@@ -46,6 +46,10 @@ const RegisterLoginModal = () => {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    setIsOpen(!!modal);
+  }, [modal]);
+
 
   return (
     <>
@@ -62,8 +66,6 @@ const RegisterLoginModal = () => {
         onClose={handleCloseModal}
       >
         <AccessibleTabs tabs={tabs}/>
-        {/*<>*/}
-        {/*</>*/}
       </Modal>
     </>
   );
