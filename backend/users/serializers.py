@@ -41,7 +41,7 @@ class UserSerializer(serializers.ModelSerializer):
     'id' and 'email' fields are read-only
     """
 
-    user_profile = UserProfileSerializer()
+    user_profile = UserProfileSerializer(read_only=True)
 
     class Meta:
         """
@@ -58,28 +58,9 @@ class UserSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['id', 'email']
 
-    @staticmethod
-    def send_email_notification(email):
-        """
-        Email the user to notify them that their profile has been created
-        """
-        email_body = render_to_string("registration.html")
-
-        message = EmailMessage(
-            subject=_("User profile created for Learn Share Code Repeat"),
-            body=email_body,
-            to=email
-        )
-        message.content_subtype = "html"
-        message.send()
-
     def create(self, validated_data):
         """
         Create a new user and profile instance. Send an email notification to the user
         """
         user = User.objects.create_user(**validated_data)
-
-        self.send_email_notificatino(
-            email=self.context.get("request").user.email
-        )
         return user
