@@ -61,6 +61,10 @@ class Profile(models.Model):
         auto_now_add=True,
         null=True
     )
+    is_email_verified = models.BooleanField(
+        default=False
+    )
+    email_verification_token = models.CharField(max_length=225)
 
     def __str__(self):
         return f"{self.user}"
