@@ -5,6 +5,8 @@ from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
 from faker import Faker
 
+from users.models import Profile
+
 from PIL import Image
 
 # from rest_framework.test import APIClient
@@ -14,7 +16,7 @@ fake = Faker()
 
 
 @pytest.fixture(scope="function")
-def custom_user():
+def user():
     """
     Fixture for creating a user object
     """

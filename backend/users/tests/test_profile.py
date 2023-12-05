@@ -11,13 +11,13 @@ User = get_user_model()
 
 
 @pytest.mark.django_db
-def test_profile_model(custom_user, uploaded_image, uploaded_background_image):
+def test_profile_model(user, uploaded_image, uploaded_background_image):
     """
     GIVEN a profile model
     WHEN creating a profile model
     THEN the user should have successfully created a profile
     """
-    profile = Profile.objects.get(user=custom_user)
+    profile = Profile.objects.get(user=user)
 
     profile.location = "Switzerland"
     profile.pronoun = "she/her"
@@ -29,10 +29,10 @@ def test_profile_model(custom_user, uploaded_image, uploaded_background_image):
     profile.background_image = uploaded_background_image
     profile.save()
 
-    assert profile.user == custom_user
-    assert profile.user.first_name == custom_user.first_name
-    assert profile.user.last_name == custom_user.last_name
-    assert profile.user.email == custom_user.email
+    assert profile.user == user
+    assert profile.user.first_name == user.first_name
+    assert profile.user.last_name == user.last_name
+    assert profile.user.email == user.email
     assert profile.location == "Switzerland"
     assert profile.pronoun == "she/her"
     assert profile.personal_website == "https://mywebsite.com"
