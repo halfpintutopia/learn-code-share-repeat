@@ -30,9 +30,16 @@ class UserProfileSerializer(serializers.ModelSerializer):
             "social_links",
             "image",
             "background_image",
-            "joined_date"
+            "joined_date",
+            "is_email_verified",
+            "email_verification_token"
         ]
-        read_only_fields = ['id', "joined_date"]
+        read_only_fields = [
+            'id',
+            "joined_date",
+            "is_email_verified",
+            "email_verification_token"
+        ]
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -56,7 +63,7 @@ class UserSerializer(serializers.ModelSerializer):
             'username',
             'user_profile',
         ]
-        read_only_fields = ['id', 'email']
+        read_only_fields = ['id']
 
     def create(self, validated_data):
         """
