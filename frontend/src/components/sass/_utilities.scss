@@ -169,6 +169,8 @@ $columns: 1, 2, 3, 4;
 
 .stacked-grid {
   display: grid;
+  place-items: center;
+  isolation: isolate;
 
   & > * {
     grid-column: 1 / -1;

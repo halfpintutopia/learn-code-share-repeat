@@ -16,7 +16,7 @@
   font: inherit;
 }
 
-* + *:not(:first-of-type):not(#root):not(ul>li) {
+* + *:not(:first-of-type):not(#root):not(.stacked-grid > *):not(ul>li) {
   margin-top: 1em;
 }
 
@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  $rfs-minimum-font-size: $paragraph-min;
+  //$rfs-minimum-font-size: $paragraph-min;
   @include font-size($paragraph-max);
   min-height: 100vh;
   background-color: $concrete-100;

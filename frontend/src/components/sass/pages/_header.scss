@@ -8,3 +8,14 @@
     align-items: center;
   }
 }
+
+
+.secondary-header {
+  position: absolute;
+  top: 0;
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+  }
+}
