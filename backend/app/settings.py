@@ -39,11 +39,10 @@ if not DEBUG:
 
 ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', '').split(' ')
 
-# Disable the Browsable API in production
 if not DEBUG:
-    REST_FRAMEWORK = {
-        "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",)
-    }
+    BASE_URL = "https://" + ALLOWED_HOSTS[0]
+else:
+    BASE_URL = "http://" + ALLOWED_HOSTS[1]
 
 if not DEBUG:
     # Instruct web browser to remember the HSTS policy for 3600 secs (1

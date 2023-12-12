@@ -6,6 +6,7 @@ from django.template.loader import render_to_string
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.translation import gettext_lazy as _
 from django.utils.encoding import force_bytes, force_str
+from django.conf import settings
 
 from rest_framework.generics import GenericAPIView
 from rest_framework.views import APIView
@@ -46,7 +47,7 @@ class RegisterListUsers(APIView):
 
         if serializer.is_valid():
             # if not request.user.user_profile.is_email_verified:
-            current_site = get_current_site(request)
+            # current_site = get_current_site(request)
             user = serializer.save()
             user.save()
 
@@ -56,7 +57,7 @@ class RegisterListUsers(APIView):
                                        {
                                            "request": "request",
                                            "user": user,
-                                           "domain": current_site.domain,
+                                           "domain": settings.BASE_URL,
                                            "uid": urlsafe_base64_encode(force_bytes(user.pk)),
                                            "token": user.user_profile.email_verification_token,
                                            "username": user.username
