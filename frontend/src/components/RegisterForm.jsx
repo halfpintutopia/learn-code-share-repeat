@@ -109,8 +109,11 @@ const RegisterForm = () => {
           </span>
         ) : (
           <>
-            <h1>Join the LCSR Community</h1>
-            <p>Have an account already? <b>Sign in</b></p>
+            <div className="form-text">
+              <h1>Join the LCSR Community</h1>
+              <p>Have an account already? <Link
+                to="/join/login"><strong>Sign in</strong></Link></p>
+            </div>
             <form onSubmit={handleSubmit}>
               <div className="form-row">
                 <label htmlFor="username">Username</label>

@@ -1,9 +1,10 @@
 import React from 'react';
-import {Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import "./sass/app.scss";
 
-const AccessibleTabs = ({ tabs = [] }) => {
+const AccessibleTabs = ({ tabs = [], type }) => {
+  const selectedTab = tabs.find(tab => tab.id === type);
 
   return (
     <div className="tabs-container">
@@ -12,8 +13,9 @@ const AccessibleTabs = ({ tabs = [] }) => {
           tabs.map(tab => (
             <li key={tab.id}>
               <Link
-                to={`/${tab.id}`}
+                to={`/join/${tab.id}`}
                 role="tab"
+                aria-selected={type === `${tab.id}`}
               >
                 {tab.title}
               </Link>
@@ -22,21 +24,13 @@ const AccessibleTabs = ({ tabs = [] }) => {
         }
       </ul>
 
-      <Routes>
-        {
-          tabs.map(tab => (
-            <Route
-              key={tab.id}
-              path={`/${tab.id}`}
-              element={
-                <div className="tabs__panels flow">
-                  {tab.content}
-                </div>
-              }
-            />
-          ))
-        }
-      </Routes>
+      {
+        selectedTab && (
+          <div className="tabs__panels flow">
+            {selectedTab.content}
+          </div>
+        )
+      }
     </div>
   );
 };

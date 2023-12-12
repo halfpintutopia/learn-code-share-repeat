@@ -1,10 +1,11 @@
 import React from "react";
-import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./components/sass/app.scss";
-import HeroHome from "./components/HeroHome";
-import Header from "./components/Header";
 import NotFound from "./components/NotFound";
+import ActivateUser from "./components/ActivateUser";
+import Homepage from "./components/Homepage";
+import JoinPage from "./components/JoinPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,16 +20,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <Header/>
-        <HeroHome/>
-
         <Routes>
-          {/*<Route path="/details/:id" element={<Details />} />*/}
-          {/*<Route path="/" element={<SearchParams />} />*/}
-          {/*<Route path="/" element={<Homepage/>}/>*/}
-          <Route path="*" element={
-            <NotFound/>
-          } />
+          <Route path="/join/:type" element={<JoinPage />} />
+          <Route path="/activate/:uid/:token" element={<ActivateUser />} />
+          <Route path="/" element={<Homepage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </QueryClientProvider>
     </BrowserRouter>
