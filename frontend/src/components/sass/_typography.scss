@@ -10,7 +10,6 @@ h1.landing {
   font-family: inherit;
   @include font-size(7.875rem);
   font-weight: 600;
-  //font-size: min(2.75rem, rfs-value(7.875rem));
 }
 
 h1.upload {
@@ -51,7 +50,6 @@ h2.video-list {
 
 p {
   font-family: inherit;
-  //$rfs-minimum-font-size: $paragraph-min;
   @include font-size($paragraph-max);
   line-height: 1.5;
 }
