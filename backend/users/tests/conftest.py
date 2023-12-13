@@ -5,11 +5,7 @@ from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
 from faker import Faker
 
-from users.models import Profile
-
 from PIL import Image
-
-# from rest_framework.test import APIClient
 
 User = get_user_model()
 fake = Faker()

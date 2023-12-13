@@ -1,11 +1,7 @@
-import io
-
 import pytest
 
 from users.models import Profile
-from django.core.files.uploadedfile import SimpleUploadedFile
 from django.contrib.auth import get_user_model
-from PIL import Image
 
 User = get_user_model()
 

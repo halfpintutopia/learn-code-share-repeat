@@ -7,8 +7,6 @@ from faker import Faker
 from django.urls import reverse
 from rest_framework import status
 
-from users.tokens import account_activation_token
-
 User = get_user_model()
 fake = Faker()
 
@@ -17,10 +15,10 @@ fake = Faker()
 def test_list_users(client, user):
     """
     GIVEN 1 user instance in the database
-    WHEN a GET request is made to the user-register-list endpoint
+    WHEN a GET request is made to the list-users endpoint
     THEN there should be 1 user returned
     """
-    url = reverse('user-register-list')
+    url = reverse('list-users')
     res = client.get(url)
 
     assert res.status_code == status.HTTP_200_OK
@@ -46,7 +44,7 @@ def test_create_user(client):
         "password": password
     }
 
-    url = reverse('user-register-list')
+    url = reverse('register-user')
 
     res = client.post(url, user, content_type="application/json")
 

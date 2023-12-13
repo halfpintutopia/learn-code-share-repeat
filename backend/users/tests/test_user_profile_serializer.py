@@ -1,11 +1,7 @@
-import io
 import pytest
 
 from users.models import Profile
 from users.serializers import UserProfileSerializer, UserSerializer
-from django.test import RequestFactory
-from django.core.files.uploadedfile import SimpleUploadedFile
-from PIL import Image
 
 
 @pytest.mark.django_db
