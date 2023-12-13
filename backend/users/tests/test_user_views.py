@@ -1,8 +1,6 @@
 import pytest
 
 from django.contrib.auth import get_user_model
-from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode
 from faker import Faker
 from django.urls import reverse
 from rest_framework import status
@@ -24,10 +22,14 @@ def test_user_login(client, user):
     )
 
     url = reverse("retrieve-edit-user", kwargs={
-        "userId": user.id,
+        "slug": user.user_profile.slug,
     })
 
     res = client.get(url)
 
     assert res.status_code == status.HTTP_200_OK
-    assert res.data['username'] == user.username
+    assert res.data.get("id") == user.id
+    assert res.data.get("username") == user.username
+    assert res.data.get("first_name") == user.first_name
+    assert res.data.get("last_name") == user.last_name
+    assert res.data.get("user_profile") is not None
