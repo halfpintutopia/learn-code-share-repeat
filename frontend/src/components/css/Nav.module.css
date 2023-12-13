@@ -1,0 +1,17 @@
+.Nav dialog {
+    /*top: 50%;*/
+    /*left: 50%;*/
+    /*translate: -50% -50%;*/
+    background: white;
+    border-radius: 0.25rem;
+    z-index: 100;
+    pointer-events: auto;
+}
+
+.Nav dialog::backdrop {
+    background: hsl(200 10% 50% / 0.5);
+}
+
+.Nav dialog > * {
+    pointer-events: auto
+}

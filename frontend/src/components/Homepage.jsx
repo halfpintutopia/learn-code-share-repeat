@@ -1,14 +1,12 @@
 import React from "react";
-import Sidebar from "./Sidebar";
-import Content from "./Content";
-import NavBarSimple from "./NavBarSimple";
+import HeroHome from "./HeroHome";
+import Header from "./Header";
 
 const HomePage = () => {
   return (
     <>
-      <NavBarSimple />
-      <Sidebar />
-      <Content />
+      <Header />
+      <HeroHome />
       {/* Add more components here if needed */}
     </>
   );

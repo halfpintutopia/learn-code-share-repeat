@@ -11,21 +11,22 @@ taking inspiration from the Richard Feynman technique, where the quality of cont
 learners and experts collaborates to enhance the learning experience._
 
 <!-- TOC -->
-
-* [UX/UI](#uxui)
-* [Agile](#agile)
+  * [UX/UI](#uxui)
+  * [Agile](#agile)
     * [Future Implementations](#future-implementations)
-* [Schema](#schema)
-* [References](#references)
+  * [Schema](#schema)
+  * [API](#api)
+  * [References](#references)
     * [Inspiration](#inspiration)
     * [Design](#design)
     * [Django](#django)
     * [React](#react)
-        * [Packages](#packages)
+      * [Packages](#packages)
     * [Docker](#docker)
     * [GraphQL](#graphql)
     * [Progressive Web App (PWA)](#progressive-web-app-pwa)
-
+    * [Additional](#additional)
+      * [Newsletter Emails](#newsletter-emails)
 <!-- TOC -->
 
 ## UX/UI
@@ -95,6 +96,10 @@ For further details see the following documentation:
 
 - [Adobe Color](https://color.adobe.com)
 
+#### References | Videos
+
+- [Digital Presentation Of information On A Screen Monitor | Video by Pressmaster](https://www.pexels.com/video/digital-presentation-of-information-on-a-screen-monitor-3130182/)
+
 ### Django
 
 - [Django Authentication Tutorial | Auth0](https://auth0.com/blog/django-authentication/)
@@ -105,11 +110,18 @@ For further details see the following documentation:
 
 ### React
 
-#### Packages
+- [Complete Intro to React, v8](https://frontendmasters.com/courses/complete-react-v8/)
+- [Separation of Concerns in React - How to Use Container and Presentaional Components](https://www.freecodecamp.org/news/separation-of-concerns-react-container-and-presentational-components/)
+- [Creating a Single-Page App (SPA) in React using React Router](https://medium.com/@diegogauna.developer/creating-a-single-page-app-spa-in-react-using-react-router-db37b89b3f73)
+
+#### Packages / Libraries
 
 - [React Query - Tanstack Query v5](https://www.npmjs.com/package/@tanstack/react-query)
 - [Vite](https://vitejs.dev/)
 - [Prettier](https://prettier.io/)
+- [React | Adding a Sass Stylesheet](https://create-react-app.dev/docs/adding-a-sass-stylesheet/)
+- [Bootstrap RFS (Standalone)](https://github.com/twbs/rfs/tree/v9.0.3#installation)
+- [React Router](https://reactrouter.com)
 
 ### Docker
 
@@ -126,3 +138,30 @@ For further details see the following documentation:
 ### Progressive Web App (PWA)
 
 - [Make PWA of a Django Project](https://www.geeksforgeeks.org/make-pwa-of-a-django-project/)
+
+### Additional
+
+- [Cloud Covert | MP4 to WEBM Converter](https://cloudconvert.com/mp4-to-webm)
+- [Self-hosting fonts explained (including Google fonts) // @font-face tutorial](https://www.youtube.com/watch?v=zK-yy6C2Nck)
+    - GDR compliant
+- [How to Use Sass and Styled Components in a React JS Application | Tim Smith](https://www.iamtimsmith.com/blog/how-to-use-styles-in-a-react-js-application)
+- [react-fontawesome not displaying icons | StackOverflow](https://stackoverflow.com/a/69123598/8614652)
+- [Beautiful CSS box-shadow examples](https://getcssscan.com/css-box-shadow-examples)
+- [Creating a reusable pop-up modal in React from scratch](https://blog.logrocket.com/creating-reusable-pop-up-modal-react/)
+- [Create Accessible Tabs with HTML, CSS & JS | Kevin Powell](https://www.youtube.com/watch?v=fI9VM5zzpu8)
+  - [Heydon Works](https://heydonworks.com)
+- [Free Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
+- [Handling Tabs Using Page URLs and React Router Doms](https://app.pluralsight.com/guides/handling-tabs-using-page-urls-and-react-router-doms)
+- [Stately](https://stately.ai)
+- [X State](https://xstate.js.org)
+- [You need to fix your `line-hegiht`](https://www.kevinpowell.co/article/line-height/)
+- [MDN Web Docs](https://developer.mozilla.org)
+- [Sendgrid](https://sendgrid.com)
+
+#### Newsletter Emails
+
+- [Choosing a Responsive Email Framework: MJML vs Foundation for Emails](https://css-tricks.com/choosing-a-responsive-email-framework%E2%80%8Amjml-vs-foundation-for-emails/)
+- [Best Free Responsive HTML Email Template Builders for 2023](https://andrewlaurentiu.medium.com/best-responsive-email-templates-builder-2018-9dedb6883783)
+  - [mjml](https://mjml.io)
+  - [heml](https://heml.io/)
+- [Email BoilerPlate](https://github.com/seanpowell/Email-Boilerplate/blob/master/email.html)

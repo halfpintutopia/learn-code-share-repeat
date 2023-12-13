@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 
 from django.utils.translation import gettext_lazy as _
+from django.template.defaultfilters import slugify
 
 
 class Profile(models.Model):
@@ -61,6 +62,31 @@ class Profile(models.Model):
         auto_now_add=True,
         null=True
     )
+    is_email_verified = models.BooleanField(
+        default=False
+    )
+    email_verification_token = models.CharField(
+        max_length=225
+    )
+    slug = models.SlugField(
+        max_length=225,
+        unique=True
+    )
+
+    def save(self, *args, **kwargs):
+        """
+        Override the default save method so that the slug
+        field is automatically populated with the user's username
+        """
+        if not self.slug:
+            slug = slugify(f"{self.user.username}")
+
+            self.slug = slug
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
+        """
+        String representation of the user's profile
+        """
         return f"{self.user}"

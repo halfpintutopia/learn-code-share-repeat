@@ -1,0 +1,18 @@
+@import "../variables";
+@import "../../../../node_modules/rfs/scss";
+
+.modal {
+  border: none;
+
+  &::backdrop {
+    background: hsl(0 0% 5% / 0.45);
+  }
+
+  &__close-btn {
+    box-shadow: unset;
+
+    background-color: inherit;
+    position: absolute;
+    right: 1em;
+  }
+}

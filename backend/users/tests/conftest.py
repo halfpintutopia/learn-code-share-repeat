@@ -7,14 +7,12 @@ from faker import Faker
 
 from PIL import Image
 
-# from rest_framework.test import APIClient
-
 User = get_user_model()
 fake = Faker()
 
 
 @pytest.fixture(scope="function")
-def custom_user():
+def user():
     """
     Fixture for creating a user object
     """
