@@ -37,3 +37,15 @@ def test_profile_model(user, uploaded_image, uploaded_background_image):
     }
     assert 'test_image' in profile.image.name
     assert 'test_background_image' in profile.background_image.name
+
+
+@pytest.mark.django_db
+def test_profile_has_slug(user):
+    """
+    GIVEN
+    WHEN
+    THEN
+    """
+    profile = Profile.objects.get(user=user)
+
+    assert profile.slug is not None
