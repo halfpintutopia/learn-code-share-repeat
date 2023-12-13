@@ -24,6 +24,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "user",
+            "slug",
             "location",
             "pronoun",
             "personal_website",
@@ -36,6 +37,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = [
             'id',
+            'slug',
             "joined_date",
             "is_email_verified",
             "email_verification_token"
