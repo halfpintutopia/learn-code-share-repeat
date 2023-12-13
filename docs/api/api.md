@@ -58,13 +58,13 @@
 
 #### User Profile:
 
-| HTTP   | URI           | CRUD operation                                       | view name    |        |
-|--------|---------------|------------------------------------------------------|--------------|--------|
-| POST   | /api/users    | Create a new user                                    | user_create  | LIST   |
-| PUT    | /api/{userId} | Edit a user’s profile                                | user_update  | DETAIL |
-| GET    | /api/{userId} | Retrieve a user’s profile                            | user_profile | DETAIL |
-| DELETE | /api/{userId} | Delete a user’s profile (after a successful request) | user_delete  | DETAIL |
-| GET    | /api/users    | Retrieve a list of all users                         | user_list    | LIST   |
+| HTTP   | URI         | CRUD operation                                       | view name    |        |
+|--------|-------------|------------------------------------------------------|--------------|--------|
+| POST   | /api/users  | Create a new user                                    | user_create  | LIST   |
+| PUT    | /api/{slug} | Edit a user’s profile                                | user_update  | DETAIL |
+| GET    | /api/{slug} | Retrieve a user’s profile                            | user_profile | DETAIL |
+| DELETE | /api/{slug} | Delete a user’s profile (after a successful request) | user_delete  | DETAIL |
+| GET    | /api/users  | Retrieve a list of all users                         | user_list    | LIST   |
 
 ---
 
