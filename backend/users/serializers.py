@@ -15,6 +15,17 @@ class UserProfileSerializer(serializers.ModelSerializer):
     'id' and 'joined_date' fields are read-only
     """
     user = serializers.ReadOnlyField(source='user.username')
+    is_owner = serializers.SerializerMethodField()
+
+    def get_is_owner(self, obj):
+        """
+        Check if the current user is the owner of the profile
+        """
+        request = self.context["request"]
+
+        if request and not request.user.is_anonymous:
+            return request.user == obj.user
+        return False
 
     class Meta:
         """
@@ -33,7 +44,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
             "background_image",
             "joined_date",
             "is_email_verified",
-            "email_verification_token"
+            "email_verification_token",
+            "is_owner"
         ]
         read_only_fields = [
             'id',

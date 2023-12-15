@@ -27,7 +27,7 @@ class RegisterUser(APIView):
         """
         Update the user's profile details and send a verification email
         """
-        serializer = UserSerializer(data=request.data)
+        serializer = UserSerializer(data=request.data, context={'request': request})
 
         if serializer.is_valid():
             user = serializer.save()
