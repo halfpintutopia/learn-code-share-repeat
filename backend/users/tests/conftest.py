@@ -1,8 +1,12 @@
 import io
 
 import pytest
+
 from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
+
+from rest_framework.test import APIClient, APIRequestFactory
+
 from faker import Faker
 
 from PIL import Image
@@ -29,6 +33,21 @@ def user():
         last_name=last_name,
         password=password
     )
+
+
+@pytest.fixture(scope="function")
+def authenticated_user(user):
+    """
+    Fixture for creating an authenticated user object
+    """
+    factory = APIRequestFactory()
+    request = factory.get("/")
+    request.user = user
+
+    client = APIClient()
+    client.force_authenticate(user=user)
+
+    return request, client, user
 
 
 @pytest.fixture(scope="function")

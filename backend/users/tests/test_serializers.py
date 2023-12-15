@@ -7,16 +7,19 @@ from users.serializers import UserProfileSerializer, UserSerializer
 
 
 @pytest.mark.django_db
-def test_user_serializer(user):
+def test_user_serializer(authenticated_user):
     """
     GIVEN a user object
     WHEN a serializer is instantiated with the user object
     THEN the serializer should return a valid representation of the user object
     """
-    serializer = UserSerializer(instance=user)
-    data = serializer.data
+    request, client, user = authenticated_user
 
-    print(data)
+    serializer = UserSerializer(
+        instance=user,
+        context={"request": request}
+    )
+    data = serializer.data
 
     assert data["id"] == user.id
     assert data["email"] == user.email
@@ -26,12 +29,18 @@ def test_user_serializer(user):
 
 
 @pytest.mark.django_db
-def test_profile_serializer(user, uploaded_image, uploaded_background_image):
+def test_profile_serializer(
+        authenticated_user,
+        uploaded_image,
+        uploaded_background_image
+):
     """
     GIVEN a valid custom user serializer
     WHEN the data is passed to the serializer
     THEN the serializer should be valid
     """
+    request, client, user = authenticated_user
+
     profile = Profile.objects.get(user=user)
     profile.location = "Switzerland"
     profile.pronoun = "she/her"
@@ -43,7 +52,10 @@ def test_profile_serializer(user, uploaded_image, uploaded_background_image):
     profile.background_image = uploaded_background_image
     profile.save()
 
-    serializer = UserProfileSerializer(profile)
+    serializer = UserProfileSerializer(
+        profile,
+        context={"request": request}
+    )
 
     assert serializer.data.get('id') == user.id
     assert serializer.data.get("location") == profile.location
@@ -55,30 +67,43 @@ def test_profile_serializer(user, uploaded_image, uploaded_background_image):
 
 
 @pytest.mark.django_db
-def test_user_serializer(user):
-    """
-    GIVEN a valid custom user serializer
-    WHEN the data is passed to the serializer
-    THEN the serializer should be valid
-    """
-    serializer = UserSerializer(user)
-
-    assert serializer.data.get("username") == user.username
-    assert serializer.data.get("first_name") == user.first_name
-    assert serializer.data.get("last_name") == user.last_name
-    assert serializer.data.get("email") == user.email
-
-
-@pytest.mark.django_db
-def test_user_profile_serializer_with_slug(user):
+def test_user_profile_serializer_with_slug(authenticated_user):
     """
     GIVEN a valid custom user serializer
     WHEN the data is passed to the serializer
     THEN the serializer should be valid and contain a slug
     """
+    request, client, user = authenticated_user
+
     profile = Profile.objects.get(user=user)
 
-    serializer = UserProfileSerializer(profile)
+    serializer = UserProfileSerializer(
+        profile,
+        context={"request": request}
+    )
 
     assert serializer.data.get('slug') is not None
     assert serializer.data.get("slug") == slugify(user.username)
+
+
+@pytest.mark.django_db
+def test_contains_expected_fields(authenticated_user):
+    """
+    GIVEN a valid custom user serializer
+    WHEN the data is passed to the serializer
+    THEN the serializer should be valid and contain the expected fields
+    """
+    request, client, user = authenticated_user
+
+    profile = Profile.objects.get(user=user)
+
+    serializer = UserProfileSerializer(
+        profile,
+        context={"request": request}
+    )
+
+    data = serializer.data
+
+    assert set(data.keys()) == {"id", "user", "slug", "location", "pronoun", "personal_website", "social_links",
+                                "image", "background_image", "joined_date", "is_email_verified",
+                                "email_verification_token", "is_owner"}

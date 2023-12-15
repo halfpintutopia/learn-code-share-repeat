@@ -3,9 +3,12 @@ import pytest
 from django.contrib.auth import get_user_model
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
-from faker import Faker
 from django.urls import reverse
+
 from rest_framework import status
+from rest_framework.test import APIClient, force_authenticate
+
+from faker import Faker
 
 User = get_user_model()
 fake = Faker()
