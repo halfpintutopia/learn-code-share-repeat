@@ -6,6 +6,7 @@ import NotFound from "./components/NotFound";
 import ActivateUser from "./components/ActivateUser";
 import Homepage from "./components/Homepage";
 import JoinPage from "./components/JoinPage";
+import { AuthProvider } from "./components/AuthContext";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,12 +21,14 @@ const App = () => {
   return (
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
-        <Routes>
-          <Route path="/join/:type" element={<JoinPage />} />
-          <Route path="/activate/:uid/:token" element={<ActivateUser />} />
-          <Route path="/" element={<Homepage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <AuthProvider>
+          <Routes>
+            <Route path="/join/:type" element={<JoinPage />} />
+            <Route path="/activate/:uid/:token" element={<ActivateUser />} />
+            <Route path="/" element={<Homepage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </AuthProvider>
       </QueryClientProvider>
     </BrowserRouter>
   );

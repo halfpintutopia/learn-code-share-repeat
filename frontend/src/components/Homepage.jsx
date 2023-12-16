@@ -1,15 +1,11 @@
-import React from "react";
-import HeroHome from "./HeroHome";
-import Header from "./Header";
+import React, { useContext } from "react";
+import { AuthContext } from "./AuthContext";
+import VideoListPage from "./VideoListPage";
+import LandingPage from "./LandingPage";
 
 const HomePage = () => {
-  return (
-    <>
-      <Header />
-      <HeroHome />
-      {/* Add more components here if needed */}
-    </>
-  );
+  const { isAuthenticated } = useContext(AuthContext);
+  return isAuthenticated ? <VideoListPage /> : <LandingPage />;
 };
 
 export default HomePage;
