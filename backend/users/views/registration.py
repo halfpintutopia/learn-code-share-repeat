@@ -5,6 +5,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.translation import gettext_lazy as _
 from django.utils.encoding import force_bytes, force_str
 from django.conf import settings
+from django.shortcuts import get_object_or_404
 
 from rest_framework.views import APIView
 from rest_framework import status
@@ -62,20 +63,16 @@ class ActivateUser(APIView):
     """
 
     @staticmethod
-    def get(request, uidb64, token):
-        try:
-            uid = force_str(urlsafe_base64_decode(uidb64))
-            user = User.objects.get(pk=uid)
-        except (
-                TypeError,
-                ValueError,
-                OverflowError,
-                User.DoesNotExist
-        ):
-            user = None
-        if user is not None and user.user_profile.email_verification_token == token:
+    def post(request):
+        """
+        Activate user account with the token provided in the email
+        """
+        uid = force_str(urlsafe_base64_decode(request.data.get("uidb64")))
+        user = get_object_or_404(User, pk=uid)
+
+        if user is not None and user.user_profile.email_verification_token == request.data.get("token"):
             user.user_profile.is_email_verified = True
-            user.save()
+            user.user_profile.save()
             return Response(
                 {
                     "message": "Thank you for confirming your email . Now you can login to you account"
@@ -84,6 +81,6 @@ class ActivateUser(APIView):
         else:
             return Response(
                 {
-                    "error": "Activation link is invalid"
+                    "message": "Activation link is invalid"
                 }
             )
