@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link } from "react-router-dom";
+import { postData } from "./fetchData";
 
 const initialRegisterFormModalData = {
   username: '',
@@ -13,7 +14,7 @@ const initialErrorState = {
   password: ''
 };
 
-const api = 'http://localhost:8000/api/users';
+const api = 'http://localhost:8000/api/users/register/';
 const emailRegex = /\S+@\S+\.\S+/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{16,}$/;
 
@@ -69,13 +70,7 @@ const RegisterForm = () => {
 
     if (validateForm()) {
       try {
-        const response = await fetch(api, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formState)
-        });
+        const response = await postData(api, formState);
         if (!response.ok) {
           const errorData = await response.json();
           setErrorMessage(errorData.username);
