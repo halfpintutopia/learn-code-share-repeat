@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { postData } from "./fetchData";
 import { AuthContext } from "./AuthContext";
 
@@ -16,12 +16,12 @@ const initialErrorState = {
 const api = `http://localhost:8000/auth/token/`;
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const { setIsAuthenticated } = useContext(AuthContext);
   const focusInputRef = useRef(null);
   const [formState, setFormState] = useState(initialRegisterFormModalData);
   const [errors, setErrors] = useState(initialErrorState);
   const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
 
   const validateForm = () => {
     let newErrors = { ...initialErrorState };
@@ -64,8 +64,8 @@ const LoginForm = () => {
           localStorage.setItem('accessToken', data.access);
           localStorage.setItem('refreshToken', data.refresh);
           setIsAuthenticated(true);
-          setSuccessMessage('You have successfully created an account, please ');
           setFormState(initialRegisterFormModalData);
+          navigate('/');
         }
 
       } catch (error) {
@@ -79,9 +79,7 @@ const LoginForm = () => {
   return (
     <div>
       {
-        successMessage ? (
-          <span className="alert alert__success">{successMessage}</span>
-        ) : errorMessage ? (
+        errorMessage ? (
           <span className="alert alert__error">{errorMessage} Please sign in
             <Link
               to={`/join/login`}
