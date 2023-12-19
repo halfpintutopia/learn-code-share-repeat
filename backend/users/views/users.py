@@ -37,13 +37,15 @@ class ListUsers(APIView):
         return Response(serializer.data)
 
 
-class GetUpdateUserProfileView(APIView):
+class GetUpdateUserView(APIView):
     """
     View to get and update user's profile
     """
     permission_classes = [
         IsOwnerOrReadOnly
     ]
+
+    serializer_class = UserSerializer
 
     def get(self, request, slug):
         """
@@ -52,21 +54,17 @@ class GetUpdateUserProfileView(APIView):
         profile = get_object_or_404(Profile, slug=slug)
         user = profile.user
         self.check_object_permissions(self.request, user)
-        # self.check_permissions(self.request, profile)
 
         serializer = UserSerializer(
             user,
             context={"request": request}
         )
-        # serializer = UserProfileSerializer(profile)
         return Response(serializer.data)
 
     def post(self, request, slug):
         """
         Update the user's profile details
         """
-        serializer_class = UserSerializer
-        # serializer_class = UserProfileSerializer
 
         profile = get_object_or_404(Profile, slug=slug)
         user = profile.user
@@ -76,7 +74,6 @@ class GetUpdateUserProfileView(APIView):
             user,
             data=request.data
         )
-        # serializer = UserProfileSerializer(profile.user, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
