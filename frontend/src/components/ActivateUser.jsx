@@ -6,7 +6,7 @@ const ActivateUser = () => {
   const navigate = useNavigate();
   const { uid, token } = useParams();
 
-  const api = `http://localhost:8000/api/users/activate/`;
+  const api = `http://localhost:8000/users/activate/`;
 
   useEffect(() => {
     async function activateUser() {

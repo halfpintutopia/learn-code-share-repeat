@@ -1,22 +1,22 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link } from "react-router-dom";
-import { fetchData } from "./fetchData";
+import { postData } from "./fetchData";
+import { AuthContext } from "./AuthContext";
 
 const initialRegisterFormModalData = {
   username: '',
-  email: '',
   password: ''
 };
 
 const initialErrorState = {
   username: '',
-  email: '',
   password: ''
 };
 
-const api = `http://localhost:8000/api/auth/token/`;
+const api = `http://localhost:8000/auth/token/`;
 
 const LoginForm = () => {
+  const { setIsAuthenticated } = useContext(AuthContext);
   const focusInputRef = useRef(null);
   const [formState, setFormState] = useState(initialRegisterFormModalData);
   const [errors, setErrors] = useState(initialErrorState);
@@ -54,15 +54,18 @@ const LoginForm = () => {
 
     if (validateForm()) {
       try {
-        const response = fetchData(api);
+        const response = await postData(api, formState);
 
         if (!response.ok) {
           const errorData = await response.json();
-          setErrorMessage(errorData.username);
+          setErrorMessage(errorData.detail);
         } else {
+          const data = await response.json();
+          localStorage.setItem('accessToken', data.access);
+          localStorage.setItem('refreshToken', data.refresh);
+          setIsAuthenticated(true);
           setSuccessMessage('You have successfully created an account, please ');
           setFormState(initialRegisterFormModalData);
-
         }
 
       } catch (error) {
@@ -81,7 +84,7 @@ const LoginForm = () => {
         ) : errorMessage ? (
           <span className="alert alert__error">{errorMessage} Please sign in
             <Link
-              to={`/login`}
+              to={`/join/login`}
               role="tab"
             >
             here.

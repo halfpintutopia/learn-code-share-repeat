@@ -14,7 +14,7 @@ const initialErrorState = {
   password: ''
 };
 
-const api = 'http://localhost:8000/api/users/register/';
+const api = 'http://localhost:8000/users/register/';
 const emailRegex = /\S+@\S+\.\S+/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{16,}$/;
 
