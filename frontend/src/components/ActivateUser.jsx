@@ -1,17 +1,16 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
 import { postData } from "./fetchData";
+import { ACTIVATE_USER } from "./constants";
 
 const ActivateUser = () => {
   const navigate = useNavigate();
   const { uid, token } = useParams();
 
-  const api = `http://localhost:8000/users/activate/`;
-
   useEffect(() => {
     async function activateUser() {
       try {
-        const response = await postData(api, {
+        const response = await postData(ACTIVATE_USER, {
           uidb64: uid,
           token: token
         });
@@ -30,7 +29,7 @@ const ActivateUser = () => {
     activateUser().then(() => {
     });
 
-  }, [uid, token, api, navigate]);
+  }, [uid, token, navigate]);
 
   return null;
 };

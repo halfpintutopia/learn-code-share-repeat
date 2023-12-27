@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link } from "react-router-dom";
 import { postData } from "./fetchData";
+import { REGISTER_USER } from "./constants";
 
 const initialRegisterFormModalData = {
   username: '',
@@ -14,7 +15,6 @@ const initialErrorState = {
   password: ''
 };
 
-const api = 'http://localhost:8000/users/register/';
 const emailRegex = /\S+@\S+\.\S+/;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{16,}$/;
 
@@ -70,7 +70,7 @@ const RegisterForm = () => {
 
     if (validateForm()) {
       try {
-        const response = await postData(api, formState);
+        const response = await postData(REGISTER_USER, formState);
         if (!response.ok) {
           const errorData = await response.json();
           setErrorMessage(errorData.username);

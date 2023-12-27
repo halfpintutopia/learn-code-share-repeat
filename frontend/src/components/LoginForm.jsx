@@ -1,7 +1,7 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { postData } from "./fetchData";
-import { AuthContext } from "./AuthContext";
+import { TOKEN_OBTAIN_API } from "./constants";
 
 const initialRegisterFormModalData = {
   username: '',
@@ -13,11 +13,8 @@ const initialErrorState = {
   password: ''
 };
 
-const api = `http://localhost:8000/auth/token/`;
-
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { setIsAuthenticated } = useContext(AuthContext);
   const focusInputRef = useRef(null);
   const [formState, setFormState] = useState(initialRegisterFormModalData);
   const [errors, setErrors] = useState(initialErrorState);
@@ -54,16 +51,15 @@ const LoginForm = () => {
 
     if (validateForm()) {
       try {
-        const response = await postData(api, formState);
+        const response = await postData(TOKEN_OBTAIN_API, formState);
 
         if (!response.ok) {
           const errorData = await response.json();
           setErrorMessage(errorData.detail);
         } else {
           const data = await response.json();
-          localStorage.setItem('accessToken', data.access);
-          localStorage.setItem('refreshToken', data.refresh);
-          setIsAuthenticated(true);
+          localStorage.setItem('access_token', data.access);
+          localStorage.setItem('refresh_token', data.refresh);
           setFormState(initialRegisterFormModalData);
           navigate('/');
         }
@@ -73,7 +69,6 @@ const LoginForm = () => {
         setErrorMessage(('An unexpected error occurred.'));
       }
     }
-
   };
 
   return (
@@ -135,7 +130,6 @@ const LoginForm = () => {
         )
       }
     </div>
-
   );
 };
 
