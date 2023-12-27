@@ -1,25 +1,41 @@
 @import "../variables";
 @import "../../../../node_modules/rfs/scss";
 
-
-
-/* extra styling to make the tabs look better that wasn't in the video */
 .tabs-container {
-  padding: 2.5rem;
+
+  //padding: 2.5rem;
+
   border-radius: 0.5rem;
   background: $concrete-100;
+
+  @media screen and (width > 56rem) {
+    min-height: 37.5em;
+    @include padding-left(7.625em);
+    @include padding-right(7.625em);
+    @include padding-top(1.1875em);
+    @include padding-bottom(3.375em);
+  }
 
   &__list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1rem;
+    color: $cod-gray-600;
+  }
+
+  li {
+    text-align: center;
+    flex: 1 0 0;
+  }
+
+  li:has([aria-selected="true"]) {
+    border-bottom: 1px solid $punch-600;
   }
 
   [aria-selected="true"] {
     text-decoration-thickness: 0.25em;
     text-underline-offset: 0.5em;
-    color: orangered;
+    color: $cod-gray-950;
   }
 }
