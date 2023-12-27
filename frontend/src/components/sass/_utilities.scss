@@ -194,7 +194,7 @@ section {
   }
 
   &[data-space="narrow"] {
-    @include padding-top(3.25rem);
+    //@include padding-top(3.25rem);
     @include padding-bottom(3.25rem);
     //--_padding-block: clamp(2rem, 1.5652rem + 2.1739vw, 3.25rem);
   }

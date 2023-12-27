@@ -9,7 +9,7 @@
   background: $concrete-100;
 
   @media screen and (width > 56rem) {
-    min-height: 37.5em;
+    @include rfs(37.5rem, min-height);
     @include padding-left(7.625em);
     @include padding-right(7.625em);
     @include padding-top(1.1875em);
@@ -21,16 +21,59 @@
     margin: 0;
     padding: 0;
     display: flex;
-    color: $cod-gray-600;
+    //color: $cod-gray-600;
+
+    li {
+      text-align: center;
+      flex: 1 0 0;
+    }
   }
 
-  li {
-    text-align: center;
-    flex: 1 0 0;
-  }
+  //effect
+  &__list {
+    li {
+      overflow: hidden;
+      position: relative;
+      @include padding-bottom(1rem);
 
-  li:has([aria-selected="true"]) {
-    border-bottom: 1px solid $punch-600;
+      a {
+        color: $cod-gray-600;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        background-color: $punch-600;
+
+        translate: var(--_translate, 0);
+
+        scale: var(--_width, 0) 1;
+        transition: scale 250ms,
+        translate 250ms;
+      }
+
+      &:hover {
+        &::after {
+          --_width: 1;
+        }
+
+        & + li {
+          --_translate: -100%;
+        }
+      }
+
+      &:has(+ :hover){
+        --_translate: 100%;
+      }
+
+      &:has([aria-selected="true"]) {
+        --_width: 1;
+      }
+    }
   }
 
   [aria-selected="true"] {
