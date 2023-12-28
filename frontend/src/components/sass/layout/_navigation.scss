@@ -1,0 +1,193 @@
+nav ul {
+  --_gap: 2rem; /*em or rem*/
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  overflow: hidden;
+  position: relative;
+  padding: calc(var(--_gap) / 2);
+  display: grid;
+  align-content: center;
+}
+
+//.header-base {
+//  box-shadow: 0 4px 4px 0 hsla(0, 0%, 0%, 0.25);
+//}
+
+.logo {
+  //--_logo-margin: 1.5rem clamp(1.5rem, 5vw, 3.5rem);
+  //margin: var(--_logo-margin);
+
+  &:has(+ .nav-toggle[aria-expanded="true"]) {
+    z-index: 200;
+  }
+}
+
+.primary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .primary-navigation {
+    position: fixed;
+    z-index: 100;
+    inset: 0 0 0 0;
+    background-color: white;
+    flex-direction: column;
+    padding: min(20rem, 15vh) 0;
+    transform: translateX(-100%);
+    transition: transform 350ms ease-out;
+
+    &[data-visible="true"] {
+      transform: translateX(0);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    @supports (backdrop-filter: blur(1rem)) {
+      /*background-color: hsl(0 0% 100% / 0.1);*/
+      /*backdrop-filter: blur(1rem);*/
+    }
+
+    @media screen and (width > 34.5em) {
+      position: relative;
+      flex-direction: row;
+      inset: unset;
+      padding: 0;
+      background-color: unset;
+      transform: translateX(0);
+    }
+  }
+}
+
+/*https://codepen.io/staffanmowitz/pen/KoKgmo*/
+//.nav-toggle {
+//  position: absolute;
+//  z-index: var(--top-layer);
+//  /*top: 2rem;*/
+//  right: 1rem;
+//  border: 0;
+//  background: none;
+//
+//  svg {
+//    --_stroke: hsl(var(--green-smoke-950));
+//    stroke: var(--_stroke);
+//    transition: 0.2s;
+//
+//    g {
+//      &:first-child {
+//        opacity: 1;
+//        transition: opacity 0s 0.2s;
+//
+//        line {
+//          transition: transform 0.2s 0.2s;
+//          transform: translateY(0);
+//        }
+//      }
+//
+//      &:last-child {
+//        opacity: 0;
+//        transition: opacity 0s 0.2s;
+//
+//        line {
+//          transition: transform 0.2s;
+//          transform: rotate(0deg);
+//          transform-origin: center;
+//        }
+//      }
+//    }
+//  }
+//
+//  &[aria-expanded="true"] svg g {
+//    &:first-child {
+//      opacity: 0;
+//
+//      line {
+//        transition: transform 0.2s;
+//
+//        &:first-child {
+//          transform: translateY(7px);
+//        }
+//
+//        &:last-child {
+//          transform: translateY(-7px);
+//        }
+//      }
+//    }
+//
+//    &:last-child {
+//      opacity: 1;
+//
+//      line {
+//        transition: transform 0.2s 0.2s;
+//
+//        &:first-child {
+//          transform: rotate(45deg);
+//        }
+//
+//        &:last-child {
+//          transform: rotate(-45deg);
+//        }
+//      }
+//    }
+//  }
+//
+//  @media screen and (width > 34.5em) {
+//    display: none;
+//  }
+//}
+
+.nav-toggle {
+  position: absolute;
+  z-index: var(--top-layer);
+  right: 0;
+  border: 0;
+  background: none;
+
+  svg {
+    --_stroke: hsl(var(--green-smoke-950));
+    stroke: var(--_stroke);
+    transition: 0.2s;
+
+    path {
+      transition: transform 0.2s;
+      transform-origin: center;
+    }
+  }
+
+  &[aria-expanded="true"] {
+    z-index: 200;
+    svg {
+      path:first-child {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      path:nth-child(2) {
+        opacity: 0;
+      }
+
+      path:last-child {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+    }
+  }
+
+  @media screen and (width > 34.5em) {
+    display: none;
+  }
+}
+
+
+
+
+
+
+
+
+

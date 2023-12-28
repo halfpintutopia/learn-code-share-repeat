@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link } from "react-router-dom";
-import { postData } from "./fetchData";
-import { REGISTER_USER } from "./constants";
+import { postData } from "../helpers/fetchData";
+import { REGISTER_USER } from "../constants/constants";
 
 const initialRegisterFormModalData = {
   username: '',

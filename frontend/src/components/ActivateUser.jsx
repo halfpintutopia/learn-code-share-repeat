@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
-import { postData } from "./fetchData";
-import { ACTIVATE_USER } from "./constants";
+import { postData } from "../helpers/fetchData";
+import { ACTIVATE_USER } from "../constants/constants";
 
 const ActivateUser = () => {
   const navigate = useNavigate();

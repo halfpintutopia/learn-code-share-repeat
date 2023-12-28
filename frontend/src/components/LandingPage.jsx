@@ -1,14 +1,20 @@
-import React from "react";
-import HeroHome from "./HeroHome";
-import Header from "./Header";
+import React from 'react';
+import HeaderImage from "../../public/media/videos/person_walking_on_laptop.webm";
+import './sass/main.scss';
 
 const LandingPage = () => {
   return (
-    <>
-      <Header />
-      <HeroHome />
-      {/* Add more components here if needed */}
-    </>
+    <section data-space="narrow">
+      <div className="video-container container" data-width="wide">
+        <div className="overlay">
+          <h1 className="title">Code with Clarity & Confidence</h1>
+        </div>
+        <video className="video-bg" autoPlay muted loop>
+          <source src={HeaderImage} type="video/webm"/>
+        </video>
+
+      </div>
+    </section>
   );
 };
 

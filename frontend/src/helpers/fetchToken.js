@@ -1,4 +1,4 @@
-import { TOKEN_REFRESH_API } from "./constants";
+import { TOKEN_REFRESH_API } from "../constants/constants";
 
 const fetchToken = async function fetchWithTokenRefresh(url, options) {
   const res = await fetch(url, {
@@ -35,12 +35,14 @@ const fetchToken = async function fetchWithTokenRefresh(url, options) {
       if (retryRes.ok) {
         return retryRes;
       }
-    }
-  } else {
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
-  }
+    } else {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
 
+      // Redirect to login page
+      // history.push('/join/login');
+    }
+  }
   return res;
 };
 

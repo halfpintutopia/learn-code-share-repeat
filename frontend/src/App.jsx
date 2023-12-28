@@ -2,7 +2,7 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
-import "./components/sass/app.scss";
+import "./components/sass/main.scss";
 import NotFound from "./components/NotFound";
 import ActivateUser from "./components/ActivateUser";
 import Homepage from "./components/Homepage";

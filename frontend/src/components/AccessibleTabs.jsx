@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import "./sass/app.scss";
+import "./sass/main.scss";
 
 const AccessibleTabs = ({ tabs = [], type }) => {
   const selectedTab = tabs.find(tab => tab.id === type);

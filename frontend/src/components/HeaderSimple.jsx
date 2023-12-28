@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import logo from '../../public/media/images/logo-light.svg';
 
-import "./sass/app.scss";
+import "./sass/main.scss";
 
 const HeaderSimple = () => {
 

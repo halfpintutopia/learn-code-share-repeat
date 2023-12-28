@@ -1,5 +1,5 @@
 import React from 'react';
-import './sass/app.scss';
+import './sass/main.scss';
 import JoinImage from "../../public/media/videos/digital_presentation_on_screen.webm";
 import AccessibleTabs from "./AccessibleTabs";
 import LoginForm from "./LoginForm";
