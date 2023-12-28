@@ -1,5 +1,5 @@
-@import '../../../node_modules/rfs/scss';
-@import "_variables.scss";
+@import "../abstracts/variables";
+@import "../../../../node_modules/rfs/scss";
 
 button, .btn {
   border: none;

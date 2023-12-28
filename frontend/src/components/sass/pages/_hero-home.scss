@@ -1,5 +1,5 @@
-@import '../../../../node_modules/rfs/scss';
-@import '../variables';
+@import "../abstracts/variables";
+@import "../../../../node_modules/rfs/scss";
 
 .video-container {
   display: flex;

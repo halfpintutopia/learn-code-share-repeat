@@ -1,5 +1,5 @@
-@import "variables";
-@import "../../../node_modules/rfs/scss";
+@import "../abstracts/variables";
+@import "../../../../node_modules/rfs/scss";
 
 .form-text {
   //@include padding-left(7.625em);
