@@ -52,3 +52,27 @@ class VideoList(ListAPIView):
             serializer.errors,
             status=status.HTTP_400_BAD_REQUEST
         )
+
+
+class VideoDetail(ListAPIView):
+    """
+    View to get a single video
+    """
+    permission_classes = [
+        IsAuthenticatedOrReadOnly,
+        IsOwnerOrReadOnly
+    ]
+
+    serializer_class = VideoSerializer
+
+    @staticmethod
+    def get(request, pk):
+        """
+        Get a single video
+        """
+        video = Video.objects.get(pk=pk)
+        serializer = VideoSerializer(
+            video,
+            context={"request": request}
+        )
+        return Response(serializer.data)
