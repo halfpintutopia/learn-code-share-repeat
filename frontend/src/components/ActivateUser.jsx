@@ -1,19 +1,23 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
+import { postData } from "../helpers/fetchData";
+import { ACTIVATE_USER } from "../constants/constants";
 
 const ActivateUser = () => {
   const navigate = useNavigate();
   const { uid, token } = useParams();
 
-  const api = `/api/users/activate/${uid}/${token}/`;
-
   useEffect(() => {
-    async function fetchData() {
+    async function activateUser() {
       try {
-        const response = await fetch(api);
+        const response = await postData(ACTIVATE_USER, {
+          uidb64: uid,
+          token: token
+        });
         if (!response.ok) {
           navigate('/join/register');
         } else {
+
           navigate('/join/login');
         }
       } catch (error) {
@@ -22,10 +26,10 @@ const ActivateUser = () => {
     }
 
     // suppresses warning, doing nothing with Promise.
-    fetchData().then(() => {
+    activateUser().then(() => {
     });
 
-  }, [uid, token, api, navigate]);
+  }, [uid, token, navigate]);
 
   return null;
 };

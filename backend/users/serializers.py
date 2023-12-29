@@ -1,7 +1,4 @@
 from django.contrib.auth import get_user_model
-from django.core.mail import EmailMessage
-from django.utils.translation import gettext_lazy as _
-from django.template.loader import render_to_string
 from rest_framework import serializers
 
 from .models import Profile
@@ -15,6 +12,17 @@ class UserProfileSerializer(serializers.ModelSerializer):
     'id' and 'joined_date' fields are read-only
     """
     user = serializers.ReadOnlyField(source='user.username')
+    is_owner = serializers.SerializerMethodField()
+
+    def get_is_owner(self, obj):
+        """
+        Check if the current user is the owner of the profile
+        """
+        request = self.context["request"]
+
+        if request and not request.user.is_anonymous:
+            return request.user == obj.user
+        return False
 
     class Meta:
         """
@@ -33,7 +41,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
             "background_image",
             "joined_date",
             "is_email_verified",
-            "email_verification_token"
+            "email_verification_token",
+            "is_owner"
         ]
         read_only_fields = [
             'id',
@@ -69,7 +78,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """
-        Create a new user and profile instance. Send an email notification to the user
+        Create a new user and profile instance
         """
         user = User.objects.create_user(**validated_data)
         return user

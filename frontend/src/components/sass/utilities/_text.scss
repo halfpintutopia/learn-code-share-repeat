@@ -1,0 +1,31 @@
+@import "../abstracts/variables";
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.text-dark {
+  color: $cod-gray-950;
+}
+
+.text-dark-accent {
+  color: $apple-500;
+}
+
+.text-accent {
+  color: $apple-100;
+}
+
+.text-white {
+  color: $concrete-100;
+}
+
+.align-bottom {
+  margin-top: auto;
+}
+
+.alert {
+  &__error {
+    color: $tall-poppy-700;
+  }
+}

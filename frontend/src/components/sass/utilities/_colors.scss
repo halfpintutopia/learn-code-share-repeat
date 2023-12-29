@@ -1,0 +1,18 @@
+@import "../abstracts/variables";
+
+/* Background */
+.background-dark {
+  background-color: $cod-gray-950;
+}
+
+.background-dark-accent {
+  background-color: $apple-500;
+}
+
+.background-accent {
+  background-color: $apple-100;
+}
+
+.background-light {
+  background-color: $concrete-100;
+}

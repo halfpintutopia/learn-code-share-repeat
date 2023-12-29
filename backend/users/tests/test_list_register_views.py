@@ -3,9 +3,12 @@ import pytest
 from django.contrib.auth import get_user_model
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
-from faker import Faker
 from django.urls import reverse
+
 from rest_framework import status
+from rest_framework.test import APIClient, force_authenticate
+
+from faker import Faker
 
 User = get_user_model()
 fake = Faker()
@@ -68,11 +71,15 @@ def test_activate_user(client, user):
     """
     uidb64 = urlsafe_base64_encode(force_bytes(user.pk))
 
-    url = reverse("activate", kwargs={
+    data = {
         "uidb64": uidb64,
         "token": user.user_profile.email_verification_token
-    })
-    res = client.get(url)
+    }
+    url = reverse("activate")
+    res = client.post(url, data)
+
+    user.refresh_from_db()  # Refresh the user object from the database
 
     assert res.status_code == status.HTTP_200_OK
     assert res.data["message"] == "Thank you for confirming your email . Now you can login to you account"
+    assert user.user_profile.is_email_verified is True

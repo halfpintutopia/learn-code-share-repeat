@@ -19,9 +19,10 @@ learners and experts collaborates to enhance the learning experience._
   * [References](#references)
     * [Inspiration](#inspiration)
     * [Design](#design)
+      * [References | Videos](#references--videos)
     * [Django](#django)
     * [React](#react)
-      * [Packages](#packages)
+      * [Packages / Libraries](#packages--libraries)
     * [Docker](#docker)
     * [GraphQL](#graphql)
     * [Progressive Web App (PWA)](#progressive-web-app-pwa)
@@ -107,12 +108,14 @@ For further details see the following documentation:
 - [Secure Your Django web apps with Auth0](https://www.linkedin.com/pulse/secure-your-django-web-apps-auth0-sanchit-khurana/)
 - [Tutorial | Django Girl](https://tutorial.djangogirls.org)
 - [Adding Social Authentication to Django](https://testdriven.io/blog/django-social-auth/)
+- [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html)
 
 ### React
 
 - [Complete Intro to React, v8](https://frontendmasters.com/courses/complete-react-v8/)
 - [Separation of Concerns in React - How to Use Container and Presentaional Components](https://www.freecodecamp.org/news/separation-of-concerns-react-container-and-presentational-components/)
 - [Creating a Single-Page App (SPA) in React using React Router](https://medium.com/@diegogauna.developer/creating-a-single-page-app-spa-in-react-using-react-router-db37b89b3f73)
+- [React Router 6: Authentication](https://www.robinwieruch.de/react-router-authentication/)
 
 #### Packages / Libraries
 
@@ -122,6 +125,7 @@ For further details see the following documentation:
 - [React | Adding a Sass Stylesheet](https://create-react-app.dev/docs/adding-a-sass-stylesheet/)
 - [Bootstrap RFS (Standalone)](https://github.com/twbs/rfs/tree/v9.0.3#installation)
 - [React Router](https://reactrouter.com)
+- [How to Use React Helmut - With Example Use Case](https://www.freecodecamp.org/news/react-helmet-examples/)
 
 ### Docker
 
@@ -157,6 +161,8 @@ For further details see the following documentation:
 - [You need to fix your `line-hegiht`](https://www.kevinpowell.co/article/line-height/)
 - [MDN Web Docs](https://developer.mozilla.org)
 - [Sendgrid](https://sendgrid.com)
+- [A better image reset for your CSS](https://www.youtube.com/watch?v=345V2MU3E_w&list=PLjY7XQnia3s5x9VepvUha4v4T0wELnFmR&index=21&t=79s)
+  - [The Ultimate Low-Quality Image Placeholder Technique](https://csswizardry.com/2023/09/the-ultimate-lqip-lcp-technique/)
 
 #### Newsletter Emails
 
