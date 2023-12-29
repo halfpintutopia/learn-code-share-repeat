@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework import status
 
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
@@ -15,7 +16,7 @@ User = get_user_model()
 
 
 # @route
-class ListUsers(APIView):
+class ListUsers(ListAPIView):
     """
     View to get all users' profiles
     """

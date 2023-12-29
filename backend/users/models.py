@@ -1,3 +1,4 @@
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
 from django.db import models
 from django.conf import settings
 
@@ -49,13 +50,15 @@ class Profile(models.Model):
         verbose_name="Profile image",
         upload_to="profile_image",
         blank=True,
-        null=True
+        null=True,
+        storage=RawMediaCloudinaryStorage()
     )
     background_image = models.ImageField(
         verbose_name="Background image",
         upload_to="profile_background_image",
         blank=True,
-        null=True
+        null=True,
+        storage=RawMediaCloudinaryStorage()
     )
     joined_date = models.DateTimeField(
         verbose_name="joined_date",
