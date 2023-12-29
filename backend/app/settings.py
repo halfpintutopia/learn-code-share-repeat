@@ -107,7 +107,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'users',
-    'video_sharing',
+    'videos',
+    'assessment',
+    'feedback',
 ]
 
 MIDDLEWARE = [
