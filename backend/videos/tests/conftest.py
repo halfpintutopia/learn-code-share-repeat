@@ -71,5 +71,5 @@ def uploaded_video():
     """
     Fixture for creating a video file
     """
-    video_content = b"fake video bytes"
-    return SimpleUploadedFile("test_video.mp4", video_content, content_type="video/mp4")
+    with open("videos/tests/test_video.mp4", "rb") as video:
+        return SimpleUploadedFile("test_video.mp4", video.read(), content_type="video/mp4")
