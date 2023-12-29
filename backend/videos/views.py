@@ -1,9 +1,9 @@
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
 from rest_framework import status
 
 from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from app.permissons import IsOwnerOrReadOnly
 
@@ -18,8 +18,10 @@ class VideoList(ListAPIView):
     View to get all videos
     """
     permission_classes = [
-        IsOwnerOrReadOnly
+        IsAuthenticatedOrReadOnly,
     ]
+
+    serializer_class = VideoSerializer
 
     @staticmethod
     def get(request):
@@ -44,7 +46,7 @@ class VideoList(ListAPIView):
             context={"request": request}
         )
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(
             serializer.errors,

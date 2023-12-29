@@ -48,10 +48,3 @@ class VideoSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at"
         ]
-
-    def create(self, validated_data):
-        """
-        Create a video
-        """
-        user = self.context["request"].user
-        return Video.objects.create(user=user, **validated_data)

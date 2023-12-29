@@ -1,7 +1,4 @@
 from django.contrib.auth import get_user_model
-from django.core.mail import EmailMessage
-from django.utils.translation import gettext_lazy as _
-from django.template.loader import render_to_string
 from rest_framework import serializers
 
 from .models import Profile
@@ -81,7 +78,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         """
-        Create a new user and profile instance. Send an email notification to the user
+        Create a new user and profile instance
         """
         user = User.objects.create_user(**validated_data)
         return user
