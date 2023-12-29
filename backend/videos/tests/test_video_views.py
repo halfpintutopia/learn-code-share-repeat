@@ -75,3 +75,56 @@ def test_get_single_video_view(user, client, uploaded_image, uploaded_video):
     assert res.status_code == 200
     assert res.data["user"] == user.username
     assert res.data["title"] == "Test Video"
+
+
+@pytest.mark.django_db
+def test_update_video_view(authenticated_user, uploaded_image, uploaded_video):
+    """
+    GIVEN a video model
+    WHEN a user requests to update a video
+    THEN the user should get a video updated
+    """
+    request, client, user = authenticated_user
+    video = Video.objects.create(
+        user=user,
+        image=uploaded_image,
+        video=uploaded_video,
+        title="Test Video",
+        technology_versions="Python 3.9.0"
+    )
+
+    url = reverse("get-update-delete-video", kwargs={"pk": video.id})
+    data = {
+        "image": uploaded_image,
+        "video": uploaded_video,
+        "title": "Test Video",
+        "technology_versions": "Python 3.9.0"
+    }
+    res = client.put(url, data=data)
+
+    assert res.status_code == 200
+    assert res.data["user"] == user.username
+    assert res.data["title"] == "Test Video"
+
+
+@pytest.mark.django_db
+def test_delete_video_view(authenticated_user, uploaded_image, uploaded_video):
+    """
+    GIVEN a video model
+    WHEN a user requests to delete a video
+    THEN the user should get a video deleted
+    """
+    request, client, user = authenticated_user
+    video = Video.objects.create(
+        user=user,
+        image=uploaded_image,
+        video=uploaded_video,
+        title="Test Video",
+        technology_versions="Python 3.9.0"
+    )
+
+    url = reverse("get-update-delete-video", kwargs={"pk": video.id})
+    res = client.delete(url)
+
+    assert res.status_code == 204
+    assert res.data is None
