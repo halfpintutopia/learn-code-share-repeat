@@ -1,15 +1,15 @@
 from django.contrib.auth import get_user_model
-from django.shortcuts import get_object_or_404
+from django.http import Http404
 from rest_framework import status
 
 from rest_framework.views import APIView
-from rest_framework.generics import ListAPIView, RetrieveUpdateAPIView
+from rest_framework.generics import ListAPIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from app.permissons import IsOwnerOrReadOnly
 
-from ..serializers import UserProfileSerializer, UserSerializer
+from ..serializers import UserSerializer
 from ..models import Profile
 
 User = get_user_model()
@@ -48,11 +48,22 @@ class GetUpdateUserView(APIView):
 
     serializer_class = UserSerializer
 
+    def get_object(self, slug):
+        """
+        Helper method to get the user's profile
+        """
+        try:
+            profile = Profile.objects.get(slug=slug)
+            self.check_object_permissions(self.request, profile)
+            return profile
+        except Profile.DoesNotExist:
+            raise Http404
+
     def get(self, request, slug):
         """
         Get the user's profile details
         """
-        profile = get_object_or_404(Profile, slug=slug)
+        profile = self.get_object(slug)
         user = profile.user
         self.check_object_permissions(self.request, user)
 
@@ -62,12 +73,12 @@ class GetUpdateUserView(APIView):
         )
         return Response(serializer.data)
 
-    def post(self, request, slug):
+    def put(self, request, slug):
         """
         Update the user's profile details
         """
 
-        profile = get_object_or_404(Profile, slug=slug)
+        profile = self.get_object(slug)
         user = profile.user
         self.check_object_permissions(self.request, user)
 
@@ -76,6 +87,6 @@ class GetUpdateUserView(APIView):
             data=request.data
         )
         if serializer.is_valid():
-            serializer.save()
+            serializer.save(user=request.user)
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
