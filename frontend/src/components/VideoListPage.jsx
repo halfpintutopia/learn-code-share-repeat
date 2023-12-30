@@ -1,10 +1,12 @@
 import React from 'react';
+import HeroCarousel from "./HeroCarousel";
 
 const VideoListPage = () => {
   return (
-    <div>
-
-    </div>
+    <>
+      <HeroCarousel/>
+      Video List Page
+    </>
   );
 };
 

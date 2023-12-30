@@ -97,9 +97,14 @@ For further details see the following documentation:
 
 - [Adobe Color](https://color.adobe.com)
 
+#### References | Images
+
+- [Computer Program Language Text | Photo by Jorge Jesus](https://www.pexels.com/photo/computer-program-language-text-614117/)
+
 #### References | Videos
 
 - [Digital Presentation Of information On A Screen Monitor | Video by Pressmaster](https://www.pexels.com/video/digital-presentation-of-information-on-a-screen-monitor-3130182/)
+- [Person Encoding in a Computer | Video by Nino Souza](https://www.pexels.com/video/person-encoding-in-a-computer-2278095/)
 
 ### Django
 
@@ -163,6 +168,8 @@ For further details see the following documentation:
 - [Sendgrid](https://sendgrid.com)
 - [A better image reset for your CSS](https://www.youtube.com/watch?v=345V2MU3E_w&list=PLjY7XQnia3s5x9VepvUha4v4T0wELnFmR&index=21&t=79s)
   - [The Ultimate Low-Quality Image Placeholder Technique](https://csswizardry.com/2023/09/the-ultimate-lqip-lcp-technique/)
+- [How to code a carousel with HTML, CSS and JavaScript - from scratch (part 1)](https://www.youtube.com/watch?v=VYsVOamdB0g)
+- [How to code a carousel with HTML, CSS and JavaScript - from scratch (part 2)](https://www.youtube.com/watch?v=gBzsE0oieio)
 
 #### Newsletter Emails
 
