@@ -60,6 +60,7 @@ class UserSerializer(serializers.ModelSerializer):
     """
 
     user_profile = UserProfileSerializer(read_only=True)
+    videos_count = serializers.ReadOnlyField()
 
     class Meta:
         """
@@ -73,6 +74,7 @@ class UserSerializer(serializers.ModelSerializer):
             'last_name',
             'username',
             'user_profile',
+            "videos_count",
         ]
         read_only_fields = ['id']
 
