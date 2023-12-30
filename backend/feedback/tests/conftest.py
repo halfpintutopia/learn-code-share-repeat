@@ -2,6 +2,8 @@ import io
 
 import pytest
 
+from mixer.backend.django import mixer
+
 from django.contrib.auth import get_user_model
 from django.core.files.uploadedfile import SimpleUploadedFile
 
@@ -84,7 +86,8 @@ def video(user, uploaded_image, uploaded_video):
     """
     technology_versions = "React 18"
     title = "Creating a simple component"
-    video = Video.objects.create(
+    return mixer.blend(
+        "videos.Video",
         user=user,
         image=uploaded_image,
         video=uploaded_video,
@@ -92,4 +95,16 @@ def video(user, uploaded_image, uploaded_video):
         technology_versions=technology_versions
     )
 
-    return user, video
+
+@pytest.fixture(scope="function")
+def feedback(user, video):
+    """
+    Fixture for creating a feedback object
+    """
+    return mixer.blend(
+        "feedback.Feedback",
+        user=user,
+        video=video,
+        clarity=5,
+        comment="This is a comment"
+    )
