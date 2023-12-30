@@ -22,7 +22,6 @@ def test_video_model(user, uploaded_image, uploaded_video):
         video=uploaded_video,
         title=title,
         technology_versions=technology_versions
-
     )
 
     assert video.user == user

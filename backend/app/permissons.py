@@ -1,4 +1,7 @@
 from rest_framework import permissions
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
@@ -18,4 +21,7 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
             return True
         # aka post user is the authenticated user
         # here comes from model definition
-        return obj == request.user
+        if isinstance(obj, User):
+            return obj == request.user
+
+        return obj.user == request.user
