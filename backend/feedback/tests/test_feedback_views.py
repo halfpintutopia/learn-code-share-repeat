@@ -49,3 +49,44 @@ def test_create_feedback(authenticated_user, video):
     assert res.data["clarity"] == data["clarity"]
     assert res.data["comment"] == data["comment"]
     assert len(Feedback.objects.all()) == 1
+
+
+@pytest.mark.django_db
+def test_update_feedback(authenticated_user, video, feedback):
+    """
+    GIVEN a request to update a feedback
+    WHEN the request is made
+    THEN the response should contain the updated feedback
+    """
+    request, client, user = authenticated_user
+    url = reverse("get-update-delete-feedback", kwargs={"pk": feedback.id})
+
+    data = {
+        "video": video.id,
+        "clarity": 4,
+        "comment": "It has a lot of good terminology, except for one thing"
+    }
+
+    res = client.put(url, data=data)
+
+    assert res.status_code == status.HTTP_200_OK
+    assert res.data["user"] == user.username
+    assert res.data["clarity"] == data["clarity"]
+    assert res.data["comment"] == data["comment"]
+    assert len(Feedback.objects.all()) == 1
+
+
+@pytest.mark.django_db
+def test_delete_feedback(authenticated_user, feedback):
+    """
+    GIVEN a request to delete a feedback
+    WHEN the request is made
+    THEN the response should contain the deleted feedback
+    """
+    request, client, user = authenticated_user
+    url = reverse("get-update-delete-feedback", kwargs={"pk": feedback.id})
+
+    res = client.delete(url)
+
+    assert res.status_code == status.HTTP_204_NO_CONTENT
+    assert len(Feedback.objects.all()) == 0
