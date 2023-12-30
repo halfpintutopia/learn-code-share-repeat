@@ -52,10 +52,11 @@ class FeedbackSerializer(serializers.ModelSerializer):
             "is_owner",
             "profile_user_id",
             "profile_image",
+            "video",
             "clarity",
             "comment",
             "created_at",
-            "updated_at"
+            "updated_at",
         ]
         read_only_fields = [
             'id',
