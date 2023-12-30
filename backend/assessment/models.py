@@ -37,6 +37,7 @@ class Assessment(models.Model):
     )
     video = models.OneToOneField(
         Video,
+        related_name="assessments",
         on_delete=models.CASCADE
     )
     understanding = models.IntegerField(
