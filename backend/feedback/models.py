@@ -26,7 +26,8 @@ class Feedback(models.Model):
     )
     video = models.ForeignKey(
         Video,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="feedback"
     )
     clarity = models.IntegerField(
         choices=Clarity.choices,

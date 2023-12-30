@@ -18,6 +18,7 @@ class FeedbackSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(source='user.profile.image.url')
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
+    feedback_count = serializers.ReadOnlyField()
 
     def get_is_owner(self, obj):
         """
@@ -57,6 +58,7 @@ class FeedbackSerializer(serializers.ModelSerializer):
             "comment",
             "created_at",
             "updated_at",
+            "feedback_count"
         ]
         read_only_fields = [
             'id',
@@ -71,3 +73,4 @@ class FeedbackDetailSerializer(FeedbackSerializer):
     Video is a read-only field so that we don't have to pass the video id in the request body
     """
     video = serializers.ReadOnlyField(source='video.id')
+    feedback_count = serializers.ReadOnlyField()

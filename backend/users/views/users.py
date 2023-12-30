@@ -33,7 +33,6 @@ class ListUsers(ListAPIView):
     ordering_fields = [
         'videos_count',
         'latest_video_created_at',
-        ""
     ]
 
 

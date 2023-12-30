@@ -10,7 +10,8 @@ class Video(models.Model):
     """
     user = models.ForeignKey(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name="videos"
     )
     image = models.ImageField(
         verbose_name="Video Screenshot",
