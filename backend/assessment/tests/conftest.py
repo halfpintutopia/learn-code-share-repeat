@@ -13,6 +13,8 @@ from faker import Faker
 
 from PIL import Image
 
+from assessment.models import Assessment
+from feedback.models import Feedback
 from videos.models import Video
 
 User = get_user_model()
@@ -87,7 +89,7 @@ def video(user, uploaded_image, uploaded_video):
     technology_versions = "React 18"
     title = "Creating a simple component"
     return mixer.blend(
-        "videos.Video",
+        Video,
         user=user,
         image=uploaded_image,
         video=uploaded_video,
@@ -102,9 +104,23 @@ def feedback(user, video):
     Fixture for creating a feedback object
     """
     return mixer.blend(
-        "feedback.Feedback",
+        Feedback,
         user=user,
         video=video,
         clarity=5,
         comment="This is a comment"
+    )
+
+
+@pytest.fixture(scope="function")
+def assessment(user, video):
+    """
+    Fixture for creating an assessment object
+    """
+    return mixer.blend(
+        Assessment,
+        user=user,
+        video=video,
+        understanding=4,
+        proficiency=4
     )
