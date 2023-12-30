@@ -23,4 +23,5 @@ urlpatterns = [
     path("", include("users.urls")),
     path("", include("videos.urls")),
     path("", include("feedback.urls")),
+    path("", include("assessment.urls")),
 ]
