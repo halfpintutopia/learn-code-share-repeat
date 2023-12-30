@@ -117,6 +117,7 @@ INSTALLED_APPS = [
     'videos',
     'assessment',
     'feedback',
+    "django_filters",
 ]
 
 MIDDLEWARE = [
