@@ -3,6 +3,7 @@ import pytest
 from feedback.models import Feedback
 from django.contrib.auth import get_user_model
 
+from feedback.serializers import FeedbackSerializer
 from videos.models import Video
 
 User = get_user_model()
