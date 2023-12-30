@@ -26,6 +26,17 @@ class VideoSerializer(serializers.ModelSerializer):
             return request.user == obj.user
         return False
 
+    def update(self, instance, validated_data):
+        """
+        Update the video instance
+        """
+        instance.title = validated_data.get('title', instance.title)
+        instance.technology_versions = validated_data.get('technology_versions', instance.technology_versions)
+        instance.video = validated_data.get('video', instance.video)
+        instance.image = validated_data.get('image', instance.image)
+        instance.save()
+        return instance
+
     class Meta:
         """
         Fields to include in the serializer and read-only fields
@@ -37,6 +48,7 @@ class VideoSerializer(serializers.ModelSerializer):
             "profile_user_id",
             "profile_image",
             "title",
+            "technology_versions",
             "video",
             "image",
             "created_at",

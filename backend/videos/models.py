@@ -16,18 +16,21 @@ class Video(models.Model):
     image = models.ImageField(
         verbose_name="Video Screenshot",
         upload_to="video_screenshot",
-        storage=RawMediaCloudinaryStorage()
+        storage=RawMediaCloudinaryStorage(),
+        blank=True
     )
     video = models.FileField(
         verbose_name="Video",
         upload_to="videos",
-        storage=VideoMediaCloudinaryStorage()
+        storage=VideoMediaCloudinaryStorage(),
+        blank=True
     )
     title = models.CharField(
         max_length=255
     )
     technology_versions = models.CharField(
-        max_length=255
+        max_length=255,
+        blank=True
     )
     created_at = models.DateTimeField(
         auto_now_add=True

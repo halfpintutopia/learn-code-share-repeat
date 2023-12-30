@@ -1,5 +1,8 @@
 from django.contrib.auth import get_user_model
 from django.db.models import Count, Max
+
+from django_filters.rest_framework import DjangoFilterBackend
+
 from rest_framework import filters
 
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
@@ -20,7 +23,6 @@ class VideoList(ListCreateAPIView):
     permission_classes = [
         IsAuthenticatedOrReadOnly,
     ]
-    # queryset = Video.objects.all()
     queryset = Video.objects.annotate(
         feedback_count=Count('feedback', distinct=True),
         latest_feedback_created_at=Max('feedback__created_at')
@@ -28,6 +30,11 @@ class VideoList(ListCreateAPIView):
     filter_backends = [
         filters.OrderingFilter,
         filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'technology_versions',
+        "user__username"
     ]
     search_fields = [
         'title',
@@ -39,6 +46,12 @@ class VideoList(ListCreateAPIView):
     ]
     serializer_class = VideoSerializer
 
+    def perform_create(self, serializer):
+        """
+        Associate the current logged-in user with the video
+        """
+        serializer.save(user=self.request.user)
+
 
 class VideoDetail(RetrieveUpdateDestroyAPIView):
     """
@@ -47,7 +60,6 @@ class VideoDetail(RetrieveUpdateDestroyAPIView):
     permission_classes = [
         IsOwnerOrReadOnly
     ]
-    # queryset = Video.objects.all()
     queryset = Video.objects.annotate(
         feedback_count=Count('feedback', distinct=True),
         latest_feedback_created_at=Max('feedback__created_at')
