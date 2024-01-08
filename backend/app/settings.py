@@ -13,8 +13,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
 
-import django_heroku
-
 import os
 import dj_database_url
 
@@ -267,5 +265,3 @@ if not DEBUG:
     DEFAULT_FROM_EMAIL = os.environ.get("SENDGRID_FROM_EMAIL")
 else:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
-django_heroku.settings(locals())
