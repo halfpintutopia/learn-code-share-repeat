@@ -105,10 +105,10 @@ INSTALLED_APPS = [
     'cloudinary',
     'rest_framework',
     'rest_framework_simplejwt',
-    'users',
-    'videos',
-    'assessment',
-    'feedback',
+    'backend.users',
+    'backend.videos',
+    'backend.assessment',
+    'backend.feedback',
     "django_filters",
 ]
 
