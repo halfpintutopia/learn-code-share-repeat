@@ -88,25 +88,73 @@ For further details see the following documentation:
 
 ### Local
 
-1. Clone the repository:
+1. Ensure the following is installed on your machine:
+
+    * [Docker](https://docs.docker.com/get-docker/)
+    * [Docker Compose](https://docs.docker.com/compose/install/)
+    * [Python 3](https://www.python.org/downloads/)
+    * [Node.js](https://nodejs.org/en/download/)
+    * [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
+
+2. Create `.env` file and add environment variables:
+
+    ```bash
+    cd backend
+    mv .env.sample .env
+    ```
+
+    * Add the following environment variables to the `.env` file:
+
+        ```bash
+        SECRET_KEY=your_secret_key
+        DEBUG=True
+        DJANGO_ALLOWED_HOSTS=localhost,
+        DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+        
+        PIXABAY_API_KEY=https://pixabay.com/api/docs/
+        PIXABAY_API_URL=https://pixabay.com/api/
+        
+        CLOUDINARY_URL=https://cloudinary.com/documentation/image_upload_api_reference
+        CLOUDINARY_NAME=your_cloudinary_name
+        CLOUDINARY_API_KEY=your_cloudinary_api_key
+        CLOUDINARY_SECRET=your_cloudinary_secret
+      
+        EMAIL_HOST=smtp.sendgrid.net
+        SENDGRID_API=your_sendgrid_api_key
+        SENDGRID_FROM_EMAIL=your_sendgrid_from_email
+      
+        EMAIL_HOST_USER=apikey
+        EMAIL_HOST_PASSWORD=your_sendgrid_api_key
+        EMAIL_PORT=587
+        EMAIL_USE_TLS=True
+      
+        SQL_ENGINE=django.db.backends.postgresql
+        SQL_DATABASE=postgres
+        SQL_USER=postgres
+        SQL_PASSWORD=postgres
+        SQL_HOST=db
+        SQL_PORT=5432
+        ```
+
+3. Clone the repository:
 
     ```bash
     git clone https://github.com/halfpintutopia/learn-code-share-repeat.git
     ```
    
-2. Create a virtual environment:
+4. Create a virtual environment:
 
     ```bash
     python3 -m venv venv
     ```
 
-3. Activate the virtual environment:
+5. Activate the virtual environment:
 
     ```bash
     source venv/bin/activate
     ```
 
-4. Start backend server:
+6. Start backend server:
 
     ```bash
     cd backend
@@ -115,16 +163,16 @@ For further details see the following documentation:
     docker compose docker compose exec video-sharing python manage.py createsuperuser
     ```
    
-5. Open the browser and navigate to `http://localhost:8000/admin`.
+7. Open the browser and navigate to `http://localhost:8000/admin`.
    
-6. Start frontend server:
+8. Start frontend server:
 
     ```bash
     cd ../frontend
     yarn dev
     ```
    
-7. Open the browser and navigate to `http://localhost:3001`.
+9. Open the browser and navigate to `http://localhost:3001`.
 
 
 ## References
