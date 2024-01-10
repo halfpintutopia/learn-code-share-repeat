@@ -16,9 +16,12 @@ learners and experts collaborates to enhance the learning experience._
     * [Future Implementations](#future-implementations)
   * [Schema](#schema)
   * [API](#api)
+  * [Deployment](#deployment)
+    * [Local](#local)
   * [References](#references)
     * [Inspiration](#inspiration)
     * [Design](#design)
+      * [References | Images](#references--images)
       * [References | Videos](#references--videos)
     * [Django](#django)
     * [React](#react)
@@ -80,6 +83,49 @@ For further details see the following documentation:
 For further details see the following documentation:
 
 * [API Overview](docs/api/api.md)
+
+## Deployment
+
+### Local
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/halfpintutopia/learn-code-share-repeat.git
+    ```
+   
+2. Create a virtual environment:
+
+    ```bash
+    python3 -m venv venv
+    ```
+
+3. Activate the virtual environment:
+
+    ```bash
+    source venv/bin/activate
+    ```
+
+4. Start backend server:
+
+    ```bash
+    cd backend
+    docker compose up -d --build
+    docker compose exec video-sharing python manage.py migrate
+    docker compose docker compose exec video-sharing python manage.py createsuperuser
+    ```
+   
+5. Open the browser and navigate to `http://localhost:8000/admin`.
+   
+6. Start frontend server:
+
+    ```bash
+    cd ../frontend
+    yarn dev
+    ```
+   
+7. Open the browser and navigate to `http://localhost:3001`.
+
 
 ## References
 
