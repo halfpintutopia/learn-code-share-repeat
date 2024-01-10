@@ -169,6 +169,7 @@ For further details see the following documentation:
 
     ```bash
     cd ../frontend
+    yarn install
     yarn dev
     ```
    
