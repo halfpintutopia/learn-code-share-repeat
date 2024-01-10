@@ -22,6 +22,7 @@ if os.path.exists(find_dotenv()):
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, "users/templates")
+ROOT_DIR = BASE_DIR.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -152,8 +153,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            TEMPLATES_DIR,
-            os.path.join(BASE_DIR, 'staticfiles', 'build')
+            os.path.join(ROOT_DIR, "frontend", "build")
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -224,8 +224,10 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = (
     "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
 )
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-WHITENOISE_ROOT = BASE_DIR / 'staticfiles' / 'build'
+STATIC_ROOT = os.path.join(ROOT_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(ROOT_DIR, "frontend", "build", "assets")]
+
+WHITENOISE_ROOT = os.path.join(ROOT_DIR, "frontend", "build")
 
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 CLOUDINARY_STORAGE = {
