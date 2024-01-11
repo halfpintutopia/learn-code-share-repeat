@@ -86,6 +86,10 @@ For further details see the following documentation:
 
 ## Deployment
 
+This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For further details regarding deployment see the following documentation:
+
+* [Deploy on Heroku](https://github.com/halfpintutopia/learn-code-share-repeat/wiki/Deploy-on-Heroku)
+
 ### Local
 
 1. Ensure the following is installed on your machine:
