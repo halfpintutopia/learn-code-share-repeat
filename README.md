@@ -90,7 +90,7 @@ For further details see the following documentation:
 This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For further details regarding deployment
 see the following documentation:
 
-* [Deploy on Heroku](https://github.com/halfpintutopia/learn-code-share-repeat/wiki/Deploy-on-Heroku)
+* [Deploy Unified Django‐React Project on Heroku](https://github.com/halfpintutopia/learn-code-share-repeat/wiki/Deploy-on-Heroku#deploy-unified-djangoreact-project-on-heroku)
 
 ### Local
 
