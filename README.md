@@ -18,6 +18,7 @@ learners and experts collaborates to enhance the learning experience._
   * [API](#api)
   * [Deployment](#deployment)
     * [Local](#local)
+    * [Remote](#remote)
   * [References](#references)
     * [Inspiration](#inspiration)
     * [Design](#design)
@@ -86,7 +87,8 @@ For further details see the following documentation:
 
 ## Deployment
 
-This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For further details regarding deployment see the following documentation:
+This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For further details regarding deployment
+see the following documentation:
 
 * [Deploy on Heroku](https://github.com/halfpintutopia/learn-code-share-repeat/wiki/Deploy-on-Heroku)
 
@@ -145,7 +147,7 @@ This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For
     ```bash
     git clone https://github.com/halfpintutopia/learn-code-share-repeat.git
     ```
-   
+
 4. Create a virtual environment:
 
     ```bash
@@ -166,9 +168,9 @@ This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For
     docker compose exec video-sharing python manage.py migrate
     docker compose docker compose exec video-sharing python manage.py createsuperuser
     ```
-   
+
 7. Open the browser and navigate to `http://localhost:8000/admin`.
-   
+
 8. Start frontend server:
 
     ```bash
@@ -176,9 +178,70 @@ This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For
     yarn install
     yarn dev
     ```
-   
+
 9. Open the browser and navigate to `http://localhost:3001`.
 
+### Remote
+
+1. Ensure the following is installed on your machine:
+
+    * [Docker](https://docs.docker.com/get-docker/)
+    * [Docker Compose](https://docs.docker.com/compose/install/)
+    * [Python 3](https://www.python.org/downloads/)
+    * [Node.js](https://nodejs.org/en/download/)
+    * [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
+
+2. Create a Heroku app
+   - via [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install)
+
+       ```bash
+       heroku create your_heroku_app_name
+       ```
+   - or via [Heroku Dashboard](https://dashboard.heroku.com/apps)
+
+3. Add the following environment variables as config vars in Heroku (1 in image below)
+
+    ![Heroku Config Vars & Buildpacks](docs/media/images/heroku_config_buildpack.png)
+
+    ```bash
+    BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi.git
+    SECRET_KEY=your_secret_key
+    DJANGO_ALLOWED_HOSTS=your_heroku_app_name.herokuapp.com,
+    DATABASE_URL=postgres://postgres:postgres@db:5432/postgres
+    PIXABAY_API_KEY=https://pixabay.com/api/docs/
+    CLOUDINARY_URL=https://cloudinary.com/documentation/image_upload_api_reference
+    CLOUDINARY_NAME=your_cloudinary_name
+    CLOUDINARY_API_KEY=your_cloudinary_api_key
+    CLOUDINARY_SECRET=your_cloudinary_secret
+    SENDGRID_API=your_sendgrid_api_key
+    SENDGRID_FROM_EMAIL=your_sendgrid_from_email
+    ```
+
+4. Add the following URL to Heroku app Buildpacks (2 in image above)):
+
+   ```bash
+   https://github.com/negativetwelve/heroku-buildpack-subdir
+   ```
+
+5. Set up deployment from GitHub repository:
+    
+    ![Heroku Deployment Method](docs/media/images/heroku_deployment_method.png)
+
+   - via CLI (ensure you are in the root directory of the project)
+       ```bash
+       heroku git:remote -a your_heroku_app_name
+       git subtree push --prefix backend heroku main
+       ```
+     
+    - or via [Heroku Dashboard](https://dashboard.heroku.com/apps)
+        - Connect to GitHub
+          - Connect to GitHub > Search > Connect
+        - Enable Automatic Deploys
+        - For Manual Deploy, select the branch and click Deploy Branch
+        - For Automatic Deploys, select the branch and click Enable Automatic Deploys
+        - Click Deploy Branch
+        - Click Open App, at the top of the page, to launch the app
+        - Click More > View Logs to view the logs
 
 ## References
 
@@ -257,7 +320,7 @@ This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For
 - [Beautiful CSS box-shadow examples](https://getcssscan.com/css-box-shadow-examples)
 - [Creating a reusable pop-up modal in React from scratch](https://blog.logrocket.com/creating-reusable-pop-up-modal-react/)
 - [Create Accessible Tabs with HTML, CSS & JS | Kevin Powell](https://www.youtube.com/watch?v=fI9VM5zzpu8)
-  - [Heydon Works](https://heydonworks.com)
+    - [Heydon Works](https://heydonworks.com)
 - [Free Responsive HTML Email Template](https://github.com/leemunroe/responsive-html-email-template)
 - [Handling Tabs Using Page URLs and React Router Doms](https://app.pluralsight.com/guides/handling-tabs-using-page-urls-and-react-router-doms)
 - [Stately](https://stately.ai)
@@ -266,7 +329,7 @@ This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For
 - [MDN Web Docs](https://developer.mozilla.org)
 - [Sendgrid](https://sendgrid.com)
 - [A better image reset for your CSS](https://www.youtube.com/watch?v=345V2MU3E_w&list=PLjY7XQnia3s5x9VepvUha4v4T0wELnFmR&index=21&t=79s)
-  - [The Ultimate Low-Quality Image Placeholder Technique](https://csswizardry.com/2023/09/the-ultimate-lqip-lcp-technique/)
+    - [The Ultimate Low-Quality Image Placeholder Technique](https://csswizardry.com/2023/09/the-ultimate-lqip-lcp-technique/)
 - [How to code a carousel with HTML, CSS and JavaScript - from scratch (part 1)](https://www.youtube.com/watch?v=VYsVOamdB0g)
 - [How to code a carousel with HTML, CSS and JavaScript - from scratch (part 2)](https://www.youtube.com/watch?v=gBzsE0oieio)
 - [Django React Docker Heroku Template](https://github.com/Alschn/django-react-docker-heroku-template)
@@ -275,6 +338,6 @@ This is a Monolithic Full-Stack Django-React Application with Vite and Yarn. For
 
 - [Choosing a Responsive Email Framework: MJML vs Foundation for Emails](https://css-tricks.com/choosing-a-responsive-email-framework%E2%80%8Amjml-vs-foundation-for-emails/)
 - [Best Free Responsive HTML Email Template Builders for 2023](https://andrewlaurentiu.medium.com/best-responsive-email-templates-builder-2018-9dedb6883783)
-  - [mjml](https://mjml.io)
-  - [heml](https://heml.io/)
+    - [mjml](https://mjml.io)
+    - [heml](https://heml.io/)
 - [Email BoilerPlate](https://github.com/seanpowell/Email-Boilerplate/blob/master/email.html)
