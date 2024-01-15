@@ -12,7 +12,6 @@ env
 *.sqlite3
 .vscode
 venv
-.env.*
 .devcontainer
 staticfiles
 .vscode/
