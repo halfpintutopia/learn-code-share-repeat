@@ -1,0 +1,34 @@
+@import "../abstracts/variables";
+@import "../../../../node_modules/rfs/scss";
+
+footer {
+  section {
+    padding-block: clamp(1.3125rem, 1.0734rem + 1.1957vi, 2rem);
+  }
+
+  .grid{
+    --gap: 0;
+    align-items: center;
+    justify-items: center;
+
+    @media screen and (width > 56.25rem) {
+      justify-items: unset;
+
+      .social-links + div {
+        text-align: right;
+      }
+    }
+  }
+
+  .social-links {
+    --gap: 1.375rem;
+
+    .svg-inline--fa {
+      height: rfs-fluid-value(1.375rem);
+    }
+  }
+
+  svg {
+    margin-top: 0 !important;
+  }
+}

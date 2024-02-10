@@ -100,13 +100,15 @@ $container-padding: calc($standard-padding * 2);
 
 .flex {
   display: flex;
-  gap: $gap;
+  gap: var(--gap);
   flex-wrap: wrap;
 
-  & > * {
+  .columns {
     flex: 1;
   }
 }
+
+
 
 .flex-with-sidebar {
   align-items: start;
@@ -128,7 +130,7 @@ $container-padding: calc($standard-padding * 2);
 /* Grid */
 .grid {
   display: grid;
-  gap: $gap;
+  gap: var(--gap, 1em);
 }
 
 .auto-grid {

@@ -1,5 +1,9 @@
+@import "../abstracts/variables";
+@import "../../../../node_modules/rfs/scss";
+
 .banner {
   .svg-inline--fa {
-    height: 2.5em;
+    height: rfs-fluid-value(4rem);
+    //height: 2.5em;
   }
 }
