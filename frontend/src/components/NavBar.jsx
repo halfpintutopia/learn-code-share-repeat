@@ -25,24 +25,38 @@ const NavBar = () => {
             <img src={ logo } alt="Logo for website"/>
           </Link>
         </div>
-        <button
-          className="nav-toggle"
-          aria-controls="primary-navigation"
-          aria-expanded={ navVisible }
-          onClick={ toggleNav }
-        >
-          <svg width="34" height="18" viewBox="0 0 34 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1 1H33" stroke="#0D0D0D" strokeWidth="2" strokeLinecap="round"/>
-            <path d="M7 9H27" stroke="#0D0D0D" strokeWidth="2" strokeLinecap="round"/>
-            <path d="M1 17H33" stroke="#0D0D0D" strokeWidth="2" strokeLinecap="round"/>
-          </svg>
-          <span className="sr-only">Menu</span>
-        </button>
+        {
+          isAuthenticated ? (
+            <>
+              <button
+                className="nav-toggle"
+                aria-controls="primary-navigation"
+                aria-expanded={ navVisible }
+                onClick={ toggleNav }
+              >
+                <svg width="34" height="18" viewBox="0 0 34 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1H33" stroke="#0D0D0D" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M7 9H27" stroke="#0D0D0D" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M1 17H33" stroke="#0D0D0D" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+                <span className="sr-only">Menu</span>
+              </button>
+            </>
+          ) : (
+            <Link to="/join/register" className="align-right">
+              <button
+                className="green">
+                Start
+                <FontAwesomeIcon icon={ faArrowRightLong }/>
+              </button>
+            </Link>
+          )
+        }
         <nav>
           <ul id="primary-navigation" data-visible={ navVisible } className="primary-navigation">
 
             {
-              isAuthenticated ? (
+              isAuthenticated && (
                 <>
                   {/*<SearchBar />*/ }
                   <li>
@@ -65,16 +79,6 @@ const NavBar = () => {
                     </Link>
                   </li>
                 </>
-              ) : (
-                <li>
-                  <Link to="/join/register">
-                    <button
-                      className="green">
-                      Start
-                      <FontAwesomeIcon icon={ faArrowRightLong }/>
-                    </button>
-                  </Link>
-                </li>
               )
             }
           </ul>
