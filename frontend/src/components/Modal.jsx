@@ -14,7 +14,7 @@ const Modal = ({ name, isOpen, hasCloseBtn, onClose, children }) => {
         modalElement.close();
       }
     }
-  }, [isOpen]);
+  }, [ isOpen ]);
 
   const handleCloseModal = () => {
     if (onClose) {
@@ -29,13 +29,13 @@ const Modal = ({ name, isOpen, hasCloseBtn, onClose, children }) => {
   };
 
   return (
-    <dialog ref={modalRef} onKeyDown={handleKeyDown} className={`modal modal__${name}`}>
+    <dialog ref={ modalRef } onKeyDown={ handleKeyDown } className={ `modal modal__${ name }` }>
       {
         hasCloseBtn && (
-          <button className="modal__close-btn" onClick={handleCloseModal}><FontAwesomeIcon icon={faClose}/></button>
+          <button className="modal__close-btn" onClick={ handleCloseModal }><FontAwesomeIcon icon={ faClose }/></button>
         )
       }
-      {children}
+      { children }
     </dialog>
   );
 };

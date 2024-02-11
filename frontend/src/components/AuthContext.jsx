@@ -4,7 +4,7 @@ import { createContext, useState, useEffect } from "react";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [ isAuthenticated, setIsAuthenticated ] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('access_token');
@@ -15,8 +15,8 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
-      {children}
+    <AuthContext.Provider value={ { isAuthenticated, setIsAuthenticated } }>
+      { children }
     </AuthContext.Provider>
   );
 };

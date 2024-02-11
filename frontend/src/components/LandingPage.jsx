@@ -12,7 +12,7 @@ const LandingPage = () => {
             <h1 className="title">Code with Clarity & Confidence</h1>
           </div>
           <video className="video-bg" autoPlay muted loop>
-            <source src={HeaderImage} type="video/webm"/>
+            <source src={ HeaderImage } type="video/webm"/>
           </video>
         </div>
       </section>

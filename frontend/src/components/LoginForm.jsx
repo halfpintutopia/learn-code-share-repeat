@@ -16,9 +16,9 @@ const initialErrorState = {
 const LoginForm = () => {
   const navigate = useNavigate();
   const focusInputRef = useRef(null);
-  const [formState, setFormState] = useState(initialRegisterFormModalData);
-  const [errors, setErrors] = useState(initialErrorState);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [ formState, setFormState ] = useState(initialRegisterFormModalData);
+  const [ errors, setErrors ] = useState(initialErrorState);
+  const [ errorMessage, setErrorMessage ] = useState('');
 
   const validateForm = () => {
     let newErrors = { ...initialErrorState };
@@ -75,9 +75,9 @@ const LoginForm = () => {
     <div>
       {
         errorMessage ? (
-          <span className="alert alert__error">{errorMessage} Please sign in
+          <span className="alert alert__error">{ errorMessage } Please sign in
             <Link
-              to={`/join/login`}
+              to={ `/join/login` }
               role="tab"
             >
             here.
@@ -90,20 +90,20 @@ const LoginForm = () => {
               <p>Do not have an account? <Link
                 to="/join/register"><strong>Register here.</strong></Link></p>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={ handleSubmit }>
               <div className="form-row">
                 <label htmlFor="username">Username</label>
 
                 <input
                   type="text"
-                  ref={focusInputRef}
+                  ref={ focusInputRef }
                   id="username"
                   name="username"
-                  value={formState.username}
-                  onChange={handleInputChange}
+                  value={ formState.username }
+                  onChange={ handleInputChange }
                   required
                 />
-                {errors.username && <small className="alert alert__error">{errors.username}</small>}
+                { errors.username && <small className="alert alert__error">{ errors.username }</small> }
               </div>
 
               <div className="form-row">
@@ -113,14 +113,14 @@ const LoginForm = () => {
 
                 <input
                   type="password"
-                  ref={focusInputRef}
+                  ref={ focusInputRef }
                   id="password"
                   name="password"
-                  value={formState.password}
-                  onChange={handleInputChange}
+                  value={ formState.password }
+                  onChange={ handleInputChange }
                   required
                 />
-                {errors.password && <small className="alert alert__error">{errors.password}</small>}
+                { errors.password && <small className="alert alert__error">{ errors.password }</small> }
               </div>
               <div className="form-row">
                 <button className="btn btn__register" type="submit">Login</button>

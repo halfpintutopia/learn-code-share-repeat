@@ -11,13 +11,13 @@ const AccessibleTabs = ({ tabs = [], type }) => {
       <ul aria-labelledby="tabs-title" className="tabs-container__list" role="tablist">
         {
           tabs.map(tab => (
-            <li key={tab.id}>
+            <li key={ tab.id }>
               <Link
-                to={`/join/${tab.id}`}
+                to={ `/join/${ tab.id }` }
                 role="tab"
-                aria-selected={type === `${tab.id}`}
+                aria-selected={ type === `${ tab.id }` }
               >
-                {tab.title}
+                { tab.title }
               </Link>
             </li>
           ))
@@ -27,7 +27,7 @@ const AccessibleTabs = ({ tabs = [], type }) => {
       {
         selectedTab && (
           <div className="tabs__panels flow">
-            {selectedTab.content}
+            { selectedTab.content }
           </div>
         )
       }

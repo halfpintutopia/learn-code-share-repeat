@@ -13,7 +13,7 @@ const HeaderSimple = () => {
         <div className="secondary-header__inner">
           <Link to="/">
             <span className="sr-only">Home</span>
-            <img src={logo} alt="Logo for website" />
+            <img src={ logo } alt="Logo for website"/>
           </Link>
         </div>
       </section>

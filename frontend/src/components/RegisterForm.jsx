@@ -20,10 +20,10 @@ const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W])[A-Za-z\d\W]{16,
 
 const RegisterForm = () => {
   const focusInputRef = useRef(null);
-  const [formState, setFormState] = useState(initialRegisterFormModalData);
-  const [errors, setErrors] = useState(initialErrorState);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
+  const [ formState, setFormState ] = useState(initialRegisterFormModalData);
+  const [ errors, setErrors ] = useState(initialErrorState);
+  const [ errorMessage, setErrorMessage ] = useState('');
+  const [ successMessage, setSuccessMessage ] = useState('');
 
   const validateForm = () => {
     let newErrors = { ...initialErrorState };
@@ -92,11 +92,11 @@ const RegisterForm = () => {
     <div>
       {
         successMessage ? (
-          <span className="alert alert__success">{successMessage}</span>
+          <span className="alert alert__success">{ successMessage }</span>
         ) : errorMessage ? (
-          <span className="alert alert__error">{errorMessage} Please sign in
+          <span className="alert alert__error">{ errorMessage } Please sign in
             <Link
-              to={`/login`}
+              to={ `/login` }
               role="tab"
             >
             here.
@@ -109,20 +109,20 @@ const RegisterForm = () => {
               <p>Have an account already? <Link
                 to="/join/login"><strong>Sign in</strong></Link></p>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={ handleSubmit }>
               <div className="form-row">
                 <label htmlFor="username">Username</label>
 
                 <input
                   type="text"
-                  ref={focusInputRef}
+                  ref={ focusInputRef }
                   id="username"
                   name="username"
-                  value={formState.username}
-                  onChange={handleInputChange}
+                  value={ formState.username }
+                  onChange={ handleInputChange }
                   required
                 />
-                {errors.username && <small className="alert alert__error">{errors.username}</small>}
+                { errors.username && <small className="alert alert__error">{ errors.username }</small> }
               </div>
 
 
@@ -131,14 +131,14 @@ const RegisterForm = () => {
 
                 <input
                   type="email"
-                  ref={focusInputRef}
+                  ref={ focusInputRef }
                   id="email"
                   name="email"
-                  value={formState.email}
-                  onChange={handleInputChange}
+                  value={ formState.email }
+                  onChange={ handleInputChange }
                   required
                 />
-                {errors.email && <small className="alert alert__error">{errors.email}</small>}
+                { errors.email && <small className="alert alert__error">{ errors.email }</small> }
               </div>
 
 
@@ -155,14 +155,14 @@ const RegisterForm = () => {
 
                 <input
                   type="password"
-                  ref={focusInputRef}
+                  ref={ focusInputRef }
                   id="password"
                   name="password"
-                  value={formState.password}
-                  onChange={handleInputChange}
+                  value={ formState.password }
+                  onChange={ handleInputChange }
                   required
                 />
-                {errors.password && <small className="alert alert__error">{errors.password}</small>}
+                { errors.password && <small className="alert alert__error">{ errors.password }</small> }
               </div>
               <div className="form-row">
                 <button className="btn btn__register" type="submit">Get Started</button>

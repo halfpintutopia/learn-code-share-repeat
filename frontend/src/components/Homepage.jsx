@@ -1,21 +1,23 @@
-import React, { useContext } from "react";
-import { AuthContext } from "./AuthContext";
+import React, {useContext} from "react";
+import {AuthContext} from "./AuthContext";
 import VideoListPage from "./VideoListPage";
 import LandingPage from "./LandingPage";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 const HomePage = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const {isAuthenticated} = useContext(AuthContext);
   return (
     <>
-      <NavBar />
+      <NavBar/>
       {
         isAuthenticated ? (
-          <VideoListPage />
+          <VideoListPage/>
         ) : (
-          <LandingPage />
+          <LandingPage/>
         )
       }
+      <Footer/>
     </>
   );
 };

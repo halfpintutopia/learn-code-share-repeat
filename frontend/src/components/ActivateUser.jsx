@@ -29,7 +29,7 @@ const ActivateUser = () => {
     activateUser().then(() => {
     });
 
-  }, [uid, token, navigate]);
+  }, [ uid, token, navigate ]);
 
   return null;
 };

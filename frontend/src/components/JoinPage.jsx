@@ -13,23 +13,23 @@ const JoinPage = () => {
     {
       id: 'login',
       title: 'Login',
-      content: <LoginForm />
+      content: <LoginForm/>
     },
     {
       id: 'register',
       title: 'Register',
-      content: <RegisterForm />
+      content: <RegisterForm/>
     }
   ];
 
   return (
     <div className="join-container stacked-grid">
-      <HeaderSimple />
+      <HeaderSimple/>
       <video className="background-media" autoPlay muted loop>
-        <source src={JoinImage} type="video/webm" />
+        <source src={ JoinImage } type="video/webm"/>
       </video>
       <div className="container" data-width="narrow">
-        <AccessibleTabs tabs={tabs} type={type} />
+        <AccessibleTabs tabs={ tabs } type={ type }/>
       </div>
 
     </div>
