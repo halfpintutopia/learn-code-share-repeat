@@ -1,6 +1,11 @@
+@import "../abstracts/variables";
+@import "../../../../node_modules/rfs/scss";
+
 .primary-header {
   position: sticky;
   top: 0;
+  z-index: $header-layer;
+  background-color: $light-opacity;
 
   &__inner {
     display: flex;
