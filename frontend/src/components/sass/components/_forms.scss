@@ -19,14 +19,45 @@ form {
   //@include padding-right(7.625em);
 
   .form-row {
+    position: relative;
+
     & > * {
       display: block;
       width: 100%;
     }
 
+    label {
+      opacity: 1;
+      visibility: visible;
+      transition: all .4s;
+      padding: .5em;
+
+      &:has(+ input:placeholder-shown) {
+        transform: translateY(1em);
+        visibility: hidden;
+        opacity: 0;
+        padding-left: .5em;
+      }
+    }
+
     input {
       border: none;
       background-color: $concrete-200;
+      padding: 1rem 0.5rem;
+
+      transition: all .4s;
+
+      &::placeholder {
+        opacity: 1;
+      }
+
+      //&:focus:invalid {
+      //  background-color: red;
+      //}
+    }
+
+    ul {
+      list-style: none;
     }
   }
 

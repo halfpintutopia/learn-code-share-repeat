@@ -88,7 +88,7 @@ const LoginForm = () => {
             <div className="form-text">
               <h1>Login to the LCSR Community</h1>
               <p>Do not have an account? <Link
-                to="/join/register"><strong>Register here.</strong></Link></p>
+                to="/join/register"><span className="underline">Register here.</span></Link></p>
             </div>
             <form onSubmit={ handleSubmit }>
               <div className="form-row">
@@ -101,6 +101,7 @@ const LoginForm = () => {
                   name="username"
                   value={ formState.username }
                   onChange={ handleInputChange }
+                  placeholder="Username"
                   required
                 />
                 { errors.username && <small className="alert alert__error">{ errors.username }</small> }
@@ -118,6 +119,7 @@ const LoginForm = () => {
                   name="password"
                   value={ formState.password }
                   onChange={ handleInputChange }
+                  placeholder="Password"
                   required
                 />
                 { errors.password && <small className="alert alert__error">{ errors.password }</small> }

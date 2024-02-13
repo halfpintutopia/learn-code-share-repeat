@@ -107,7 +107,7 @@ const RegisterForm = () => {
             <div className="form-text">
               <h1>Join the LCSR Community</h1>
               <p>Have an account already? <Link
-                to="/join/login"><strong>Sign in</strong></Link></p>
+                to="/join/login"><span className="underline">Sign in</span></Link></p>
             </div>
             <form onSubmit={ handleSubmit }>
               <div className="form-row">
@@ -120,6 +120,7 @@ const RegisterForm = () => {
                   name="username"
                   value={ formState.username }
                   onChange={ handleInputChange }
+                  placeholder="Username"
                   required
                 />
                 { errors.username && <small className="alert alert__error">{ errors.username }</small> }
@@ -136,6 +137,7 @@ const RegisterForm = () => {
                   name="email"
                   value={ formState.email }
                   onChange={ handleInputChange }
+                  placeholder="Email"
                   required
                 />
                 { errors.email && <small className="alert alert__error">{ errors.email }</small> }
@@ -145,14 +147,7 @@ const RegisterForm = () => {
               <div className="form-row">
                 <label htmlFor="password">
                   Password
-                  <ul>
-                    <li><small>Must be at least 16 characters</small></li>
-                    <li><small>Must contain upper case letter</small></li>
-                    <li><small>Must contain special characters</small></li>
-                    <li><small>Must contain lower case letter</small></li>
-                  </ul>
                 </label>
-
                 <input
                   type="password"
                   ref={ focusInputRef }
@@ -160,8 +155,15 @@ const RegisterForm = () => {
                   name="password"
                   value={ formState.password }
                   onChange={ handleInputChange }
+                  placeholder="Password"
                   required
                 />
+                <ul>
+                  <li><small>Must be at least 16 characters</small></li>
+                  <li><small>Must contain upper case letter</small></li>
+                  <li><small>Must contain special characters</small></li>
+                  <li><small>Must contain lower case letter</small></li>
+                </ul>
                 { errors.password && <small className="alert alert__error">{ errors.password }</small> }
               </div>
               <div className="form-row">

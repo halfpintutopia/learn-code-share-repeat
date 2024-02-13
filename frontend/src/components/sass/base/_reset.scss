@@ -50,7 +50,6 @@ img {
   shape-margin: 0.75rem;
 }
 
-img,
 picture,
 svg,
 video {
@@ -63,6 +62,7 @@ textarea,
 button,
 select {
   font: inherit;
+  color: inherit
 }
 
 button, .btn {
