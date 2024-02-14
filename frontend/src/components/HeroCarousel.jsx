@@ -1,5 +1,6 @@
 import React from 'react';
-import Demo from "../../public/media/images/computer_program.jpg";
+// import Demo from "../../public/media/images/computer_program.jpg";
+import Demo from "../media/images/computer_program.jpg";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

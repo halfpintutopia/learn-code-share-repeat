@@ -86,9 +86,9 @@ const LoginForm = () => {
         ) : (
           <>
             <div className="form-text">
-              <h1>Login to the LCSR Community</h1>
+              <h1 className="form-header">Login to the LCSR Community</h1>
               <p>Do not have an account? <Link
-                to="/join/register"><span className="underline">Register here.</span></Link></p>
+                to="/join/register"><strong>Register here.</strong></Link></p>
             </div>
             <form onSubmit={ handleSubmit }>
               <div className="form-row">

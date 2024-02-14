@@ -1,5 +1,6 @@
 import React from 'react';
-import HeaderImage from "../../public/media/videos/person_walking_on_laptop.webm";
+// import HeaderImage from "../../public/media/videos/person_walking_on_laptop.webm";
+import HeaderImage from "../media/videos/person_walking_on_laptop.webm";
 import './sass/main.scss';
 import Banner from "./Banner";
 

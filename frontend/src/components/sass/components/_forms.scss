@@ -2,21 +2,16 @@
 @import "../../../../node_modules/rfs/scss";
 
 .form-text {
-  //@include padding-left(7.625em);
-  //@include padding-right(7.625em);
-
+  text-align: center;
+  margin-top: 1em;
   @media screen and (width > 56rem) {
     @include padding-top(3.375em);
-    //@include padding-bottom(3.375em);
-
   }
 }
 
 form {
   display: grid;
   align-content: center;
-  //@include padding-left(7.625em);
-  //@include padding-right(7.625em);
 
   .form-row {
     position: relative;
@@ -43,17 +38,17 @@ form {
     input {
       border: none;
       background-color: $concrete-200;
-      padding: 1rem 0.5rem;
+      padding: .5rem 0.5rem;
+
+      @media screen and (width > 56rem) {
+        padding: 1rem 0.5rem;
+      }
 
       transition: all .4s;
 
       &::placeholder {
         opacity: 1;
       }
-
-      //&:focus:invalid {
-      //  background-color: red;
-      //}
     }
 
     ul {
@@ -68,9 +63,14 @@ form {
   }
 
   @media screen and (width > 56rem) {
-    //@include padding-top(1.1875em);
-    //@include padding-bottom(3.375em);
-
     border-radius: 10px;
   }
+}
+
+.forms + footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: $concrete-100;
 }

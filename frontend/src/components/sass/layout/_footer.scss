@@ -3,10 +3,15 @@
 
 footer {
   section {
-    padding-block: clamp(1.3125rem, 1.0734rem + 1.1957vi, 2rem);
+    //padding-block: clamp(1.3125rem, 1.0734rem + 1.1957vi, 2rem);
+    //padding-block: clamp(1.3125rem, 1.0734rem + 1.1957vi, 2rem);
+    @include rfs(0.3125rem, padding-block);
+    @media screen and (width > 56.25rem) {
+      @include rfs(2rem, padding-block);
+    }
   }
 
-  .grid{
+  .grid {
     --gap: 0;
     align-items: center;
     justify-items: center;
@@ -22,6 +27,14 @@ footer {
 
   .social-links {
     --gap: 1.375rem;
+
+    & > *,
+    & + div > * {
+      color: $cod-gray-950;
+      @media screen and (width > 56.25rem) {
+        color: $concrete-100;
+      }
+    }
 
     .svg-inline--fa {
       height: rfs-fluid-value(1.375rem);

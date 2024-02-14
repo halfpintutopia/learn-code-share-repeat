@@ -1,24 +1,21 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
-import logo from '../../public/media/images/logo-light.svg';
+import Logo from "./assets/Logo";
 
 import "./sass/main.scss";
 
 const HeaderSimple = () => {
 
   return (
-    <header className="secondary-header container" data-width="wide">
+    <header className="secondary-header container" data-width="full">
       <section className="wrapper">
         <div className="secondary-header__inner">
           <Link to="/">
             <span className="sr-only">Home</span>
-            <img src={ logo } alt="Logo for website"/>
+            <Logo />
           </Link>
         </div>
       </section>
-
-
     </header>
   );
 };

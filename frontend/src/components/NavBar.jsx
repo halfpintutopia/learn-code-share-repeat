@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link } from "react-router-dom";
 
-import logo from '../../public/media/images/logo-dark.svg';
+// import logo from '../../public/media/images/logo-dark.svg';
+import logo from '../media/images/logo-dark.svg';
 
 import "./sass/main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

@@ -20,17 +20,7 @@ $container-padding: calc($standard-padding * 2);
   }
 
   &[data-width="full"] {
-    width: min(100% - $container-padding, $container-width-full);
-  }
-
-  @media only screen and (width >= 56.25rem) {
-    &[data-width="regular"] {
-
-    }
-
-    &[data-width="full"] {
-      width: min(100% - $container-padding, $container-width-wide);
-    }
+    width: 100%;
   }
 }
 

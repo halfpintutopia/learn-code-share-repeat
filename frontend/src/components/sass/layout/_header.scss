@@ -17,9 +17,27 @@
 .secondary-header {
   position: absolute;
   top: 0;
+  z-index: $header-layer;
 
   &__inner {
     display: flex;
     justify-content: center;
+    margin-top: 5px;
+  }
+
+  svg {
+    height: 48px;
+    @include rfs(3rem, height);
+
+    @media screen and (width > 56.25rem) {
+      @include rfs(6.5625rem, height);
+    }
+
+    path {
+      fill: $cod-gray-950;
+      @media screen and (width > 56.25rem) {
+        fill: $concrete-100;
+      }
+    }
   }
 }
