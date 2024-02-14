@@ -32,6 +32,11 @@
   &__error {
     color: $tall-poppy-700;
   }
+
+  &__success {
+    margin-top: 1em;
+    display: block;
+  }
 }
 
 .underline {

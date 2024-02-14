@@ -89,14 +89,16 @@ const RegisterForm = () => {
   };
 
   return (
-    <div>
+    <>
       {
         successMessage ? (
-          <span className="alert alert__success">{ successMessage }</span>
+          <span className="alert alert__success">
+            { successMessage } <Link to={ `/join/login` } role="tab">sign in here</Link>.
+          </span>
         ) : errorMessage ? (
           <span className="alert alert__error">{ errorMessage } Please sign in
             <Link
-              to={ `/login` }
+              to={ `/join/login` }
               role="tab"
             >
             here.
@@ -173,7 +175,7 @@ const RegisterForm = () => {
           </>
         )
       }
-    </div>
+    </>
 
   );
 };

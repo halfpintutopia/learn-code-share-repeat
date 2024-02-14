@@ -72,66 +72,74 @@ const LoginForm = () => {
   };
 
   return (
-    <div>
+    // <div>
+    //   {
+    // errorMessage ? (
+    //   <span className="alert alert__error">{ errorMessage } Please sign in
+    //     <Link
+    //       to={ `/join/login` }
+    //       role="tab"
+    //     >
+    //     here.
+    //     </Link>
+    //   </span>
+    // ) : (
+    <>
+      <div className="form-text">
+        <h1 className="form-header">Login to the LCSR Community</h1>
+        <p>Do not have an account? <Link
+          to="/join/register"><strong>Register here.</strong></Link></p>
+      </div>
       {
-        errorMessage ? (
-          <span className="alert alert__error">{ errorMessage } Please sign in
-            <Link
-              to={ `/join/login` }
-              role="tab"
-            >
-            here.
-            </Link>
+        errorMessage && (
+          <span className="alert alert__error">
+            <p>{ errorMessage }.
+            Please sign in <Link to={ `/join/login` } role="tab" >here.</Link></p>
           </span>
-        ) : (
-          <>
-            <div className="form-text">
-              <h1 className="form-header">Login to the LCSR Community</h1>
-              <p>Do not have an account? <Link
-                to="/join/register"><strong>Register here.</strong></Link></p>
-            </div>
-            <form onSubmit={ handleSubmit }>
-              <div className="form-row">
-                <label htmlFor="username">Username</label>
-
-                <input
-                  type="text"
-                  ref={ focusInputRef }
-                  id="username"
-                  name="username"
-                  value={ formState.username }
-                  onChange={ handleInputChange }
-                  placeholder="Username"
-                  required
-                />
-                { errors.username && <small className="alert alert__error">{ errors.username }</small> }
-              </div>
-
-              <div className="form-row">
-                <label htmlFor="password">
-                  Password
-                </label>
-
-                <input
-                  type="password"
-                  ref={ focusInputRef }
-                  id="password"
-                  name="password"
-                  value={ formState.password }
-                  onChange={ handleInputChange }
-                  placeholder="Password"
-                  required
-                />
-                { errors.password && <small className="alert alert__error">{ errors.password }</small> }
-              </div>
-              <div className="form-row">
-                <button className="btn btn__register" type="submit">Login</button>
-              </div>
-            </form>
-          </>
         )
       }
-    </div>
+      <form onSubmit={ handleSubmit }>
+        <div className="form-row">
+          <label htmlFor="username">Username</label>
+
+          <input
+            type="text"
+            ref={ focusInputRef }
+            id="username"
+            name="username"
+            value={ formState.username }
+            onChange={ handleInputChange }
+            placeholder="Username"
+            required
+          />
+          { errors.username && <small className="alert alert__error">{ errors.username }</small> }
+        </div>
+
+        <div className="form-row">
+          <label htmlFor="password">
+            Password
+          </label>
+
+          <input
+            type="password"
+            ref={ focusInputRef }
+            id="password"
+            name="password"
+            value={ formState.password }
+            onChange={ handleInputChange }
+            placeholder="Password"
+            required
+          />
+          { errors.password && <small className="alert alert__error">{ errors.password }</small> }
+        </div>
+        <div className="form-row">
+          <button className="btn btn__register" type="submit">Login</button>
+        </div>
+      </form>
+    </>
+    // )
+    // }
+    // </div>
   );
 };
 
