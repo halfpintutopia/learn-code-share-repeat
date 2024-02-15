@@ -1,9 +1,13 @@
+@import "../abstracts/variables";
+@import "../../../../node_modules/rfs/scss";
+
 .carousel {
+  position: relative;
 
   &__wrapper {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 40vh;
 
     & > ul {
       margin: 0;
@@ -15,32 +19,44 @@
   &__button {
     position: absolute;
     border: none;
-    font-size: 4rem;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 2;
-    color: rgba(255, 255, 255, .05);
+    z-index: 200;
+    color: var(--foreground);
     cursor: pointer;
-    border-radius: 0.25rem;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0.1);
-    
+
+    svg {
+      @include rfs(2.375rem, height);
+    }
+
     &:hover,
     &:focus {
       color: white;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: var(--background);
     }
 
     &:focus {
       outline: 1px solid black;
     }
 
-    &.prev {
-      left: 1em;
+    &.prev,
+    &.next {
+      display: none;
     }
 
-    &.next {
-      right: 1em;
+    @media screen and (width > 56rem) {
+      &.prev,
+      &.next {
+        display: block;
+      }
+
+      &.prev {
+        left: 1rem;
+      }
+
+      &.next {
+        right: 1rem;
+      }
     }
   }
 
@@ -61,6 +77,16 @@
       object-fit: cover;
       object-position: center;
     }
+  }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: $cod-gray-950;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
   }
 }
 

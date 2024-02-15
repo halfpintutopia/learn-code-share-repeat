@@ -1,7 +1,11 @@
 @import "../abstracts/variables";
 @import "../../../../node_modules/rfs/scss";
 
-button, .btn {
+button {
+  background: none;
+}
+
+.btn {
   border: none;
 
   box-shadow: $box-shadow-little;

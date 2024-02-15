@@ -28,9 +28,9 @@
   font: inherit;
 }
 
-* + *:not(:first-of-type):not(#root):not(.grid > *):not(.stacked-grid > *):not(ul>li):not(form > *) {
-  margin-top: 1em;
-}
+//* + *:not(:first-of-type):not(#root):not(.grid > *):not(.stacked-grid > *):not(ul>li):not(form > *) {
+//  margin-top: 1em;
+//}
 
 html {
   color-scheme: dark light;
