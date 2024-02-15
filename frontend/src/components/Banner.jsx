@@ -1,4 +1,3 @@
-import React from 'react';
 import './sass/main.scss';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faLaptopFile, faRepeat, faShareNodes } from "@fortawesome/free-solid-svg-icons";

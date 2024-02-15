@@ -1,4 +1,3 @@
-import React from 'react';
 import './sass/main.scss';
 // import JoinImage from "../../public/media/videos/digital_presentation_on_screen.webm";
 import JoinImage from "../media/videos/digital_presentation_on_screen.webm";
