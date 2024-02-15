@@ -8,6 +8,7 @@ import "./sass/main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightLong, faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "./AuthContext";
+import Logo from "./assets/Logo";
 
 const NavBar = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -23,7 +24,7 @@ const NavBar = () => {
         <div className="logo">
           <Link to="/">
             <span className="sr-only">Home</span>
-            <img src={ logo } alt="Logo for website"/>
+            <Logo />
           </Link>
         </div>
         {

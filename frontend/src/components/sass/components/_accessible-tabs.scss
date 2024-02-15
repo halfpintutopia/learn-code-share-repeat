@@ -3,7 +3,7 @@
 
 .tabs-container {
   border-radius: 0.5rem;
-  background: $concrete-100;
+  background: var(--background);
 
   @media screen and (width > 56rem) {
     //@include rfs(37.5rem, min-height);
@@ -76,6 +76,6 @@
   [aria-selected="true"] {
     text-decoration-thickness: 0.25em;
     text-underline-offset: 0.5em;
-    color: $cod-gray-950;
+    color: var(--foreground);
   }
 }

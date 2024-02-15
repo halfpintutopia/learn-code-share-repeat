@@ -5,7 +5,7 @@
   position: sticky;
   top: 0;
   z-index: $header-layer;
-  background-color: $light-opacity;
+  background-color: var(--background);
 
   &__inner {
     display: flex;
@@ -34,7 +34,7 @@
     }
 
     path {
-      fill: $cod-gray-950;
+      fill: var(--foreground);
       @media screen and (width > 56.25rem) {
         fill: $concrete-100;
       }
