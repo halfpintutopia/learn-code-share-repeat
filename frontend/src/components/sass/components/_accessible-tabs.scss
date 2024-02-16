@@ -3,7 +3,11 @@
 
 .tabs-container {
   border-radius: 0.5rem;
-  background: var(--background);
+  background-color: $concrete-100;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: $cod-gray-950;
+  }
 
   @media screen and (width > 56rem) {
     //@include rfs(37.5rem, min-height);
@@ -63,7 +67,7 @@
         }
       }
 
-      &:has(+ :hover){
+      &:has(+ :hover) {
         --_translate: 100%;
       }
 

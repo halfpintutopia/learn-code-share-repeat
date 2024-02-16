@@ -44,6 +44,10 @@ form {
         padding: 1rem 0.5rem;
       }
 
+      @media (prefers-color-scheme: dark) {
+        background-color: $cod-gray-800;
+      }
+
       transition: all .4s;
 
       &::placeholder {
