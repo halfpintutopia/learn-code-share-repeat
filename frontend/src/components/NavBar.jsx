@@ -44,7 +44,7 @@ const NavBar = () => {
           ) : (
             <Link to="/join/register" className="align-right">
               <button
-                className="green">
+                className="btn green">
                 Start
                 <FontAwesomeIcon icon={ faArrowRightLong }/>
               </button>
@@ -71,7 +71,7 @@ const NavBar = () => {
                   <li>
                     <Link to="/upload">
                       <button
-                        className="green">
+                        className="btn green">
                         Upload
                         <FontAwesomeIcon icon={ faArrowUpFromBracket }/>
                       </button>
