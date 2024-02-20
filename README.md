@@ -333,6 +333,7 @@ see the following documentation:
 - [How to code a carousel with HTML, CSS and JavaScript - from scratch (part 1)](https://www.youtube.com/watch?v=VYsVOamdB0g)
 - [How to code a carousel with HTML, CSS and JavaScript - from scratch (part 2)](https://www.youtube.com/watch?v=gBzsE0oieio)
 - [Django React Docker Heroku Template](https://github.com/Alschn/django-react-docker-heroku-template)
+- [How to Create An Animated Image Carousel with CSS/JavaScript](https://www.youtube.com/watch?v=9HcxHDS2w1s)
 
 #### Newsletter Emails
 
