@@ -1,0 +1,21 @@
+@import "../abstracts/variables";
+@import "../../../../node_modules/rfs/scss";
+
+.upload-container {
+  --header-height: 105px;
+  --footer-height: 91px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - var(--header-height) - var(--footer-height));
+  @media screen and (width > 56rem) {
+    border: 1px solid $cod-gray-100;
+  }
+
+  svg {
+    height: 150px;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
+  }
+}
