@@ -1,4 +1,5 @@
 import HeroCarousel from "./HeroCarousel";
+import MediaScroller from "./MediaScroller";
 
 const VideoListPage = () => {
   const slides = [
@@ -21,7 +22,7 @@ const VideoListPage = () => {
   return (
     <main>
       <HeroCarousel slides={ slides }/>
-      Video List Page
+      <MediaScroller />
     </main>
   );
 };

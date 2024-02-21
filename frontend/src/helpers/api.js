@@ -5,7 +5,7 @@ export const createUrl = (path) => {
     // Replace the port with Django's default port (8000)
     origin = origin.replace(port, '8000');
   }
-  console.log(origin + path);
+  // console.log(origin + path);
 
   return origin + path;
 };

@@ -1,8 +1,11 @@
+import React from "react";
+
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
 const HeroCarousel = ({ slides }) => {
+  // console.log('slides', slides);
   const [ currentSlide, setCurrentSlide ] = useState(0);
   const navigateSlide = (direction) => {
     if (direction === 'next') {
@@ -34,9 +37,8 @@ const HeroCarousel = ({ slides }) => {
           <ul>
             {
               [ ...slides ].map((slide, index) => (
-                <>
+                <React.Fragment key={index}>
                   <li
-                    key={ index }
                     className="carousel__slide"
                     data-current-slide={ currentSlide === index ? 'true' : 'false' }
                   >
@@ -52,7 +54,7 @@ const HeroCarousel = ({ slides }) => {
                   <div className="overlay">
                     <div className="container" data-width="wide">Hello</div>
                   </div>
-                </>
+                </React.Fragment>
               ))
             }
           </ul>

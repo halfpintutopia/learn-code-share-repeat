@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { postData } from "../helpers/fetchData";
-import { TOKEN_OBTAIN_API } from "../constants/constants";
+import { TOKEN_OBTAIN_API, TOKEN_REFRESH_API } from "../constants/constants";
+import { fetchWithToken } from "../helpers/fetchWithToken";
 
 const initialRegisterFormModalData = {
   username: '',
@@ -51,17 +52,14 @@ const LoginForm = () => {
 
     if (validateForm()) {
       try {
-        const response = await postData(TOKEN_OBTAIN_API, formState);
+        const response = await fetchWithToken(TOKEN_OBTAIN_API, {
+          method: 'POST',
+          body: JSON.stringify(formState)
+        });
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          setErrorMessage(errorData.detail);
-        } else {
-          const data = await response.json();
-          localStorage.setItem('access_token', data.access);
-          localStorage.setItem('refresh_token', data.refresh);
-          setFormState(initialRegisterFormModalData);
-          navigate('/');
+        if (response.ok) {
+          // navigate('/');
+          window.location.href = '/';
         }
 
       } catch (error) {
@@ -72,18 +70,6 @@ const LoginForm = () => {
   };
 
   return (
-    // <div>
-    //   {
-    // errorMessage ? (
-    //   <span className="alert alert__error">{ errorMessage } Please sign in
-    //     <Link
-    //       to={ `/join/login` }
-    //       role="tab"
-    //     >
-    //     here.
-    //     </Link>
-    //   </span>
-    // ) : (
     <>
       <div className="form-text">
         <h1 className="form-header">Login to the LCSR Community</h1>
@@ -94,7 +80,7 @@ const LoginForm = () => {
         errorMessage && (
           <span className="alert alert__error">
             <p>{ errorMessage }.
-            Please sign in <Link to={ `/join/login` } role="tab" >here.</Link></p>
+            Please sign in <Link to={ `/join/login` } role="tab">here.</Link></p>
           </span>
         )
       }
