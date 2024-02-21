@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
+from datetime import timedelta
 
 import os
 import dj_database_url
@@ -63,7 +64,7 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    X_FRAME_OPTIONS = "SAMEORIGIN" # TODO set to deny to avoid clickjacking protection
+    X_FRAME_OPTIONS = "SAMEORIGIN"  # if needed set to deny to avoid clickjacking protection
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -225,3 +226,8 @@ if not DEBUG:
     DEFAULT_FROM_EMAIL = os.environ.get("SENDGRID_FROM_EMAIL")
 else:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=24),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
