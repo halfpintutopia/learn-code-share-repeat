@@ -1,8 +1,7 @@
 import { useRef, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
-import { postData } from "../helpers/fetchData";
-import { TOKEN_OBTAIN_API, TOKEN_REFRESH_API } from "../constants/constants";
-import { fetchWithToken } from "../helpers/fetchWithToken";
+import { Link } from "react-router-dom";
+import { TOKEN_OBTAIN_API } from "../constants/constants";
+import { fetchToken } from "../helpers/fetchWithToken";
 
 const initialRegisterFormModalData = {
   username: '',
@@ -15,7 +14,6 @@ const initialErrorState = {
 };
 
 const LoginForm = () => {
-  const navigate = useNavigate();
   const focusInputRef = useRef(null);
   const [ formState, setFormState ] = useState(initialRegisterFormModalData);
   const [ errors, setErrors ] = useState(initialErrorState);
@@ -52,7 +50,7 @@ const LoginForm = () => {
 
     if (validateForm()) {
       try {
-        const response = await fetchWithToken(TOKEN_OBTAIN_API, {
+        const response = await fetchToken(TOKEN_OBTAIN_API, {
           method: 'POST',
           body: JSON.stringify(formState)
         });

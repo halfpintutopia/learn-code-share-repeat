@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { getAllVideos } from "../utils/video";
-import { useEffect, useState } from "react";
+import { getAllVideos } from "../utils/api.js";
+// import { useEffect, useState } from "react";
 
 const MediaScroller = () => {
-  const [videos, setVideos] = useState([]);
+  // const [videos, setVideos] = useState([]);
 
   // useEffect(() => {
   //   const fetchVideos = async () => {
@@ -14,6 +14,9 @@ const MediaScroller = () => {
   //
   //   fetchVideos();
   // }, []);
+
+  const videos = getAllVideos();
+  console.log(videos);
 
 
   return (

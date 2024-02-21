@@ -1,11 +1,29 @@
 import { TOKEN_OBTAIN_API, TOKEN_REFRESH_API } from "../constants/constants";
 
+const fetchToken = async (url, options) => {
+  const obtainTokenRes = await fetch(TOKEN_OBTAIN_API, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: options?.body ? options.body : null
+  });
+
+  if (obtainTokenRes.ok) {
+    const data = await obtainTokenRes.json();
+    localStorage.setItem('access_token', data.access);
+    localStorage.setItem('refresh_token', data.refresh);
+  }
+
+  return obtainTokenRes;
+};
+
 const fetchWithToken = async (url, options = {}) => {
   const accessToken = localStorage.getItem('access_token');
   if (accessToken !== '') {
     let res = await fetch(url, {
       method: options?.method || 'GET',
-      body: options?.body ? JSON.stringify(options.body) : null,
+      body: options?.body ? options.body : null,
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${ accessToken }`,
@@ -15,9 +33,9 @@ const fetchWithToken = async (url, options = {}) => {
 
     if (!res.ok && res.status === 401) { // 401 Unauthorized means token is expired
       const refreshToken = localStorage.getItem('refresh_token');
-      console.log(refreshToken);
+      let refreshRes;
       if (refreshToken) {
-        const refreshRes = await fetch(TOKEN_REFRESH_API, {
+        refreshRes = await fetch(TOKEN_REFRESH_API, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -51,23 +69,7 @@ const fetchWithToken = async (url, options = {}) => {
       }
     }
     return res;
-  } else {
-    const obtainTokenRes = await fetch(TOKEN_OBTAIN_API, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: options?.body ? JSON.stringify(options.body) : null
-    });
-
-    if (obtainTokenRes.ok) {
-      const data = await obtainTokenRes.json();
-      localStorage.setItem('access_token', data.access);
-      localStorage.setItem('refresh_token', data.refresh);
-    }
-
-    return obtainTokenRes;
   }
 };
 
-export { fetchWithToken };
+export { fetchToken, fetchWithToken };
