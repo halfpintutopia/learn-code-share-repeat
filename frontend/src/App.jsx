@@ -9,6 +9,7 @@ import Homepage from "./components/Homepage";
 import JoinPage from "./components/JoinPage";
 import { AuthProvider } from "./components/AuthContext";
 import Upload from "./components/Upload";
+import ManageUploadPage from "./components/ManageUploadPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,6 +31,7 @@ const App = () => {
               <Route path="/activate/:uid/:token" element={<ActivateUser />} />
               <Route path="/" element={<Homepage />} />
               <Route path="/upload" element={<Upload />} />
+              <Route path="/upload/manage" element={<ManageUploadPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AuthProvider>

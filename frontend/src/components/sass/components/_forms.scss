@@ -78,3 +78,11 @@ form {
   right: 0;
   color: $concrete-100;
 }
+
+input[type="file"] {
+  //display: none;
+}
+
+//label:has(+ input[type="file"]) {
+//  text-align: center;
+//}

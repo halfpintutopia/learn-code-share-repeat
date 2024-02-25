@@ -154,16 +154,16 @@ nav li {
   background: none;
 
   svg {
-    --_stroke: $cod-gray-950;
+    --_stroke: var(--foreground);
 
-    @media (prefers-color-scheme: dark) {
-      --_stroke: $concrete-100;
-    }
+    //@media (prefers-color-scheme: dark) {
+    //  --_stroke: $concrete-100;
+    //}
 
     transition: 0.2s;
 
     path {
-      stroke: var(--_stroke);
+      stroke: $foreground;
       transition: transform 0.2s;
       transform-origin: center;
     }

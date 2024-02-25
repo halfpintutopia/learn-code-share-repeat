@@ -1,5 +1,82 @@
 @import "../../../../node_modules/rfs/scss";
 
+:root {
+  /* Colours */
+  --apple-50: 107 53% 97%;
+  --apple-100: 111, 53%, 93%;
+  --apple-200: 111 50% 85%;
+  --apple-300: 111 49% 73%;
+  --apple-400: 112 44% 58%;
+  --apple-500: 112 45% 45%; /* main */
+  --apple-600: 112 48% 36%;
+  --apple-700: 112 46% 29%;
+  --apple-800: 112 41% 24%;
+  --apple-900: 113 40% 20%;
+  --apple-950: 113 53% 10%;
+
+  --punch-50: 26 89% 96%;
+  --punch-100: 25 86% 92%;
+  --punch-200: 23 81% 83%;
+  --punch-300: 21 82% 72%;
+  --punch-400: 18 81% 61%;
+  --punch-500: 15 80% 53%;
+  --punch-600: 11 76% 48%; /* main */
+  --punch-700: 8 74% 40%;
+  --punch-800: 5 66% 34%;
+  --punch-900: 5 62% 28%;
+  --punch-950: 4 68% 15%;
+
+  --tall-poppy-50: 0 71% 97%;
+  --tall-poppy-100: 0 80% 94%;
+  --tall-poppy-200: 0 85% 89%;
+  --tall-poppy-300: 0 81% 82%;
+  --tall-poppy-400: 0 79% 71%;
+  --tall-poppy-500: 0 73% 60%;
+  --tall-poppy-600: 0 63% 51%;
+  --tall-poppy-700: 0 64% 46%; /* main */
+  --tall-poppy-800: 0 61% 35%;
+  --tall-poppy-900: 0 55% 31%;
+  --tall-poppy-950: 0 65% 15%;
+
+  --concrete-50: 0 0% 97%;
+  --concrete-100: 0 0% 95%;
+  --concrete-200: 0 0% 86%;
+  --concrete-300: 0 0% 74%;
+  --concrete-400: 0 0% 60%;
+  --concrete-500: 0 0% 49%;
+  --concrete-600: 0 0% 40%;
+  --concrete-700: 0 0% 32%; /* main */
+  --concrete-800: 0 0% 27%;
+  --concrete-900: 0 0% 24%;
+  --concrete-950: 0 0% 16%;
+
+  --cod-gray-50: 0 0% 96%;
+  --cod-gray-100: 0 0% 91%;
+  --cod-gray-200: 0 0% 82%;
+  --cod-gray-300: 0 0% 69%;
+  --cod-gray-400: 0 0% 53%;
+  --cod-gray-500: 0 0% 43%;
+  --cod-gray-600: 0 0% 36%;
+  --cod-gray-700: 0 0% 31%;
+  --cod-gray-800: 0 0% 27%;
+  --cod-gray-900: 0 0% 24%;
+  --cod-gray-950: 0 0% 5%; /* main */
+
+  --foreground: $cod-gray-950;
+  --background: $concrete-100;
+
+  --form-foreground: $concrete-100;
+  --form-background: $cod-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    --foreground: $concrete-100;
+    --background: $cod-gray-950;
+
+    --form-foreground: $cod-gray-950;
+    --form-background: $concrete-100;
+  }
+}
+
 /* Colours */
 $apple-50: hsl(107 53% 97%);
 $apple-100: hsl(111, 53%, 93%);
@@ -67,6 +144,20 @@ $light-opacity: hsl(0 0% 95% / 0.8);
 //$bp-medium: 45.75;
 //$bp-large: 60.25;
 //$bp-x-large: 75;
+
+$foreground: $cod-gray-950;
+$background: $concrete-100;
+
+$form-foreground: $concrete-100;
+$form-background: $cod-gray-950;
+
+@media (prefers-color-scheme: dark) {
+  $foreground: $concrete-100;
+  $background: $cod-gray-950;
+
+  $form-foreground: $cod-gray-950;
+  $form-background: $concrete-100;
+}
 
 /*https://www.freecodecamp.org/news/the-100-correct-way-to-do-css-breakpoints-88d6a5ba1862/*/
 $tablet: 34.5; /*rem*/

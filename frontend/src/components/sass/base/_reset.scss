@@ -3,25 +3,6 @@
 @import "fonts";
 
 /* Global styles and resets */
-:root {
-  --foreground: $cod-gray-950;
-  --background: $concrete-100;
-
-  --form-foreground: $concrete-100;
-  --form-background: $cod-gray-950;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground: $concrete-100;
-    --background: $cod-gray-950;
-
-    --form-foreground: $cod-gray-950;
-    --form-background: $concrete-100;
-  }
-}
-
-
 *,
 *::before,
 *::after {
