@@ -30,16 +30,14 @@ const ManageUploadPage = () => {
 
       <div className="container" data-width="wide">
         {/*<img src={ fileUrl } alt={ file.name }/>*/ }
-        <button
-          className="btn"
-        >
-          Delete
-        </button>
-        <button
-          className="btn"
-        >
-          Unpublish
-        </button>
+        <div className="btn-group">
+          <button className="btn btn__delete">
+            Delete
+          </button>
+          <button className="btn btn__unpublish">
+            Unpublish
+          </button>
+        </div>
         <video className="video-bg" muted>
           <source src={ fileUrl } type="video/webm"/>
         </video>
