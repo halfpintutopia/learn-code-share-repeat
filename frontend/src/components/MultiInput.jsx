@@ -3,7 +3,6 @@ import { faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 const MultiInput = () => {
   const handleAddRow = () => {
-    console.log("toast");
   };
 
   return (

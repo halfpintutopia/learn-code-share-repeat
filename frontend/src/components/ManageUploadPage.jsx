@@ -14,7 +14,6 @@ const ManageUploadPage = () => {
   const file = location.state.file;
 
   const fileUrl = URL.createObjectURL(file);
-  console.log(fileUrl);
 
   const handleInputChange = (e) => {
     e.preventDefault();

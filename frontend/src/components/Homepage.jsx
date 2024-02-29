@@ -7,7 +7,6 @@ import Footer from "./Footer";
 
 const HomePage = () => {
   const {isAuthenticated} = useContext(AuthContext);
-  // console.log('authenticated', isAuthenticated);
   return (
     <>
       <NavBar/>

@@ -61,11 +61,8 @@ const fetchWithToken = async (url, options = {}) => {
           }
         });
       } else {
-        // console.log('logging out');
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
-        // Redirect to login page
-        // history.push('/join/login');
       }
     }
     return res;

@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
 const HeroCarousel = ({ slides }) => {
-  // console.log('slides', slides);
   const [ currentSlide, setCurrentSlide ] = useState(0);
   const navigateSlide = (direction) => {
     if (direction === 'next') {
@@ -61,8 +60,7 @@ const HeroCarousel = ({ slides }) => {
         </div>
       </section>
     </>
-  )
-    ;
+  );
 };
 
 export default HeroCarousel;
