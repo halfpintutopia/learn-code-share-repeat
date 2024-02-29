@@ -28,6 +28,11 @@ nav li {
   &:has(+ .nav-toggle[aria-expanded="true"]) {
     z-index: 200;
   }
+
+  svg {
+    width: clamp(2.6875rem, 1.6005rem + 5.4348vi, 5.8125rem);
+    height: auto;
+  }
 }
 
 .primary-header {
