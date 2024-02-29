@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams, useNavigate } from "react-router-dom";
-import { postData } from "../helpers/fetchData";
+import { postData } from "../utils/fetchData";
 import { ACTIVATE_USER } from "../constants/constants";
 
 const ActivateUser = () => {
