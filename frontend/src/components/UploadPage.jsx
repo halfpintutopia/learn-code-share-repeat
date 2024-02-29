@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const UploadPage = () => {
   const [ file, setFile ] = useState();
@@ -18,14 +19,19 @@ const UploadPage = () => {
   }, [ file, navigate ]);
 
   return (
-    <section className="container upload-container" data-width="wide">
-      <FontAwesomeIcon icon={ faCloudArrowUp }/>
-      <h1 className="upload center">Choose video to upload</h1>
-      <label className="btn green center" htmlFor="video">
-        Choose file
-      </label>
-      <input id="video" type="file" onChange={ handleFileInput }/>
-    </section>
+    <>
+      <Helmet>
+        <title>Upload</title>
+      </Helmet>
+      <section className="container upload-container" data-width="wide">
+        <FontAwesomeIcon icon={ faCloudArrowUp }/>
+        <h1 className="upload center">Choose video to upload</h1>
+        <label className="btn green center" htmlFor="video">
+          Choose file
+        </label>
+        <input id="video" type="file" onChange={ handleFileInput }/>
+      </section>
+    </>
   );
 };
 

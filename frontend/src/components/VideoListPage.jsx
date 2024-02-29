@@ -1,5 +1,6 @@
 import HeroCarousel from "./HeroCarousel";
 import MediaScroller from "./MediaScroller";
+import { Helmet } from "react-helmet-async";
 
 const VideoListPage = () => {
   const slides = [
@@ -20,10 +21,15 @@ const VideoListPage = () => {
     }
   ];
   return (
-    <main>
-      <HeroCarousel slides={ slides }/>
-      <MediaScroller />
-    </main>
+    <>
+      <Helmet>
+        <title>Video List</title>
+      </Helmet>
+      <main>
+        <HeroCarousel slides={ slides }/>
+        <MediaScroller/>
+      </main>
+    </>
   );
 };
 
