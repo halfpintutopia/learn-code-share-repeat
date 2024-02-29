@@ -9,13 +9,21 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('access_token');
 
-    if (token) {
+    if (!token) {
+      setIsAuthenticated(false);
+    } else {
       setIsAuthenticated(true);
     }
   }, []);
 
+  const logout = () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    setIsAuthenticated(false);
+  };
+
   return (
-    <AuthContext.Provider value={ { isAuthenticated, setIsAuthenticated } }>
+    <AuthContext.Provider value={ { isAuthenticated, setIsAuthenticated, logout } }>
       { children }
     </AuthContext.Provider>
   );

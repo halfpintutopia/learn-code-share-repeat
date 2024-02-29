@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from dotenv import load_dotenv, find_dotenv
+from datetime import timedelta
 
 import os
 import dj_database_url
@@ -63,7 +64,7 @@ if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
-    X_FRAME_OPTIONS = "SAMEORIGIN" # TODO set to deny to avoid clickjacking protection
+    X_FRAME_OPTIONS = "SAMEORIGIN"  # if needed set to deny to avoid clickjacking protection
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -78,6 +79,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'corsheaders',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'cloudinary_storage',
     'cloudinary',
     'rest_framework',
@@ -94,6 +99,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    "allauth.account.middleware.AccountMiddleware",
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -117,6 +123,7 @@ if DEBUG:
     CORS_ALLOWED_CREDENTIALS = True
     CORS_ORIGIN_WHITELIST = (
         "http://localhost:8000",
+        "http://localhost:3000",
     )
 
 ROOT_URLCONF = 'app.urls'
@@ -225,3 +232,16 @@ if not DEBUG:
     DEFAULT_FROM_EMAIL = os.environ.get("SENDGRID_FROM_EMAIL")
 else:
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=24),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
+
+AUTHENTICATION_BACKENDS = (
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+LOGIN_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_ON_GET = True

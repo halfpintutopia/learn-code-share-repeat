@@ -8,6 +8,9 @@ import ActivateUser from "./components/ActivateUser";
 import Homepage from "./components/Homepage";
 import JoinPage from "./components/JoinPage";
 import { AuthProvider } from "./components/AuthContext";
+import Upload from "./components/Upload";
+import ManageUploadPage from "./components/ManageUploadPage";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,13 +25,15 @@ const App = () => {
   return (
     <HelmetProvider>
       <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={ queryClient }>
           <AuthProvider>
             <Routes>
-              <Route path="/join/:type" element={<JoinPage />} />
-              <Route path="/activate/:uid/:token" element={<ActivateUser />} />
-              <Route path="/" element={<Homepage />} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="/join/:type" element={ <JoinPage/> }/>
+              <Route path="/activate/:uid/:token" element={ <ActivateUser/> }/>
+              <Route path="/" element={ <Homepage/> }/>
+              <Route path="/upload" element={ <ProtectedRoute><Upload/></ProtectedRoute> }/>
+              <Route path="/upload/manage" element={ <ProtectedRoute><ManageUploadPage/></ProtectedRoute> }/>
+              <Route path="*" element={ <NotFound/> }/>
             </Routes>
           </AuthProvider>
         </QueryClientProvider>

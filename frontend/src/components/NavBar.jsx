@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "./sass/main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,11 +8,19 @@ import { AuthContext } from "./AuthContext";
 import Logo from "./assets/Logo";
 
 const NavBar = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, logout } = useContext(AuthContext);
   const [ navVisible, setNavVisible ] = useState(false);
+  const navigate = useNavigate();
 
   const toggleNav = () => {
     setNavVisible(!navVisible);
+  };
+
+  const handleLogOut = () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    logout();
+    navigate('/');
   };
 
   return (
@@ -21,7 +29,7 @@ const NavBar = () => {
         <div className="logo">
           <Link to="/">
             <span className="sr-only">Home</span>
-            <Logo />
+            <Logo/>
           </Link>
         </div>
         {
@@ -53,7 +61,6 @@ const NavBar = () => {
         }
         <nav>
           <ul id="primary-navigation" data-visible={ navVisible } className="primary-navigation">
-
             {
               isAuthenticated && (
                 <>
@@ -76,6 +83,9 @@ const NavBar = () => {
                         <FontAwesomeIcon icon={ faArrowUpFromBracket }/>
                       </button>
                     </Link>
+                  </li>
+                  <li>
+                    <button className="btn green" onClick={handleLogOut}>Logout</button>
                   </li>
                 </>
               )

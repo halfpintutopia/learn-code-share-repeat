@@ -27,7 +27,7 @@ class SearchBar extends Component {
   handleChange = (event) => {
     const { name, value } = event.target;
     let inputText, filteredNames;
-    console.log(name, value);
+    // console.log(name, value);
     this.setState({
       [name]: value.toLowerCase(),
     });
@@ -43,12 +43,12 @@ class SearchBar extends Component {
       names: filteredNames,
     });
 
-    console.log(this.state.names);
+    // console.log(this.state.names);
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log(this.state.searchBar);
+    // console.log(this.state.searchBar);
   };
 
   render() {

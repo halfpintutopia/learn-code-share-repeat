@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link } from "react-router-dom";
-import { postData } from "../helpers/fetchData";
+import { postData } from "../utils/fetchData";
 import { REGISTER_USER } from "../constants/constants";
 
 const initialRegisterFormModalData = {
@@ -169,7 +169,7 @@ const RegisterForm = () => {
                 { errors.password && <small className="alert alert__error">{ errors.password }</small> }
               </div>
               <div className="form-row">
-                <button className="btn btn__register" type="submit">Get Started</button>
+                <button className="btn btn__register" onSubmit={handleSubmit}>Get Started</button>
               </div>
             </form>
           </>

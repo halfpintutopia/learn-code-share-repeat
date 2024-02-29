@@ -1,3 +1,6 @@
+@import "../abstracts/variables";
+@import "../../../../node_modules/rfs/scss";
+
 nav ul {
   --_gap: 2rem; /*em or rem*/
   display: flex;
@@ -24,6 +27,11 @@ nav li {
 
   &:has(+ .nav-toggle[aria-expanded="true"]) {
     z-index: 200;
+  }
+
+  svg {
+    width: clamp(2.6875rem, 1.6005rem + 5.4348vi, 5.8125rem);
+    height: auto;
   }
 }
 
@@ -151,11 +159,16 @@ nav li {
   background: none;
 
   svg {
-    --_stroke: hsl(var(--green-smoke-950));
-    stroke: var(--_stroke);
+    --_stroke: var(--foreground);
+
+    //@media (prefers-color-scheme: dark) {
+    //  --_stroke: $concrete-100;
+    //}
+
     transition: 0.2s;
 
     path {
+      stroke: $foreground;
       transition: transform 0.2s;
       transform-origin: center;
     }
@@ -163,6 +176,7 @@ nav li {
 
   &[aria-expanded="true"] {
     z-index: 200;
+
     svg {
       path:first-child {
         transform: translateY(8px) rotate(45deg);

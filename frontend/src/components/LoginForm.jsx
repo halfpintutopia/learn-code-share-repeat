@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
-import { postData } from "../helpers/fetchData";
+import { Link } from "react-router-dom";
 import { TOKEN_OBTAIN_API } from "../constants/constants";
+import { fetchToken } from "../utils/fetchWithToken";
 
 const initialRegisterFormModalData = {
   username: '',
@@ -14,7 +14,6 @@ const initialErrorState = {
 };
 
 const LoginForm = () => {
-  const navigate = useNavigate();
   const focusInputRef = useRef(null);
   const [ formState, setFormState ] = useState(initialRegisterFormModalData);
   const [ errors, setErrors ] = useState(initialErrorState);
@@ -51,39 +50,24 @@ const LoginForm = () => {
 
     if (validateForm()) {
       try {
-        const response = await postData(TOKEN_OBTAIN_API, formState);
+        const response = await fetchToken(TOKEN_OBTAIN_API, {
+          method: 'POST',
+          body: JSON.stringify(formState)
+        });
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          setErrorMessage(errorData.detail);
-        } else {
-          const data = await response.json();
-          localStorage.setItem('access_token', data.access);
-          localStorage.setItem('refresh_token', data.refresh);
-          setFormState(initialRegisterFormModalData);
-          navigate('/');
+        if (response.ok) {
+          // navigate('/');
+          window.location.href = '/';
         }
 
       } catch (error) {
         console.error(error);
-        setErrorMessage(('An unexpected error occurred.'));
+        setErrorMessage(`An unexpected error occurred: ${error}`);
       }
     }
   };
 
   return (
-    // <div>
-    //   {
-    // errorMessage ? (
-    //   <span className="alert alert__error">{ errorMessage } Please sign in
-    //     <Link
-    //       to={ `/join/login` }
-    //       role="tab"
-    //     >
-    //     here.
-    //     </Link>
-    //   </span>
-    // ) : (
     <>
       <div className="form-text">
         <h1 className="form-header">Login to the LCSR Community</h1>
@@ -94,7 +78,7 @@ const LoginForm = () => {
         errorMessage && (
           <span className="alert alert__error">
             <p>{ errorMessage }.
-            Please sign in <Link to={ `/join/login` } role="tab" >here.</Link></p>
+            Please sign in <Link to={ `/join/login` } role="tab">here.</Link></p>
           </span>
         )
       }
@@ -136,10 +120,10 @@ const LoginForm = () => {
           <button className="btn btn__register" type="submit">Login</button>
         </div>
       </form>
+      {/*<div>*/}
+      {/*  <p>Forgot your password, click <Link to={ '/join/reset' }>here</Link> to reset.</p>*/}
+      {/*</div>*/}
     </>
-    // )
-    // }
-    // </div>
   );
 };
 

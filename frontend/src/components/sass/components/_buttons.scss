@@ -7,6 +7,8 @@ button {
 
 .btn {
   border: none;
+  border-radius: var(--_btn-rounded);
+  background-color: var(--_btn-color);
 
   box-shadow: $box-shadow-little;
   @include padding(0.75em);
@@ -17,24 +19,43 @@ button {
   @include font-size(1rem);
   line-height: normal;
   font-weight: 600;
-
+  cursor: pointer;
 
   &.green {
-    $margin-left: 2;
-    border-radius: 10px;
+    --_btn-rounded: 10px;
+    --_margin-left: 2;
 
     color: $concrete-100;
     background-color: $apple-500;
 
     svg {
-      @include margin-left(calc($margin-left * 1em));
+      @include margin-left(calc(var(--_margin-left) * 1em));
       transition: all .4s ease-out;
     }
 
     &:hover {
       svg {
-        transform: translateX(calc(($margin-left / 2) * -1em));
+        transform: translateX(calc((var(--_margin-left) / 2) * -1em));
       }
     }
+  }
+
+  &__delete {
+    --_btn-rounded: 4px;
+    --_btn-color: hsl(var(--tall-poppy-600));
+  }
+
+  &__unpublish {
+    --_btn-rounded: 4px;
+    --_btn-color: hsl(var(--apple-900));
+  }
+}
+
+.btn-group {
+  display: flex;
+  gap: 1em;
+
+  & > .btn:first-child {
+    margin-left: auto;
   }
 }
