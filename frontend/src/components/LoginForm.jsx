@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Link } from "react-router-dom";
 import { TOKEN_OBTAIN_API } from "../constants/constants";
-import { fetchToken } from "../helpers/fetchWithToken";
+import { fetchToken } from "../utils/fetchWithToken";
 
 const initialRegisterFormModalData = {
   username: '',
@@ -62,7 +62,7 @@ const LoginForm = () => {
 
       } catch (error) {
         console.error(error);
-        setErrorMessage(('An unexpected error occurred.'));
+        setErrorMessage(`An unexpected error occurred: ${error}`);
       }
     }
   };
@@ -120,10 +120,10 @@ const LoginForm = () => {
           <button className="btn btn__register" type="submit">Login</button>
         </div>
       </form>
+      {/*<div>*/}
+      {/*  <p>Forgot your password, click <Link to={ '/join/reset' }>here</Link> to reset.</p>*/}
+      {/*</div>*/}
     </>
-    // )
-    // }
-    // </div>
   );
 };
 
