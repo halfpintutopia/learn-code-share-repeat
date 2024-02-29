@@ -8,7 +8,6 @@ const MediaScroller = () => {
   // useEffect(() => {
   //   const fetchVideos = async () => {
   //     const videos = await getAllVideos();
-  //     console.log(11,  videos);
   //     // setVideos(videos);
   //   }
   //
@@ -16,7 +15,6 @@ const MediaScroller = () => {
   // }, []);
 
   const videos = getAllVideos();
-  console.log(videos);
 
 
   return (
