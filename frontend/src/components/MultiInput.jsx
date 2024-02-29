@@ -1,26 +1,34 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpFromBracket } from "@fortawesome/free-solid-svg-icons";
+
 const MultiInput = () => {
+  const handleAddRow = () => {
+    console.log("toast");
+  };
+
   return (
-    <div className="form-group">
-      <label
-        htmlFor="language">
+    <>
+      <div className="form-group">
+        <label htmlFor="language">Language</label>
         <input
           id="language"
           name="language"
           type="text"
           placeholder="JavaScript"
         />
-      </label>
-      <label
-        htmlFor="version">
+        <label htmlFor="version">Version</label>
         <input
           id="version"
           name="version"
           type="text"
           placeholder="ES6"
         />
-      </label>
-      <button className="btn green">Add technologies</button>
-    </div>
+        <button>
+          <FontAwesomeIcon icon={ faArrowUpFromBracket }/>
+        </button>
+      </div>
+      <button className="btn green" onClick={ handleAddRow }>Add technologies</button>
+    </>
   );
 };
 

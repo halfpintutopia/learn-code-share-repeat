@@ -27,7 +27,6 @@ const ManageUploadPage = () => {
   return (
     <>
       <NavBar/>
-
       <div className="container" data-width="wide">
         {/*<img src={ fileUrl } alt={ file.name }/>*/ }
         <div className="btn-group">
@@ -43,31 +42,33 @@ const ManageUploadPage = () => {
         </video>
 
         <form>
-          <label htmlFor="video-title">Title</label>
-          <input
-            type="text"
-            placeholder="My quirky video"
-            name="title"
-            value={ formValues.title }
-            onChange={ handleInputChange }
-          />
+          <div className="form-group">
+            <label htmlFor="video-title">Title</label>
+            <input
+              type="text"
+              placeholder="My quirky video"
+              name="title"
+              value={ formValues.title }
+              onChange={ handleInputChange }
+            />
 
-          <label htmlFor="video-description">Description</label>
-          <textarea
-            onChange={ handleInputChange }
-            value={ formValues.description }
-            name="description"
-            id="video-description"
-            cols="30"
-            rows="10"></textarea>
+            <label htmlFor="video-description">Description</label>
+            <textarea
+              onChange={ handleInputChange }
+              value={ formValues.description }
+              name="description"
+              id="video-description"
+              cols="30"
+              rows="10"></textarea>
 
-          <label htmlFor="video-cover-image">Cover image</label>
-          <input id="video-cover-image" name="cover-image" type="file"/>
-
-          <MultiInput/>
+            <label htmlFor="video-cover-image">Cover image</label>
+            <input id="video-cover-image" name="cover-image" type="file"/>
+          </div>
+          <div className="form-group">
+            <MultiInput/>
+          </div>
         </form>
       </div>
-
       <Footer/>
     </>
   );
