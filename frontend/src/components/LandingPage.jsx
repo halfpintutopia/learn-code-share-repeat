@@ -2,10 +2,14 @@
 import HeaderImage from "../media/videos/person_walking_on_laptop.webm";
 import './sass/main.scss';
 import Banner from "./Banner";
+import { Helmet } from "react-helmet-async";
 
 const LandingPage = () => {
   return (
     <>
+      <Helmet>
+        <title>Learn Code Share Repeat</title>
+      </Helmet>
       <section data-space="narrow">
         <div className="video-container container" data-width="wide">
           <div className="overlay">
