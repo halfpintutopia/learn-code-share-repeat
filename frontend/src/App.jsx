@@ -25,15 +25,15 @@ const App = () => {
   return (
     <HelmetProvider>
       <BrowserRouter>
-        <QueryClientProvider client={queryClient}>
+        <QueryClientProvider client={ queryClient }>
           <AuthProvider>
             <Routes>
-              <Route path="/join/:type" element={<JoinPage />} />
-              <Route path="/activate/:uid/:token" element={<ActivateUser />} />
-              <Route path="/" element={<Homepage />} />
-              <Route path="/upload" element={<ProtectedRoute><Upload /></ProtectedRoute>} />
-              <Route path="/upload/manage" element={<ProtectedRoute><ManageUploadPage /></ProtectedRoute>} />
-              <Route path="*" element={<NotFound />} />
+              <Route path="/join/:type" element={ <JoinPage/> }/>
+              <Route path="/activate/:uid/:token" element={ <ActivateUser/> }/>
+              <Route path="/" element={ <Homepage/> }/>
+              <Route path="/upload" element={ <ProtectedRoute><Upload/></ProtectedRoute> }/>
+              <Route path="/upload/manage" element={ <ProtectedRoute><ManageUploadPage/></ProtectedRoute> }/>
+              <Route path="*" element={ <NotFound/> }/>
             </Routes>
           </AuthProvider>
         </QueryClientProvider>
